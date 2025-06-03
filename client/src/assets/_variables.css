@@ -1,0 +1,17 @@
+:root {
+  --landing-background: url(../assets/images/landing-background.jpg);
+  --main-background: #231b1b;
+  --card-background: #2a2623;
+  --transparent-card-background: #49853680;
+  --card-border: #b3d537;
+  --app-icon: #486d03;
+  --active-element: #e9f5de;
+  --main-font: "Roboto";
+  --main-font-color: #fafaf5;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url(../assets/fonts/Roboto-VariableFont_wdth\,wght.ttf);
+  font-weight: normal;
+}
