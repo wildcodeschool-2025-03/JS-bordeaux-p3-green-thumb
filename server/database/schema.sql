@@ -6,7 +6,7 @@ CREATE TABLE user (
   avatar VARCHAR(255) NOT NULL,
   city VARCHAR(60) NOT NULL,
   has_pet BOOLEAN NOT NULL,
-  exposition ENUM("Nord","Sud","Est","Ouest") DEFAULT NULL,
+  exposition ENUM("North","South","East","West") DEFAULT NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
