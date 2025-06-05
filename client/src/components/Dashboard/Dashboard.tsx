@@ -3,7 +3,6 @@ import "./dashboard.css";
 export default function Dashboard() {
   return (
     <div className="dashboard">
-      {/* Header */}
       <div className="header">
         <div className="user-info">
           <img src="/user-avatar.png" alt="User" />
@@ -21,7 +20,6 @@ export default function Dashboard() {
         </h2>
       </article>
 
-      {/* Journal de bord */}
       <div className="journal">
         <div className="plant-carousel">
           <div className="plant-card">
@@ -41,7 +39,7 @@ export default function Dashboard() {
       <article>
         <h2>Recommandé pour toi</h2>
       </article>
-      {/* Recommandé */}
+
       <div className="recommended">
         <div className="recommended-images">
           <img src="/recommended/1.jpg" alt="Recommandation 1" />
@@ -53,11 +51,14 @@ export default function Dashboard() {
         <h2>A propos des plantes </h2>
       </article>
 
-      {/* Fait amusant */}
       <div className="fact-box">
         La plus grande fleur individuelle du monde est le rafflesia (Rafflesia
         arnoldii). Elle peut atteindre 1 m de diamètre et peser jusqu’à 11 kg.
       </div>
+
+      <article className="navigation">
+        <h1> NAVIGATION BAR HERE</h1>
+      </article>
     </div>
   );
 }
