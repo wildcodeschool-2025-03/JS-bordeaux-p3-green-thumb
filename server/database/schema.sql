@@ -10,6 +10,10 @@ CREATE TABLE user (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+INSERT INTO user (username, mail, password, avatar, city,has_pet, exposition) VALUES
+('Keanu Leaves','Keanu@ouimail.fr','1234','../public/assets/images/avatar/avatar1.png','Bordeaux', True, 'North'),
+('Jean Feuille','JF@ouimail.fr','9875','../public/assets/images/avatar/avatar2.png','Paris', False, 'South'),
+('Louis Plante','Loulou@ouimail.fr','4566','../public/assets/images/avatar/avatar2.png','Tours', False, 'East');
 
 CREATE TABLE plant (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -25,36 +29,36 @@ CREATE TABLE plant (
 );
 
 INSERT INTO plant (name, icon, description, plant_exposition, sowing, watering, harvesting, toxic, edible) VALUES
-('Géranium', '../public/assets/images/geranium.png', 'Fleur colorée résistante, idéale pour balcon', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
-('Lavande', '../public/assets/images/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
-('Pétunia', '../public/assets/images/petunia.png', 'Fleurs éclatantes, pousse bien en pot ou suspension', 'south', 'Printemps', 3, 'Été', FALSE, FALSE),
-('Fuchsia', '../public/assets/images/fuchsia.png', 'Fleurs pendantes colorées pour la mi-ombre', 'east', 'Printemps', 3, 'Été', FALSE, FALSE),
-('Bégonia', '../public/assets/images/begonia.png', 'Fleur décorative pour ombre ou mi-ombre', 'north', 'Printemps', 2, NULL, TRUE, FALSE),
-('Capucine', '../public/assets/images/capucine.png', 'Fleur comestible, grimpante, facile à cultiver', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
-('Hortensia', '../public/assets/images/hortensia.png', 'Fleur ornementale pour pot ou jardin ombragé', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
-('Campanule', '../public/assets/images/campanule.png', 'Fleurs délicates en forme de clochettes', 'south', 'Printemps', 2, NULL, FALSE, FALSE),
-('Pensée', '../public/assets/images/pensee.png', 'Fleur résistante au froid, floraison longue', 'east', 'Automne ou Printemps', 2, NULL, FALSE, FALSE),
-('Souci', '../public/assets/images/souci.png', 'Fleur médicinale comestible, orange vif', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
-('Basilic', '../public/assets/images/basilic.png', 'Aromatique indispensable en cuisine', 'south', 'Printemps', 3, 'Été', FALSE, TRUE),
-('Menthe', '../public/assets/images/menthe.png', 'Plante aromatique envahissante, très parfumée', 'east', 'Printemps', 3, 'Été', FALSE, TRUE),
-('Romarin', '../public/assets/images/romarin.png', 'Aromatique méditerranéenne, très résistante', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
-('Thym', '../public/assets/images/thym.png', 'Plante rustique et aromatique', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
-('Ciboulette', '../public/assets/images/ciboulette.png', 'Aromatique facile, pousse en touffe', 'south', 'Printemps', 2, 'Été', TRUE, TRUE),
-('Persil', '../public/assets/images/persil.png', 'Aromatique indispensable, riche en vitamines', 'east', 'Printemps', 2, 'Été', TRUE, TRUE),
-('Lierre', '../public/assets/images/lierre.png', 'Grimpante persistante, décorative', 'north', 'Printemps', 1, NULL, TRUE, FALSE),
-('Jasmin étoilé', '../public/assets/images/jasmin.png', 'Grimpante très parfumée, feuillage persistant', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
-('Clématite', '../public/assets/images/clematite.png', 'Grimpante à fleurs décoratives', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
-('Tomates cerises', '../public/assets/images/tomate.png', 'Petites tomates sucrées faciles en pot', 'south', 'Avril-Mai', 3, 'Été', TRUE, TRUE),
-('Ficus elastica', '../public/assets/images/ficus.png', 'Aussi appelé caoutchouc, plante robuste à larges feuilles brillantes', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Monstera deliciosa', '../public/assets/images/monstera.png', 'Plante tropicale à grandes feuilles fendues, très décorative', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Pothos (Epipremnum)', '../public/assets/images/pothos.png', 'Grimpante facile à vivre, idéale en suspension', 'north', NULL, 2, NULL, TRUE, FALSE),
-('Calathea', '../public/assets/images/calathea.png', 'Feuillage décoratif et mouvant, aime l’humidité', 'east', NULL, 3, NULL, FALSE, FALSE),
-('Sansevieria (Langue de belle-mère)', '../public/assets/images/sansevieria.png', 'Très résistante, supporte peu de lumière', 'north', NULL, 1, NULL, TRUE, FALSE),
-('Zamioculcas zamiifolia', '../public/assets/images/zamioculas.png', 'ZZ plant, très résistante, parfaite pour débutants', 'north', NULL, 1, NULL, TRUE, FALSE),
-('Dracaena marginata', '../public/assets/images/dracanea.png', 'Plante arborescente fine et graphique', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Chlorophytum (plante araignée)', '../public/assets/images/chlorophytum.png', 'Facile à cultiver, dépolluante et non toxique', 'east', NULL, 2, NULL, FALSE, FALSE),
-('Dieffenbachia', '../public/assets/images/dieffenbachia.png', 'Feuillage tacheté très décoratif mais très toxique', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Philodendron scandens', '../public/assets/images/philodendron.png', 'Grimpante ou tombante, facile d’entretien', 'north', NULL, 2, NULL, TRUE, FALSE);
+('Géranium', '../public/assets/images/plant-icon/geranium.png', 'Fleur colorée résistante, idéale pour balcon', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
+('Lavande', '../public/assets/images/plant-icon/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
+('Pétunia', '../public/assets/images/plant-icon/petunia.png', 'Fleurs éclatantes, pousse bien en pot ou suspension', 'south', 'Printemps', 3, 'Été', FALSE, FALSE),
+('Fuchsia', '../public/assets/images/plant-icon/fuchsia.png', 'Fleurs pendantes colorées pour la mi-ombre', 'east', 'Printemps', 3, 'Été', FALSE, FALSE),
+('Bégonia', '../public/assets/images/plant-icon/begonia.png', 'Fleur décorative pour ombre ou mi-ombre', 'north', 'Printemps', 2, NULL, TRUE, FALSE),
+('Capucine', '../public/assets/images/plant-icon/capucine.png', 'Fleur comestible, grimpante, facile à cultiver', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
+('Hortensia', '../public/assets/images/plant-icon/hortensia.png', 'Fleur ornementale pour pot ou jardin ombragé', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
+('Campanule', '../public/assets/images/plant-icon/campanule.png', 'Fleurs délicates en forme de clochettes', 'south', 'Printemps', 2, NULL, FALSE, FALSE),
+('Pensée', '../public/assets/images/plant-icon/pensee.png', 'Fleur résistante au froid, floraison longue', 'east', 'Automne ou Printemps', 2, NULL, FALSE, FALSE),
+('Souci', '../public/assets/images/plant-icon/souci.png', 'Fleur médicinale comestible, orange vif', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
+('Basilic', '../public/assets/images/plant-icon/basilic.png', 'Aromatique indispensable en cuisine', 'south', 'Printemps', 3, 'Été', FALSE, TRUE),
+('Menthe', '../public/assets/images/plant-icon/menthe.png', 'Plante aromatique envahissante, très parfumée', 'east', 'Printemps', 3, 'Été', FALSE, TRUE),
+('Romarin', '../public/assets/images/plant-icon/romarin.png', 'Aromatique méditerranéenne, très résistante', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
+('Thym', '../public/assets/images/plant-icon/thym.png', 'Plante rustique et aromatique', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
+('Ciboulette', '../public/assets/images/plant-icon/ciboulette.png', 'Aromatique facile, pousse en touffe', 'south', 'Printemps', 2, 'Été', TRUE, TRUE),
+('Persil', '../public/assets/images/plant-icon/persil.png', 'Aromatique indispensable, riche en vitamines', 'east', 'Printemps', 2, 'Été', TRUE, TRUE),
+('Lierre', '../public/assets/images/plant-icon/lierre.png', 'Grimpante persistante, décorative', 'north', 'Printemps', 1, NULL, TRUE, FALSE),
+('Jasmin étoilé', '../public/assets/images/plant-icon/jasmin.png', 'Grimpante très parfumée, feuillage persistant', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
+('Clématite', '../public/assets/images/plant-icon/clematite.png', 'Grimpante à fleurs décoratives', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
+('Tomates cerises', '../public/assets/images/plant-icon/tomate.png', 'Petites tomates sucrées faciles en pot', 'south', 'Avril-Mai', 3, 'Été', TRUE, TRUE),
+('Ficus elastica', '../public/assets/images/plant-icon/ficus.png', 'Aussi appelé caoutchouc, plante robuste à larges feuilles brillantes', 'east', NULL, 2, NULL, TRUE, FALSE),
+('Monstera deliciosa', '../public/assets/images/plant-icon/monstera.png', 'Plante tropicale à grandes feuilles fendues, très décorative', 'east', NULL, 2, NULL, TRUE, FALSE),
+('Pothos (Epipremnum)', '../public/assets/images/plant-icon/pothos.png', 'Grimpante facile à vivre, idéale en suspension', 'north', NULL, 2, NULL, TRUE, FALSE),
+('Calathea', '../public/assets/images/plant-icon/calathea.png', 'Feuillage décoratif et mouvant, aime l’humidité', 'east', NULL, 3, NULL, FALSE, FALSE),
+('Sansevieria (Langue de belle-mère)', '../public/assets/images/plant-icon/sansevieria.png', 'Très résistante, supporte peu de lumière', 'north', NULL, 1, NULL, TRUE, FALSE),
+('Zamioculcas zamiifolia', '../public/assets/images/plant-icon/zamioculas.png', 'ZZ plant, très résistante, parfaite pour débutants', 'north', NULL, 1, NULL, TRUE, FALSE),
+('Dracaena marginata', '../public/assets/images/plant-icon/dracanea.png', 'Plante arborescente fine et graphique', 'east', NULL, 2, NULL, TRUE, FALSE),
+('Chlorophytum (plante araignée)', '../public/assets/images/plant-icon/chlorophytum.png', 'Facile à cultiver, dépolluante et non toxique', 'east', NULL, 2, NULL, FALSE, FALSE),
+('Dieffenbachia', '../public/assets/images/plant-icon/dieffenbachia.png', 'Feuillage tacheté très décoratif mais très toxique', 'east', NULL, 2, NULL, TRUE, FALSE),
+('Philodendron scandens', '../public/assets/images/plant-icon/philodendron.png', 'Grimpante ou tombante, facile d’entretien', 'north', NULL, 2, NULL, TRUE, FALSE);
 
 CREATE TABLE garden (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -63,6 +67,10 @@ CREATE TABLE garden (
   user_id INT,
   FOREIGN KEY (user_id) REFERENCES user(id)
 );
+
+INSERT INTO garden (user_id) VALUES
+(1),
+(2);
 
 CREATE TABLE user_plant_photo (
   id INT PRIMARY KEY AUTO_INCREMENT,
