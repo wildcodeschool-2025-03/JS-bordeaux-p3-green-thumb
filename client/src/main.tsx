@@ -25,8 +25,8 @@ const router = createBrowserRouter([
     element: <App />, // Renders the App component for the home page
   },
   {
-    path: "/Tutorial", // The root path
-    element: <Tutorial />, // Renders the App component for the home page
+    path: "/Tutorial",
+    element: <Tutorial />,
   },
 
   // Try adding a new route! For example, "/about" with an About component
