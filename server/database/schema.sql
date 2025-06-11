@@ -15,8 +15,28 @@ INSERT INTO user (username, mail, password, avatar, city,has_pet, exposition) VA
 ('Jean Feuille','JF@ouimail.fr','9875','../public/assets/images/avatar/avatar2.png','Paris', False, 'South'),
 ('Louis Plante','Loulou@ouimail.fr','4566','../public/assets/images/avatar/avatar2.png','Tours', False, 'East');
 
-CREATE TABLE plant (
+CREATE TABLE garden (
   id INT PRIMARY KEY AUTO_INCREMENT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  user_id INT UNIQUE,
+  FOREIGN KEY (user_id) REFERENCES user(id)
+);
+
+INSERT INTO garden (user_id) VALUES
+(1),
+(2),
+(3);
+
+CREATE TABLE garden_photo (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  path VARCHAR(255) NOT NULL,
+  garden_id INT, 
+  FOREIGN KEY (garden_id) REFERENCES garden(id)
+);
+
+CREATE TABLE plant (
+  id INT PRIMARY KEY,
   name VARCHAR(100) NOT NULL,
   icon VARCHAR(150) NOT NULL,
   description TEXT NOT NULL,
@@ -28,55 +48,43 @@ CREATE TABLE plant (
   edible BOOLEAN
 );
 
-INSERT INTO plant (name, icon, description, plant_exposition, sowing, watering, harvesting, toxic, edible) VALUES
-('Géranium', '../public/assets/images/plant-icon/geranium.png', 'Fleur colorée résistante, idéale pour balcon', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
-('Lavande', '../public/assets/images/plant-icon/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
-('Pétunia', '../public/assets/images/plant-icon/petunia.png', 'Fleurs éclatantes, pousse bien en pot ou suspension', 'south', 'Printemps', 3, 'Été', FALSE, FALSE),
-('Fuchsia', '../public/assets/images/plant-icon/fuchsia.png', 'Fleurs pendantes colorées pour la mi-ombre', 'east', 'Printemps', 3, 'Été', FALSE, FALSE),
-('Bégonia', '../public/assets/images/plant-icon/begonia.png', 'Fleur décorative pour ombre ou mi-ombre', 'north', 'Printemps', 2, NULL, TRUE, FALSE),
-('Capucine', '../public/assets/images/plant-icon/capucine.png', 'Fleur comestible, grimpante, facile à cultiver', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
-('Hortensia', '../public/assets/images/plant-icon/hortensia.png', 'Fleur ornementale pour pot ou jardin ombragé', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
-('Campanule', '../public/assets/images/plant-icon/campanule.png', 'Fleurs délicates en forme de clochettes', 'south', 'Printemps', 2, NULL, FALSE, FALSE),
-('Pensée', '../public/assets/images/plant-icon/pensee.png', 'Fleur résistante au froid, floraison longue', 'east', 'Automne ou Printemps', 2, NULL, FALSE, FALSE),
-('Souci', '../public/assets/images/plant-icon/souci.png', 'Fleur médicinale comestible, orange vif', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
-('Basilic', '../public/assets/images/plant-icon/basilic.png', 'Aromatique indispensable en cuisine', 'south', 'Printemps', 3, 'Été', FALSE, TRUE),
-('Menthe', '../public/assets/images/plant-icon/menthe.png', 'Plante aromatique envahissante, très parfumée', 'east', 'Printemps', 3, 'Été', FALSE, TRUE),
-('Romarin', '../public/assets/images/plant-icon/romarin.png', 'Aromatique méditerranéenne, très résistante', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
-('Thym', '../public/assets/images/plant-icon/thym.png', 'Plante rustique et aromatique', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
-('Ciboulette', '../public/assets/images/plant-icon/ciboulette.png', 'Aromatique facile, pousse en touffe', 'south', 'Printemps', 2, 'Été', TRUE, TRUE),
-('Persil', '../public/assets/images/plant-icon/persil.png', 'Aromatique indispensable, riche en vitamines', 'east', 'Printemps', 2, 'Été', TRUE, TRUE),
-('Lierre', '../public/assets/images/plant-icon/lierre.png', 'Grimpante persistante, décorative', 'north', 'Printemps', 1, NULL, TRUE, FALSE),
-('Jasmin étoilé', '../public/assets/images/plant-icon/jasmin.png', 'Grimpante très parfumée, feuillage persistant', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
-('Clématite', '../public/assets/images/plant-icon/clematite.png', 'Grimpante à fleurs décoratives', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
-('Tomates cerises', '../public/assets/images/plant-icon/tomate.png', 'Petites tomates sucrées faciles en pot', 'south', 'Avril-Mai', 3, 'Été', TRUE, TRUE),
-('Ficus elastica', '../public/assets/images/plant-icon/ficus.png', 'Aussi appelé caoutchouc, plante robuste à larges feuilles brillantes', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Monstera deliciosa', '../public/assets/images/plant-icon/monstera.png', 'Plante tropicale à grandes feuilles fendues, très décorative', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Pothos (Epipremnum)', '../public/assets/images/plant-icon/pothos.png', 'Grimpante facile à vivre, idéale en suspension', 'north', NULL, 2, NULL, TRUE, FALSE),
-('Calathea', '../public/assets/images/plant-icon/calathea.png', 'Feuillage décoratif et mouvant, aime l’humidité', 'east', NULL, 3, NULL, FALSE, FALSE),
-('Sansevieria (Langue de belle-mère)', '../public/assets/images/plant-icon/sansevieria.png', 'Très résistante, supporte peu de lumière', 'north', NULL, 1, NULL, TRUE, FALSE),
-('Zamioculcas zamiifolia', '../public/assets/images/plant-icon/zamioculas.png', 'ZZ plant, très résistante, parfaite pour débutants', 'north', NULL, 1, NULL, TRUE, FALSE),
-('Dracaena marginata', '../public/assets/images/plant-icon/dracanea.png', 'Plante arborescente fine et graphique', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Chlorophytum (plante araignée)', '../public/assets/images/plant-icon/chlorophytum.png', 'Facile à cultiver, dépolluante et non toxique', 'east', NULL, 2, NULL, FALSE, FALSE),
-('Dieffenbachia', '../public/assets/images/plant-icon/dieffenbachia.png', 'Feuillage tacheté très décoratif mais très toxique', 'east', NULL, 2, NULL, TRUE, FALSE),
-('Philodendron scandens', '../public/assets/images/plant-icon/philodendron.png', 'Grimpante ou tombante, facile d’entretien', 'north', NULL, 2, NULL, TRUE, FALSE);
+INSERT INTO plant (id, name, icon, description, plant_exposition, sowing, watering, harvesting, toxic, edible) VALUES
+(1, 'Géranium', '../public/assets/images/plant-icon/geranium.png', 'Fleur colorée résistante, idéale pour balcon', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
+(2, ',Lavande', '../public/assets/images/plant-icon/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
+(3, 'Pétunia', '../public/assets/images/plant-icon/petunia.png', 'Fleurs éclatantes, pousse bien en pot ou suspension', 'south', 'Printemps', 3, 'Été', FALSE, FALSE),
+(4, 'Fuchsia', '../public/assets/images/plant-icon/fuchsia.png', 'Fleurs pendantes colorées pour la mi-ombre', 'east', 'Printemps', 3, 'Été', FALSE, FALSE),
+(5, 'Bégonia', '../public/assets/images/plant-icon/begonia.png', 'Fleur décorative pour ombre ou mi-ombre', 'north', 'Printemps', 2, NULL, TRUE, FALSE),
+(6, 'Capucine', '../public/assets/images/plant-icon/capucine.png', 'Fleur comestible, grimpante, facile à cultiver', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
+(7, 'Hortensia', '../public/assets/images/plant-icon/hortensia.png', 'Fleur ornementale pour pot ou jardin ombragé', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
+(8, 'Campanule', '../public/assets/images/plant-icon/campanule.png', 'Fleurs délicates en forme de clochettes', 'south', 'Printemps', 2, NULL, FALSE, FALSE),
+(9,'Pensée', '../public/assets/images/plant-icon/pensee.png', 'Fleur résistante au froid, floraison longue', 'east', 'Automne ou Printemps', 2, NULL, FALSE, FALSE),
+(10, 'Souci', '../public/assets/images/plant-icon/souci.png', 'Fleur médicinale comestible, orange vif', 'south', 'Printemps', 2, 'Été', FALSE, TRUE),
+(11, 'Basilic', '../public/assets/images/plant-icon/basilic.png', 'Aromatique indispensable en cuisine', 'south', 'Printemps', 3, 'Été', FALSE, TRUE),
+(12, 'Menthe', '../public/assets/images/plant-icon/menthe.png', 'Plante aromatique envahissante, très parfumée', 'east', 'Printemps', 3, 'Été', FALSE, TRUE),
+(13, 'Romarin', '../public/assets/images/plant-icon/romarin.png', 'Aromatique méditerranéenne, très résistante', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
+(14, 'Thym', '../public/assets/images/plant-icon/thym.png', 'Plante rustique et aromatique', 'south', 'Printemps', 1, 'Toute l’année', FALSE, TRUE),
+(15, 'Ciboulette', '../public/assets/images/plant-icon/ciboulette.png', 'Aromatique facile, pousse en touffe', 'south', 'Printemps', 2, 'Été', TRUE, TRUE),
+(16, 'Persil', '../public/assets/images/plant-icon/persil.png', 'Aromatique indispensable, riche en vitamines', 'east', 'Printemps', 2, 'Été', TRUE, TRUE),
+(17, 'Lierre', '../public/assets/images/plant-icon/lierre.png', 'Grimpante persistante, décorative', 'north', 'Printemps', 1, NULL, TRUE, FALSE),
+(18, 'Jasmin étoilé', '../public/assets/images/plant-icon/jasmin.png', 'Grimpante très parfumée, feuillage persistant', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
+(19, 'Clématite', '../public/assets/images/plant-icon/clematite.png', 'Grimpante à fleurs décoratives', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
+(20, 'Tomates cerises', '../public/assets/images/plant-icon/tomate.png', 'Petites tomates sucrées faciles en pot', 'south', 'Avril-Mai', 3, 'Été', TRUE, TRUE),
+(21, 'Ficus elastica', '../public/assets/images/plant-icon/ficus.png', 'Aussi appelé caoutchouc, plante robuste à larges feuilles brillantes', 'east', NULL, 2, NULL, TRUE, FALSE),
+(22, 'Monstera deliciosa', '../public/assets/images/plant-icon/monstera.png', 'Plante tropicale à grandes feuilles fendues, très décorative', 'east', NULL, 2, NULL, TRUE, FALSE),
+(23, 'Pothos (Epipremnum)', '../public/assets/images/plant-icon/pothos.png', 'Grimpante facile à vivre, idéale en suspension', 'north', NULL, 2, NULL, TRUE, FALSE),
+(24, 'Calathea', '../public/assets/images/plant-icon/calathea.png', 'Feuillage décoratif et mouvant, aime l’humidité', 'east', NULL, 3, NULL, FALSE, FALSE),
+(25, 'Sansevieria (Langue de belle-mère)', '../public/assets/images/plant-icon/sansevieria.png', 'Très résistante, supporte peu de lumière', 'north', NULL, 1, NULL, TRUE, FALSE),
+(26, 'Zamioculcas zamiifolia', '../public/assets/images/plant-icon/zamioculas.png', 'ZZ plant, très résistante, parfaite pour débutants', 'north', NULL, 1, NULL, TRUE, FALSE),
+(27, 'Dracaena marginata', '../public/assets/images/plant-icon/dracanea.png', 'Plante arborescente fine et graphique', 'east', NULL, 2, NULL, TRUE, FALSE),
+(28, 'Chlorophytum (plante araignée)', '../public/assets/images/plant-icon/chlorophytum.png', 'Facile à cultiver, dépolluante et non toxique', 'east', NULL, 2, NULL, FALSE, FALSE),
+(29, 'Dieffenbachia', '../public/assets/images/plant-icon/dieffenbachia.png', 'Feuillage tacheté très décoratif mais très toxique', 'east', NULL, 2, NULL, TRUE, FALSE),
+(30, 'Philodendron scandens', '../public/assets/images/plant-icon/philodendron.png', 'Grimpante ou tombante, facile d’entretien', 'north', NULL, 2, NULL, TRUE, FALSE);
 
-CREATE TABLE garden (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  user_id INT,
-  FOREIGN KEY (user_id) REFERENCES user(id)
-);
 
-INSERT INTO garden (user_id) VALUES
-(1),
-(2);
-
-CREATE TABLE user_plant_photo (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  picture VARCHAR(255) NOT NULL,
-  garden_id INT, 
-  FOREIGN KEY (garden_id) REFERENCES garden(id)
+CREATE TABLE plant_garden (
+  garden_id INT,
+  plant_id INT,
+  PRIMARY KEY (garden_id, plant_id)
 );
 
 CREATE TABLE tag (
@@ -85,44 +93,64 @@ CREATE TABLE tag (
 );
 
 INSERT INTO tag (tagname) VALUES
-('choix'),
-('outils'),
-('emplacement'),
-('arrosage'),
-('fertilisation'),
+('plante aromatique'),
+('decoration'),
+('legume'),
+('hiver'),
+('printemps'),
+('ete'),
+('automne'),
+('rouge'),
+('rose'),
+('bleu'),
+('violet'),
+('fleur'),
+('jaune'),
 ('entretien'),
 ('rempotage'),
 ('bouturage'),
-('parasites'),
+('fertilisation'),
 ('recolte'),
-('geranium'),
-('lavande'),
-('petunia'),
-('fuchsia'),
-('begonia'),
-('capucine'),
-('pensee'),
-('souci'),
-('basilic'),
-('menthe'),
-('romarin'),
-('thym'),
-('ciboulette'),
-('persil'),
-('lierre'),
-('jasmin'),
-('clematite'),
-('tomates'),
-('ficus'),
-('monstera'),
-('pothos'),
-('calateha'),
-('sansevieria'),
-('zamiocula'),
-('dracanea'),
-('chlorophythum'),
-('dieffenbachia'),
-('philodendron');
+('semence'),
+('arrosage');
+
+CREATE TABLE plant_tag (
+  plant_id INT,
+  tag_id INT,
+  PRIMARY KEY (plant_id, tag_id)
+);
+
+INSERT INTO plant_tag (plant_id, tag_id) VALUES
+(1, 5), (1, 2), (1, 8),
+(2, 5), (2, 2), (2, 11),
+(3, 5), (3, 2), (3, 9), (3, 12),
+(4, 5), (4, 2), (4, 9), (4, 12),
+(5, 5), (5, 2), (5, 9), (5, 12),
+(6, 5), (6, 12), (6, 13),
+(7, 5), (7, 2), (7, 9), (7, 12),
+(8, 5), (8, 12), (8, 10),
+(9, 7), (9, 5), (9, 12), (9, 10),
+(10, 5), (10, 12), (10, 13),
+(11, 5), (11, 1),
+(12, 5), (12, 1),
+(13, 5), (13, 1),
+(14, 5), (14, 1),
+(15, 5), (15, 1),
+(16, 5), (16, 1),
+(17, 2),
+(18, 2), (18, 5),
+(19, 2), (19, 5),
+(20, 3), (20, 5), (20, 6),
+(21, 2),
+(22, 2),
+(23, 2),
+(24, 2),
+(25, 2),
+(26, 2),
+(27, 2),
+(28, 2),
+(29, 2),
+(30, 2);
 
 CREATE TABLE tutorial (
   id INT PRIMARY KEY AUTO_INCREMENT,
@@ -145,23 +173,35 @@ INSERT INTO tutorial (url, title, description, author, duration) VALUES
 ('https://www.youtube.com/watch?v=oRfu6uUhmcY&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=9&ab_channel=TRUFFAUT', 'Surveiller les parasites', 'Inspectez régulièrement vos plantes pour détecter la présence de cochenilles, pucerons ou acariens. En cas d’infestation, nettoyez les feuilles avec un chiffon humide ou utilisez un traitement biologique.', 'Truffaut', 113),
 ('https://www.youtube.com/watch?v=iXs6R5YdM0E&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=10&ab_channel=TRUFFAUT', 'Récolter et profiter', 'Pour les plantes aromatiques et les salades, récoltez les feuilles au fur et à mesure de leur croissance. Cela stimule la plante et vous permet de profiter de vos cultures.', 'Truffaut', 153);
 
-CREATE TABLE plant_garden (
-  garden_id INT,
-  plant_id INT,
-  PRIMARY KEY (garden_id, plant_id)
-);
-
-CREATE TABLE plant_tag (
-  plant_id INT,
-  tag_id INT,
-  PRIMARY KEY (plant_id, tag_id)
-);
 
 CREATE TABLE tutorial_tag(
   tutorial_id INT,
   tag_id INT,
   PRIMARY KEY (tutorial_id, tag_id)
 );
+
+INSERT INTO tutorial_tag (tutorial_id, tag_id) VALUES
+(1, 14),
+(1, 1),
+(1, 2),
+(2, 14),
+(2, 17),
+(2, 20),
+(2, 19),
+(3, 14),
+(3, 19),
+(4, 20),
+(5, 14),
+(5, 15),
+(6, 15),
+(6, 14),
+(7, 16),
+(7, 14),
+(8, 18),
+(8, 14),
+(9, 14),
+(9, 19),
+(10, 18);
 
 CREATE TABLE user_tutorial (
   user_id INT,
