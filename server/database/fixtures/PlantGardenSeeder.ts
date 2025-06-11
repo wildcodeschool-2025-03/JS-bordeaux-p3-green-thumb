@@ -1,5 +1,10 @@
 import AbstractSeeder from "./AbstractSeeder";
 
+interface PlantGardenData {
+  garden_id: number;
+  plant_id: number;
+}
+
 class PlantGardenSeeder extends AbstractSeeder {
   constructor() {
     super({
@@ -22,7 +27,7 @@ class PlantGardenSeeder extends AbstractSeeder {
         this.insert({
           garden_id: gardenId,
           plant_id: plantId,
-        });
+        } as PlantGardenData);
       }
     }
   }
