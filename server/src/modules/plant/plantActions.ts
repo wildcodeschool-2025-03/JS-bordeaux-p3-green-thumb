@@ -6,4 +6,10 @@ const browse: RequestHandler = async (req, res) => {
   res.json(plantDB);
 };
 
-export default { browse };
+const read: RequestHandler = async (req, res) => {
+  const plantId = Number(req.params.id);
+  const selectedplant = await plantRepository.read(plantId);
+  res.json(selectedplant);
+};
+
+export default { browse, read };
