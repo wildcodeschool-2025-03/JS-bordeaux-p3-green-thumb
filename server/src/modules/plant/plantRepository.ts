@@ -16,6 +16,22 @@ class PlantRepository {
     );
     return rows[0] as Plant;
   }
+
+  async updateIcon(id: number, icon: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "UPDATE plant SET icon = ? WHERE id = ?",
+      [icon, id],
+    );
+    return rows;
+  }
+
+  async updateName(id: number, name: string) {
+    const [rows] = await databaseClient.query<Rows>(
+      "UPDATE plant SET name = ? WHERE id = ?",
+      [name, id],
+    );
+    return rows;
+  }
 }
 
 export default new PlantRepository();
