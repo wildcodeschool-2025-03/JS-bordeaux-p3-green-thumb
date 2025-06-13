@@ -56,9 +56,7 @@ export default function Dashboard() {
         arnoldii). Elle peut atteindre 1 m de diamètre et peser jusqu’à 11 kg.
       </div>
 
-      <article className="navigation">
-        <h1> NAVIGATION BAR HERE</h1>
-      </article>
+      <nav className="navigation">{/* Your navigation content */}</nav>
     </div>
   );
 }
