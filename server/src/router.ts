@@ -1,13 +1,8 @@
 import express from "express";
+import { readAllTutorials } from "./modules/tutorial/tutorialActions";
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
-
-// Define item-related routes
-
-/* ************************************************************************* */
+router.get("/tutorials", readAllTutorials);
 
 export default router;
