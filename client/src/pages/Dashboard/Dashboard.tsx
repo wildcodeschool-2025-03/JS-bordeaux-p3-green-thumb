@@ -16,7 +16,7 @@ export default function Dashboard() {
 
       <article>
         <h2>
-          Journal de bord <span className="info-icon">ℹ️</span>
+          Dashboard <span className="info-icon">ℹ️</span>
         </h2>
       </article>
 
@@ -37,7 +37,7 @@ export default function Dashboard() {
         </div>
       </div>
       <article>
-        <h2>Recommandé pour toi</h2>
+        <h2>Recommandations</h2>
       </article>
 
       <div className="recommended">
@@ -48,7 +48,7 @@ export default function Dashboard() {
       </div>
 
       <article>
-        <h2>A propos des plantes </h2>
+        <h2>About Plants </h2>
       </article>
 
       <div className="fact-box">
