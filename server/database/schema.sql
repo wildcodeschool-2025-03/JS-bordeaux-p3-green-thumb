@@ -50,7 +50,7 @@ CREATE TABLE plant (
 
 INSERT INTO plant (id, name, icon, description, plant_exposition, sowing, watering, harvesting, toxic, edible) VALUES
 (1, 'Géranium', '../public/assets/images/plant-icon/geranium.png', 'Fleur colorée résistante, idéale pour balcon', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
-(2, ',Lavande', '../public/assets/images/plant-icon/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
+(2, 'Lavande', '../public/assets/images/plant-icon/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
 (3, 'Pétunia', '../public/assets/images/plant-icon/petunia.png', 'Fleurs éclatantes, pousse bien en pot ou suspension', 'south', 'Printemps', 3, 'Été', FALSE, FALSE),
 (4, 'Fuchsia', '../public/assets/images/plant-icon/fuchsia.png', 'Fleurs pendantes colorées pour la mi-ombre', 'east', 'Printemps', 3, 'Été', FALSE, FALSE),
 (5, 'Bégonia', '../public/assets/images/plant-icon/begonia.png', 'Fleur décorative pour ombre ou mi-ombre', 'north', 'Printemps', 2, NULL, TRUE, FALSE),
@@ -171,8 +171,18 @@ INSERT INTO tutorial (id, url, title, description, author, duration) VALUES
 (7,'https://www.youtube.com/watch?v=lFPYt1XTTtA&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=7&ab_channel=TRUFFAUT', 'Rempoter si nécessaire', 'Lorsque les racines deviennent à l’étroit, rempotez vos plantes dans un contenant légèrement plus grand avec du terreau frais. Cela favorise une croissance saine.', 'Truffaut', 194 ),
 (8,'https://www.youtube.com/watch?v=rAw-_MsM5x8&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=8&ab_channel=TRUFFAUT', 'Bouturer pour multiplier', 'Multipliez vos plantes en prélevant des boutures. Placez-les dans l’eau ou directement dans le terreau jusqu’à l’apparition de racines.', 'Truffaut', 335),
 (9,'https://www.youtube.com/watch?v=oRfu6uUhmcY&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=9&ab_channel=TRUFFAUT', 'Surveiller les parasites', 'Inspectez régulièrement vos plantes pour détecter la présence de cochenilles, pucerons ou acariens. En cas d’infestation, nettoyez les feuilles avec un chiffon humide ou utilisez un traitement biologique.', 'Truffaut', 113),
-(10,'https://www.youtube.com/watch?v=iXs6R5YdM0E&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=10&ab_channel=TRUFFAUT', 'Récolter et profiter', 'Pour les plantes aromatiques et les salades, récoltez les feuilles au fur et à mesure de leur croissance. Cela stimule la plante et vous permet de profiter de vos cultures.', 'Truffaut', 153);
-
+(10,'https://www.youtube.com/watch?v=iXs6R5YdM0E&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=10&ab_channel=TRUFFAUT', 'Récolter et profiter', 'Pour les plantes aromatiques et les salades, récoltez les feuilles au fur et à mesure de leur croissance. Cela stimule la plante et vous permet de profiter de vos cultures.', 'Truffaut', 153),
+(11, 'https://youtu.be/uctr040MJLE?si=TqjP2eqfyQuoGA1e', 'Bouture & Géranium', 'Suivez pas à pas en vidéo les conseils de nos jardiniers pour réaliser facilement vos boutures de géraniums', 'Truffaut', 248),
+(12, 'https://www.youtube.com/watch?v=FvrnxZDWlEE&ab_channel=newsjardintv', 'Tailler la lavande', 'Une technique simple de taille de la lavande, qui s effectue bien sûr après la floraison', 'NewsJardinTV', 251),
+(13, 'https://www.youtube.com/watch?v=VK8qmgZqCGY&ab_channel=TRUFFAUT', 'Planter des hortensias', 'Besoin de conseils pour bien planter et entretenir des hortensias', 'Truffaut', 156),
+(14, 'https://www.youtube.com/watch?v=TcIH4VaBXcE&ab_channel=TRUFFAUT', 'Entretenir sa monstera', 'Plante iconique des intérieurs végétalisés, le Monstera Deliciosa, aussi appelé faux philodendron, séduit par son feuillage graphique et sa croissance impressionnante', 'Truffaut', 111),
+(15, 'https://www.youtube.com/watch?v=ZO7hXXMeXx0&ab_channel=TRUFFAUT', 'La ciboulette', 'Plantation & Entretien', 'La ciboulette est une plante aromatique qui parfume idéalement la crème fraîche et les salades.', 'Truffaut', 233),
+(16, 'https://www.youtube.com/watch?v=msVCUfza9No&ab_channel=OrBrun', 'Cultiver la menthe', 'Aujourd hui on apprends comment planter et rempoter la menthe, mais aussi comment entretenir la menthe en pot ! ', 'Or Brun', 251),
+(17, 'https://www.youtube.com/watch?v=aV86MKUxilY&ab_channel=TRUFFAUT', 'Les plantes aromathiques', 'Pierre-Adrien vous présente les plantes aromatiques qui apprécient plutôt une exposition à la mi-ombre et un arrosage régulier, comme le basilic, la verveine, la menthe, le persil ou la ciboulette.', 'Truffaut', 331),
+(18, 'https://www.youtube.com/watch?v=BkJI063QolQ&ab_channel=UneFleurParmilesFleurs', 'Tomates Cerises du jardin', 'Rempoter des tomates cerises en pot, c’est facile si on connaît quelques astuces !', 'Une fleur parmi les fleurs', 535),
+(19, 'https://www.youtube.com/watch?v=ivPRIdz8LMM&ab_channel=MonJardin%C3%A0Vivre', 'Zamioculcas zamiifolia', 'Vous adorez les plantes d’intérieur mais vous n’avez pas la main verte ?  Tournez-vous vers les zamioculcas !', 'Les gens du jardin', 252),
+(20, 'https://www.youtube.com/watch?v=RJ4GzrB1UDo&t=50s&ab_channel=FUCHSIADELHOMMEAU', 'La capucine dans la cuisine', 'La capucine est comestible, ses feuilles, ses pétales et ses graines trouvent leur place dans votre alimentation.', 'Simon Guillo', 346),
+(21, 'https://www.youtube.com/watch?v=6sAQ3LrcVKY&ab_channel=MarionBotanical', 'Le philodendron !', 'Une collection de philodendron', 'Marion', 824);
 
 CREATE TABLE tutorial_tag(
   tutorial_id INT,
