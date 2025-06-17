@@ -1,13 +1,14 @@
 import type React from "react";
 import { useNavigate } from "react-router-dom";
-import "./Landing.css";
+import "../../styles/Landing.css";
+import "../../styles/_variables.css";
 
 const Landing: React.FC = () => {
   const navigate = useNavigate();
-  const handleLogin = () => {
+  const Login = () => {
     navigate("/login");
   };
-  const handleSignup = () => {
+  const Signup = () => {
     navigate("/signup");
   };
   return (
@@ -17,14 +18,14 @@ const Landing: React.FC = () => {
           <img src="../src/assets/images/Logo-green-thumb.png" alt="Logo" />
         </div>
 
-        <h1 className="welcome-title">BIENVENUE</h1>
+        <h1 className="welcome-title">WELCOME</h1>
       </div>
 
-      <button type="button" className="btn btn-primary" onClick={handleLogin}>
-        Se connecter
+      <button type="button" className="btn btn-primary" onClick={Login}>
+        Login
       </button>
-      <button type="button" className="btn btn-outline" onClick={handleSignup}>
-        S’ inscrire
+      <button type="button" className="btn btn-outline" onClick={Signup}>
+        Sign Up
       </button>
     </div>
   );
