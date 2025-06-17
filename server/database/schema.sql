@@ -50,7 +50,7 @@ CREATE TABLE plant (
 
 INSERT INTO plant (id, name, icon, description, plant_exposition, sowing, watering, harvesting, toxic, edible) VALUES
 (1, 'Géranium', '../public/assets/images/plant-icon/geranium.png', 'Fleur colorée résistante, idéale pour balcon', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
-(2, 'Lavande', '../public/assets/images/plant-icon/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
+(2, ',Lavande', '../public/assets/images/plant-icon/lavande.png', 'Aromatique et décorative, attire les pollinisateurs', 'south', 'Printemps', 1, 'Été', TRUE, FALSE),
 (3, 'Pétunia', '../public/assets/images/plant-icon/petunia.png', 'Fleurs éclatantes, pousse bien en pot ou suspension', 'south', 'Printemps', 3, 'Été', FALSE, FALSE),
 (4, 'Fuchsia', '../public/assets/images/plant-icon/fuchsia.png', 'Fleurs pendantes colorées pour la mi-ombre', 'east', 'Printemps', 3, 'Été', FALSE, FALSE),
 (5, 'Bégonia', '../public/assets/images/plant-icon/begonia.png', 'Fleur décorative pour ombre ou mi-ombre', 'north', 'Printemps', 2, NULL, TRUE, FALSE),
