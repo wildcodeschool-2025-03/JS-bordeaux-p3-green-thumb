@@ -6,7 +6,8 @@ export const browse: RequestHandler = async (req, res, next) => {
     const plants = await plantRepository.findAll();
 
     if (!plants || plants.length === 0) {
-      return res.status(404).json({ message: "Aucune plante trouvée." });
+      res.status(404).json({ message: "Aucune plante trouvée." });
+      return;
     }
 
     res.status(200).json(plants);

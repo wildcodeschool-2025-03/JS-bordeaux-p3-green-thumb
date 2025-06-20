@@ -2,7 +2,6 @@
 export type {};
 
 declare global {
-
   type plant = {
     id: number;
     name: string;
@@ -14,7 +13,7 @@ declare global {
     harvesting: number;
     toxic: boolean;
     edible: boolean;
-};
+  };
   namespace Express {
     export interface Request {
       /* ************************************************************************* */

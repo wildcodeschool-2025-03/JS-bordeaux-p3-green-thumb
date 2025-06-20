@@ -1,9 +1,9 @@
 import db from "../../../database/client";
 
 class PlantRepository {
-  async findAll() {
+  async findAll(): Promise<plant[]> {
     const [rows] = await db.query("SELECT * FROM plant");
-    return rows;
+    return rows as plant[];
   }
 }
 
