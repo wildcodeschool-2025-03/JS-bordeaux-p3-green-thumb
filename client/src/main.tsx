@@ -21,12 +21,14 @@ import Tutorial from "./pages/Tutorial";
 // You can add more routes as you build out your app!
 const router = createBrowserRouter([
   {
-    path: "/", // The root path
-    element: <App />, // Renders the App component for the home page
-  },
-  {
-    path: "/Tutorial",
-    element: <Tutorial />,
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/Tutorials",
+        element: <Tutorial />,
+      },
+    ],
   },
 
   // Try adding a new route! For example, "/about" with an About component
