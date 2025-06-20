@@ -1,0 +1,54 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.my-garden {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: var(--main-background);
+  min-height: 100vh;
+  border: 1px solid var(--card-border);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 15vh;
+}
+
+.my-garden h1 {
+  font-family: var(--main-font);
+  color: var(--main-font-color);
+  margin-bottom: 20px;
+}
+
+.my-garden p {
+  font-family: var(--main-font);
+  color: var(--main-font-color);
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  min-width: 200px; /* assure une taille cohérente */
+  text-align: center;
+  margin: 10px;
+}
+
+.btn:hover {
+  background-color: #9cc32f; /* un vert plus foncé au hover */
+}
