@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import TutorialList from "../components/tutorial/TutorialList";
 import TutorialVideo from "../components/tutorial/modals/TutorialVideo";
+import "./Tutorial.css";
+import leaf from "../assets/images/leaf.png";
 
 export type Tutorial = {
   id: number;
@@ -39,28 +41,33 @@ export default function Tutorial() {
 
   return (
     <>
-      {/*<img src={leaf} alt="ceci est une feuille" />*/}
-      <div className="tutorial-box">
-        <h1>Tutorials</h1>
+      <div className="tutorial-responsive">
+        <img className="leaf-decor" src={leaf} alt="ceci est une feuille" />
+        <div className="tutorial-box">
+          <h1>Tutorials</h1>
+          <hr />
 
-        <TutorialList
-          title="Gardening step by step 🌱"
-          tutorials={base}
-          onSelect={setSelectedTutorial}
-        />
+          {/*ici viendra le composant pour les favoris US-22*/}
 
-        <TutorialList
-          title="Flowers and Plants 🌸"
-          tutorials={themes}
-          onSelect={setSelectedTutorial}
-        />
-
-        {selectedTutorial && (
-          <TutorialVideo
-            tutorial={selectedTutorial}
-            onClose={() => setSelectedTutorial(null)}
+          <TutorialList
+            title="Gardening step by step 🌱"
+            tutorials={base}
+            onSelect={setSelectedTutorial}
           />
-        )}
+
+          <TutorialList
+            title="Flowers and Plants 🌸"
+            tutorials={themes}
+            onSelect={setSelectedTutorial}
+          />
+
+          {selectedTutorial && (
+            <TutorialVideo
+              tutorial={selectedTutorial}
+              onClose={() => setSelectedTutorial(null)}
+            />
+          )}
+        </div>
       </div>
     </>
   );

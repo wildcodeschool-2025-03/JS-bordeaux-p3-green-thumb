@@ -1,4 +1,5 @@
 import type { Tutorial } from "../../pages/Tutorial";
+import "./TutorialList.css";
 
 export type PreviewTutorial = {
   title: string;
@@ -21,23 +22,25 @@ export default function TutorialList({
   return (
     <section className="tutorial-section">
       <h2 className="section-title">{title}</h2>
-      <div className="gallery-video">
-        {tutorials.map((tutorial) => (
-          <div
-            key={tutorial.id}
-            className="thumbnail"
-            onClick={() => onSelect(tutorial)}
-            onKeyDown={(e) => e.key === "o"}
-          >
-            <img
-              src={`https://img.youtube.com/vi/${getYoutubeId(
-                tutorial.url,
-              )}/mqdefault.jpg`}
-              alt={`Miniature de ${tutorial.title}`}
-            />
-            <div className="thumbnail-title">{tutorial.title}</div>
-          </div>
-        ))}
+      <div className="carousel-box">
+        <div className="gallery-video">
+          {tutorials.map((tutorial) => (
+            <div
+              key={tutorial.id}
+              className="thumbnail"
+              onClick={() => onSelect(tutorial)}
+              onKeyDown={(e) => e.key === "o"}
+            >
+              <img
+                src={`https://img.youtube.com/vi/${getYoutubeId(
+                  tutorial.url,
+                )}/mqdefault.jpg`}
+                alt={`Miniature de ${tutorial.title}`}
+              />
+              <div className="thumbnail-title">{tutorial.title}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
