@@ -20,7 +20,7 @@ export default function TutorialList({
   onSelect,
 }: PreviewTutorial) {
   return (
-    <section className="tutorial-section">
+    <section className="section-tutorial">
       <h2 className="section-title">{title}</h2>
       <div className="carousel-box">
         <div className="gallery-video">
