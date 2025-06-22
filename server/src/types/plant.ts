@@ -9,4 +9,5 @@ export interface Plant {
   harvesting: string;
   toxic: boolean;
   edible: boolean;
+  plant_born_at: string;
 }
