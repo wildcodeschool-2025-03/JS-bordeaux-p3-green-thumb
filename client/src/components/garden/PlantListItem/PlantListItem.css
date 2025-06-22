@@ -1,0 +1,55 @@
+.plant-card {
+  border: 1px solid #9fcf00;
+  border-radius: 6px;
+  padding: 8px;
+  background-color: #222222;
+  color: white;
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  min-width: 100px;
+}
+
+.selected {
+  border: 1px solid white;
+}
+
+.card-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.spacer {
+  width: 1rem;
+}
+
+.plant-img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+
+.plant-name {
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.plant-controls {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn {
+  background: none;
+  border: none;
+  color: #9fcf00;
+  font-size: 1.3rem;
+  cursor: pointer;
+}

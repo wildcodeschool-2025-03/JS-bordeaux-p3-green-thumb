@@ -1,0 +1,40 @@
+.plant-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 16px;
+  background-color: #262626;
+  margin-bottom: 35px;
+  border: 1px solid #9fcf00;
+  border-radius: 6px;
+}
+
+.page-current {
+  margin: 0 8px;
+}
+
+.pagination-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+
+  background-color: #262626;
+  border-top: 1px solid #9fcf00;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  color: white;
+  z-index: 100;
+}
+
+.pagination-bar button {
+  background-color: #9fcf00;
+  border: none;
+  padding: 6px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
