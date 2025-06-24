@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 import gardenRepository from "./gardenRepository";
 
-const findOnePlantInGarden: RequestHandler = async (req, res) => {
+const readPlant: RequestHandler = async (req, res) => {
   const gardenId = Number(req.params.gardenId);
   const plantId = Number(req.params.plantId);
 
@@ -9,7 +9,7 @@ const findOnePlantInGarden: RequestHandler = async (req, res) => {
     res.status(400).json({ error: "I don't think this garden exists" });
   }
 
-  const plant = await gardenRepository.findOnePlantInGarden(gardenId, plantId);
+  const plant = await gardenRepository.findPlant(gardenId, plantId);
 
   if (!plant) {
     res
@@ -19,4 +19,4 @@ const findOnePlantInGarden: RequestHandler = async (req, res) => {
   res.json(plant);
 };
 
-export default { findOnePlantInGarden };
+export default { readPlant };

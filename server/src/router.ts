@@ -4,9 +4,6 @@ const router = express.Router();
 
 import gardenActions from "./modules/garden/gardenActions";
 
-router.get(
-  "/api/garden/:gardenId/plant/:plantId",
-  gardenActions.findOnePlantInGarden,
-);
+router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
 
 export default router;
