@@ -3,8 +3,8 @@ import { useParams } from "react-router";
 import type { Plant } from "../../types/garden/plant";
 
 import "./Plant.css";
-import addphoto from "../../assets/images/icons/add-photo.png";
-import calendrier from "../../assets/images/icons/calendrier.png";
+import addPhoto from "../../assets/images/icons/add-photo.png";
+import calendar from "../../assets/images/icons/calendar.png";
 import east from "../../assets/images/icons/east.png";
 import edible from "../../assets/images/icons/edible.png";
 import harmless from "../../assets/images/icons/harmless.png";
@@ -17,20 +17,22 @@ import west from "../../assets/images/icons/west.png";
 
 export default function PlantProfile() {
   const { gardenId, plantId } = useParams();
+
   const [plant, setPlant] = useState<Plant | null>(null);
-  const expositionIcon = {
-    north,
-    south,
-    east,
-    west,
+
+  const expositionIcons = {
+    north: north,
+    south: south,
+    east: east,
+    west: west,
   };
 
   useEffect(() => {
     fetch(
-      `${import.meta.env.VITE_API_URL}/api/plant/garden/${gardenId}/plant/${plantId}`,
+      `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
     )
       .then((res) => res.json())
-      .then((data) => setPlant(data));
+      .then((plant) => setPlant(plant));
   }, [gardenId, plantId]);
 
   if (!plant) {
@@ -41,25 +43,23 @@ export default function PlantProfile() {
     <>
       <section className="profile-card">
         <img src={plant.icon} alt={plant.name} className="plant-icon" />
+
         <section className="plant-infos">
           <h2 className="plant-name">
             {plant.name}
             <img src={pen} alt="pencil icon" className="pen-icon" />
           </h2>
           <article className="birthdate-wrapper">
-            <img
-              src={calendrier}
-              alt="calendar icon"
-              className="calendar-icon"
-            />
+            <img src={calendar} alt="calendar icon" className="calendar-icon" />
             <span className="birthdate">{plant.plant_born_at}</span>
           </article>
         </section>
+
         <article className="icon-card">
           {plant.edible ? (
-            <img src={edible} alt="commestible" className="info-icon" />
+            <img src={edible} alt="edible" className="info-icon" />
           ) : (
-            <img src={notEdible} alt="non commestible" className="info-icon" />
+            <img src={notEdible} alt="not edible" className="info-icon" />
           )}
           {plant.toxic ? (
             <img src={toxic} alt="toxic" className="toxic-icon" />
@@ -68,18 +68,19 @@ export default function PlantProfile() {
           )}
           <img
             src={
-              expositionIcon[
-                plant.plant_exposition as keyof typeof expositionIcon
+              expositionIcons[
+                plant.plant_exposition as keyof typeof expositionIcons
               ]
             }
             alt={`exposition ${plant.plant_exposition}`}
             className="exposition-icon"
           />
         </article>
+
         <article className="gallery">
           <header className="gallery-header">
             <h2 className="gallery-title">Gallery</h2>
-            <img src={addphoto} alt="add icon" className="add-photo-icon" />
+            <img src={addPhoto} alt="add icon" className="add-photo-icon" />
           </header>
           <figure className="plant-photo-carousel">
             <img
