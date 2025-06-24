@@ -36,8 +36,8 @@ export default function Tutorial() {
     fetchTutorials();
   }, []);
 
-  const base = tutorials.filter((t) => t.id >= 1 && t.id <= 10);
-  const themes = tutorials.filter((t) => t.id >= 11 && t.id <= 21);
+  const gardeningBasics = tutorials.filter((t) => t.id >= 1 && t.id <= 10);
+  const plantTypeFocus = tutorials.filter((t) => t.id >= 11 && t.id <= 21);
 
   return (
     <>
@@ -51,13 +51,13 @@ export default function Tutorial() {
 
           <TutorialList
             title="Gardening step by step 🌱"
-            tutorials={base}
+            tutorials={gardeningBasics}
             onSelect={setSelectedTutorial}
           />
 
           <TutorialList
             title="Flowers and Plants 🌸"
-            tutorials={themes}
+            tutorials={plantTypeFocus}
             onSelect={setSelectedTutorial}
           />
 

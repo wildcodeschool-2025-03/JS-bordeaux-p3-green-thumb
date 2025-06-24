@@ -1,13 +1,13 @@
 import type { Tutorial } from "../../pages/Tutorial";
 import "./TutorialList.css";
 
-export type PreviewTutorial = {
+type PreviewTutorial = {
   title: string;
   tutorials: Tutorial[];
   onSelect: (Tutorial: Tutorial) => void;
 };
 
-function getYoutubeId(url: string): string | null {
+function getYoutubeThumbnail(url: string): string | null {
   const regex =
     /(?:youtube\.com.*(?:v=|\/embed\/|watch\?v=)|youtu\.be\/)([^&?/]+)/;
   const match = url.match(regex);
@@ -32,7 +32,7 @@ export default function TutorialList({
               onKeyDown={(e) => e.key === "o"}
             >
               <img
-                src={`https://img.youtube.com/vi/${getYoutubeId(
+                src={`https://img.youtube.com/vi/${getYoutubeThumbnail(
                   tutorial.url,
                 )}/mqdefault.jpg`}
                 alt={`Miniature de ${tutorial.title}`}
