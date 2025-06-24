@@ -11,6 +11,7 @@ export type Tutorial = {
   description: string;
   author: string;
   duration: number;
+  newduration: number;
 };
 
 export default function Tutorial() {

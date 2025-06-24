@@ -42,7 +42,7 @@ export default function TutorialVideo({ tutorial, onClose }: YTVideo) {
           <hr />
           <p className="description-tutorial">{tutorial.description}</p>
           <p>
-            {tutorial.author} – {tutorial.duration} sec
+            {tutorial.author} – {tutorial.newduration} min
           </p>
         </div>
       </div>
