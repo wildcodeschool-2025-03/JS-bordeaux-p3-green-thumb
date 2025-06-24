@@ -1,4 +1,4 @@
-import type { Tutorial } from "../../pages/Tutorial";
+import type { Tutorial } from "../../pages/tutorial/Tutorial";
 import "./TutorialVideo.css";
 
 type YTVideo = {

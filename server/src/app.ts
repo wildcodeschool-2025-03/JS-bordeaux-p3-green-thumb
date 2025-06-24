@@ -3,6 +3,9 @@
 import express from "express";
 
 const app = express();
+app.use(express.json());
+
+app.use(express.static("public"));
 
 // Configure it
 
@@ -23,11 +26,6 @@ import cors from "cors";
 if (process.env.CLIENT_URL != null) {
   app.use(cors({ origin: [process.env.CLIENT_URL] }));
 }
-
-// If you need to allow extra origins, you can add something like this:
-
-// With ["http://mysite.com", "http://another-domain.com"]
-// to be replaced with an array of your trusted origins
 
 /* ************************************************************************* */
 

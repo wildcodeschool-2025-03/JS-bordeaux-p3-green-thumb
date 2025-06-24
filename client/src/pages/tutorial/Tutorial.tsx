@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import TutorialList from "../components/tutorial/TutorialList";
-import TutorialVideo from "../components/tutorial/TutorialVideo";
+import TutorialList from "../../components/tutorial/TutorialList";
+import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import "./Tutorial.css";
-import leaf from "../assets/images/leaf.png";
+import leaf from "../../assets/images/leaf.png";
 
 export type Tutorial = {
   id: number;
