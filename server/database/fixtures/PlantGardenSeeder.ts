@@ -3,7 +3,9 @@ import AbstractSeeder from "./AbstractSeeder";
 interface PlantGardenData {
   garden_id: number;
   plant_id: number;
-  plant_born_at: string;
+  born_at: string;
+  nickname: string;
+  avatar: string;
 }
 
 class PlantGardenSeeder extends AbstractSeeder {
@@ -27,10 +29,16 @@ class PlantGardenSeeder extends AbstractSeeder {
           to: new Date(),
         });
 
+        const nickname = this.faker.person.firstName();
+
+        const avatar = this.faker.image.avatar();
+
         this.insert({
           garden_id: gardenId,
           plant_id: plantId,
-          plant_born_at: bornAt.toISOString().slice(0, 19).replace("T", " "),
+          born_at: bornAt.toISOString().slice(0, 19).replace("T", " "),
+          nickname,
+          avatar,
         } as PlantGardenData);
       }
     }
