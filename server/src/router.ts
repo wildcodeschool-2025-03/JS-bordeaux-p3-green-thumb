@@ -2,12 +2,8 @@ import express from "express";
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+import gardenActions from "./modules/garden/gardenActions";
 
-// Define item-related routes
-
-/* ************************************************************************* */
+router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
 
 export default router;
