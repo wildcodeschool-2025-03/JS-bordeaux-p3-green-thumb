@@ -1,5 +1,4 @@
-import type { RowDataPacket } from "mysql2";
-import databaseClient from "../../../database/client";
+import databaseClient, { type Rows } from "../../../database/client";
 import type { Plant } from "../../types/plant";
 
 class GardenRepository {
@@ -10,10 +9,7 @@ class GardenRepository {
       JOIN plant_garden AS pg ON p.id = pg.plant_id
       WHERE pg.garden_id = ? AND pg.plant_id = ?
   `;
-    const [rows] = await databaseClient.query<RowDataPacket[]>(query, [
-      gardenId,
-      plantId,
-    ]);
+    const [rows] = await databaseClient.query<Rows>(query, [gardenId, plantId]);
 
     return rows[0] as Plant;
   }
