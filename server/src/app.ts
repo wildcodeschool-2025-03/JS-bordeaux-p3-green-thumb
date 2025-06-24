@@ -26,12 +26,6 @@ if (process.env.CLIENT_URL != null) {
 
 // If you need to allow extra origins, you can add something like this:
 
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-  }),
-);
-
 // With ["http://mysite.com", "http://another-domain.com"]
 // to be replaced with an array of your trusted origins
 

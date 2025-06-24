@@ -1,5 +1,10 @@
-import type { Tutorial } from "../../../pages/Tutorial";
+import type { Tutorial } from "../../pages/Tutorial";
 import "./TutorialVideo.css";
+
+type YTVideo = {
+  tutorial: Tutorial;
+  onClose: () => void;
+};
 
 function getYoutubeId(url: string): string | null {
   const regex =
@@ -8,10 +13,11 @@ function getYoutubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
-type YTVideo = {
-  tutorial: Tutorial;
-  onClose: () => void;
-};
+function formatDuration(seconds: number): string {
+  const min = Math.floor(seconds / 60);
+  const sec = seconds % 60;
+  return `${min} min ${sec.toString().padStart(2, "0")} sec`;
+}
 
 export default function TutorialVideo({ tutorial, onClose }: YTVideo) {
   const videoId = getYoutubeId(tutorial.url);
@@ -42,7 +48,7 @@ export default function TutorialVideo({ tutorial, onClose }: YTVideo) {
           <hr />
           <p className="description-tutorial">{tutorial.description}</p>
           <p>
-            {tutorial.author} – {tutorial.newduration} min
+            {tutorial.author} – {formatDuration(tutorial.duration)}
           </p>
         </div>
       </div>

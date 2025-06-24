@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import TutorialList from "../components/tutorial/TutorialList";
-import TutorialVideo from "../components/tutorial/modals/TutorialVideo";
+import TutorialVideo from "../components/tutorial/TutorialVideo";
 import "./Tutorial.css";
 import leaf from "../assets/images/leaf.png";
 
@@ -11,7 +11,7 @@ export type Tutorial = {
   description: string;
   author: string;
   duration: number;
-  newduration: number;
+  category: string;
 };
 
 export default function Tutorial() {
@@ -37,8 +37,8 @@ export default function Tutorial() {
     fetchTutorials();
   }, []);
 
-  const gardeningBasics = tutorials.filter((t) => t.id >= 1 && t.id <= 10);
-  const plantTypeFocus = tutorials.filter((t) => t.id >= 11 && t.id <= 21);
+  const gardeningBasics = tutorials.filter((t) => t.category === "gardening");
+  const plantFocus = tutorials.filter((t) => t.category === "plant");
 
   return (
     <>
@@ -58,7 +58,7 @@ export default function Tutorial() {
 
           <TutorialList
             title="Flowers and Plants 🌸"
-            tutorials={plantTypeFocus}
+            tutorials={plantFocus}
             onSelect={setSelectedTutorial}
           />
 

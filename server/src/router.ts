@@ -3,6 +3,6 @@ import tutorialActions from "./modules/tutorial/tutorialActions";
 
 const router = express.Router();
 
-router.get("/api/tutorials", tutorialActions.findAllTutorials);
+router.get("/api/tutorials", tutorialActions.readAll);
 
 export default router;
