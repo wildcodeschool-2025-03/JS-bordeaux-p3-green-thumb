@@ -51,7 +51,7 @@ export default function PlantProfile() {
           </h2>
           <article className="birthdate-wrapper">
             <img src={calendar} alt="calendar icon" className="calendar-icon" />
-            <span className="birthdate">{plant.plant_born_at}</span>
+            <span className="birthdate">{plant.born_at}</span>
           </article>
         </section>
 

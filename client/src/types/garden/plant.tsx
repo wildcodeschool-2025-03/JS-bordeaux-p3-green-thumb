@@ -6,5 +6,7 @@ export type Plant = {
   edible: boolean;
   toxic: boolean;
   plant_exposition: "north" | "south" | "east" | "west";
-  plant_born_at: string;
+  born_at: string;
+  nickname: string;
+  avatar: string;
 };
