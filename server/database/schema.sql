@@ -11,9 +11,9 @@ CREATE TABLE user (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO user (id, username, mail, password, avatar, city,has_pet, exposition) VALUES
-(1, 'Keanu Leaves','Keanu@ouimail.fr','1234','../public/assets/images/avatar/avatar1.png','Bordeaux', True, 'North'),
-(2, 'Jean Feuille','JF@ouimail.fr','9875','../public/assets/images/avatar/avatar2.png','Paris', False, 'South'),
-(3, 'Louis Plante','Loulou@ouimail.fr','4566','../public/assets/images/avatar/avatar2.png','Tours', False, 'East');
+(1, 'Keanu Leaves','Keanu@ouimail.fr','1234','/images/avatar/avatar1.png','Bordeaux', True, 'North'),
+(2, 'Jean Feuille','JF@ouimail.fr','9875','/images/avatar/avatar2.png','Paris', False, 'South'),
+(3, 'Louis Plante','Loulou@ouimail.fr','4566','/images/avatar/avatar2.png','Tours', False, 'East');
 
 CREATE TABLE garden (
   id INT PRIMARY KEY,
@@ -68,7 +68,7 @@ INSERT INTO plant (id, name, icon, description, plant_exposition, sowing, wateri
 (17, 'Lierre', '/images/plant-icon/lierre.png', 'Grimpante persistante, décorative', 'north', 'Printemps', 1, NULL, TRUE, FALSE),
 (18, 'Jasmin étoilé', '/images/plant-icon/jasmin.png', 'Grimpante très parfumée, feuillage persistant', 'south', 'Printemps', 2, NULL, TRUE, FALSE),
 (19, 'Clématite', '/images/plant-icon/clematite.png', 'Grimpante à fleurs décoratives', 'east', 'Printemps', 2, NULL, TRUE, FALSE),
-(20, 'Tomates cerises', '/images/plant-icon/tomate.png', 'Petites tomates sucrées faciles en pot', 'south', 'Avril-Mai', 3, 'Été', TRUE, TRUE),
+(20, 'Tomates cerises', '/images/plant-icon/tomates.png', 'Petites tomates sucrées faciles en pot', 'south', 'Avril-Mai', 3, 'Été', TRUE, TRUE),
 (21, 'Ficus elastica', '/images/plant-icon/ficus.png', 'Aussi appelé caoutchouc, plante robuste à larges feuilles brillantes', 'east', NULL, 2, NULL, TRUE, FALSE),
 (22, 'Monstera deliciosa', '/images/plant-icon/monstera.png', 'Plante tropicale à grandes feuilles fendues, très décorative', 'east', NULL, 2, NULL, TRUE, FALSE),
 (23, 'Pothos (Epipremnum)', '/images/plant-icon/pothos.png', 'Grimpante facile à vivre, idéale en suspension', 'north', NULL, 2, NULL, TRUE, FALSE),
@@ -82,9 +82,12 @@ INSERT INTO plant (id, name, icon, description, plant_exposition, sowing, wateri
 
 
 CREATE TABLE plant_garden (
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
   garden_id INT,
   plant_id INT,
-  PRIMARY KEY (garden_id, plant_id)
+  born_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  nickname VARCHAR(100) NULL,
+  avatar VARCHAR(255) NULL
 );
 
 CREATE TABLE tag (

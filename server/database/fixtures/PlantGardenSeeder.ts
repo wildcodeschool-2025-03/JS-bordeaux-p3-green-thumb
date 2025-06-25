@@ -3,6 +3,9 @@ import AbstractSeeder from "./AbstractSeeder";
 interface PlantGardenData {
   garden_id: number;
   plant_id: number;
+  born_at: string;
+  nickname: string;
+  avatar: string;
 }
 
 class PlantGardenSeeder extends AbstractSeeder {
@@ -15,18 +18,27 @@ class PlantGardenSeeder extends AbstractSeeder {
 
   run() {
     const gardenIds = [1, 2, 3];
-    const plantIds = [
-      1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
-      22, 23, 24, 25, 26, 27, 28, 29, 30,
-    ];
+    const plantIds = Array.from({ length: 30 }, (_, i) => i + 1);
 
     for (const gardenId of gardenIds) {
       const selectedPlants = this.faker.helpers.arrayElements(plantIds, 3);
 
       for (const plantId of selectedPlants) {
+        const bornAt = this.faker.date.between({
+          from: new Date(Date.now() - 1000 * 60 * 60 * 24 * 90),
+          to: new Date(),
+        });
+
+        const nickname = this.faker.person.firstName();
+
+        const avatar = this.faker.image.avatar();
+
         this.insert({
           garden_id: gardenId,
           plant_id: plantId,
+          born_at: bornAt.toISOString().slice(0, 19).replace("T", " "),
+          nickname,
+          avatar,
         } as PlantGardenData);
       }
     }
