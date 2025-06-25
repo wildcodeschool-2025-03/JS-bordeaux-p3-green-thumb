@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import TutorialList from "../../components/tutorial/TutorialList";
 import TutorialVideo from "../../components/tutorial/TutorialVideo";
+import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import "./Tutorial.css";
 import leaf from "../../assets/images/leaf.png";
 
