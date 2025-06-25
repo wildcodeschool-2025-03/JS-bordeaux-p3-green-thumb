@@ -1,33 +1,38 @@
 .plant-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90dvh;
   background-color: #262626;
-  margin-bottom: 35px;
-  border: 1px solid #9fcf00;
-  border-radius: 6px;
+  border: 3px solid #9fcf00;
+  border-radius: 10px;
+  padding: 12px;
 }
 
-.page-current {
-  margin: 0 8px;
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  flex-grow: 1;
+  padding: 0 16px;
+  box-sizing: border-box;
+  justify-items: stretch;
+  align-items: stretch;
 }
 
 .pagination-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 90%;
-
-  background-color: #262626;
-  border-top: 1px solid #9fcf00;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-top: 10px;
   padding: 10px 16px;
+  border-top: 2px solid #9fcf00;
+  background-color: #262626;
   color: white;
-  z-index: 100;
+}
+.pagination-bar span {
+  margin: 0 8px;
 }
 
 .pagination-bar button {

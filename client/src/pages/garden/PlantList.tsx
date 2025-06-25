@@ -20,6 +20,20 @@ function PlantList() {
   const [selectedPlants, setSelectedPlants] = useState<{
     [id: number]: number;
   }>({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemByPage = 9;
+
+  const totalPages = Math.ceil(data.length / itemByPage);
+  const startIndex = (currentPage - 1) * itemByPage;
+  const endIndex = startIndex + itemByPage;
+  const paginatedData = data.slice(startIndex, endIndex);
+
+  useEffect(() => {
+    fetch("http://localhost:3310/api/plant")
+      .then((res) => res.json())
+      .then((json) => setData(json))
+      .catch((err) => console.error("Erreur lors du fetch :", err));
+  }, []);
 
   const incrementPlant = (id: number) => {
     setSelectedPlants((prev) => ({
@@ -39,15 +53,8 @@ function PlantList() {
     });
   };
 
-  useEffect(() => {
-    fetch("http://localhost:3310/api/plant")
-      .then((res) => res.json())
-      .then((json) => setData(json))
-      .catch((err) => console.error("Erreur lors du fetch :", err));
-  }, []);
-
-  const handleSubmit = () => {
-    fetch("http://localhost:3310/api/selection", {
+  const submitPlantSelection = () => {
+    fetch("http://localhost:3310/api/garden", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,32 +73,51 @@ function PlantList() {
       .catch((err) => {
         console.error("Erreur lors de l'envoi :", err);
       });
+    console.log(JSON.stringify(selectedPlants));
   };
 
   return (
     <>
       <div className="plant-list">
-        {data.map((plant) => (
-          <PlantListItem
-            key={plant.id}
-            plant={plant}
-            quantity={selectedPlants[plant.id] || 0}
-            onAdd={() => incrementPlant(plant.id)}
-            onRemove={() => decrementPlant(plant.id)}
-          />
-        ))}
-      </div>
-
-      <div className="pagination-bar">
-        <div>
-          <button type="button">{"<"}</button>
-          <span className="page-current">1</span>
-          <span>of 4 </span>
-          <button type="button">{">"}</button>
+        <div className="plant-grid">
+          {paginatedData.map((plant) => (
+            <PlantListItem
+              key={plant.id}
+              plant={plant}
+              quantity={selectedPlants[plant.id] || 0}
+              onAdd={() => incrementPlant(plant.id)}
+              onRemove={() => decrementPlant(plant.id)}
+            />
+          ))}
         </div>
-        <button type="button" onClick={handleSubmit}>
-          ADD
-        </button>
+
+        <div className="pagination-bar">
+          <div>
+            <button
+              type="button"
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+              disabled={currentPage === 1}
+            >
+              {"<"}
+            </button>
+            <span>
+              {" "}
+              {currentPage} of {totalPages}{" "}
+            </span>
+            <button
+              type="button"
+              onClick={() =>
+                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+              }
+              disabled={currentPage === totalPages}
+            >
+              {">"}
+            </button>
+          </div>
+          <button type="button" onClick={submitPlantSelection}>
+            ADD
+          </button>
+        </div>
       </div>
     </>
   );

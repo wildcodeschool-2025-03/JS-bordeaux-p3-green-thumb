@@ -4,12 +4,19 @@
   padding: 8px;
   background-color: #222222;
   color: white;
-  font-family: sans-serif;
+  font-family: var(--main-font);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  min-width: 100px;
+  justify-content: center;
+  gap: 1px;
+  height: 90%;
+  width: 80%;
+}
+
+.plant-top {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .selected {
@@ -22,10 +29,6 @@
   justify-content: space-between;
   font-size: 1rem;
   font-weight: bold;
-}
-
-.spacer {
-  width: 1rem;
 }
 
 .plant-img {
@@ -43,13 +46,24 @@
 .plant-controls {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
 }
 
-.btn {
+.plant-controls button {
   background: none;
   border: none;
   color: #9fcf00;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   cursor: pointer;
+}
+
+.plant-quantity {
+  border: 1px solid #9fcf00;
+  border-radius: 10px;
+  padding: 2px 6px;
+  min-width: 20px;
+  text-align: center;
+  font-weight: bold;
 }

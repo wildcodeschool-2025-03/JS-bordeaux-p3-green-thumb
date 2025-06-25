@@ -1,7 +1,7 @@
 import type { RequestHandler } from "express";
 import plantRepository from "./plantRepository";
 
-export const browse: RequestHandler = async (req, res, next) => {
+const browse: RequestHandler = async (req, res, next) => {
   try {
     const plants = await plantRepository.findAll();
 
@@ -18,3 +18,5 @@ export const browse: RequestHandler = async (req, res, next) => {
       .json({ message: "Erreur serveur lors de la récupération des plantes." });
   }
 };
+
+export default { browse };

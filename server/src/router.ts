@@ -1,14 +1,8 @@
 import express from "express";
-import { browse } from "./modules/Plant/plantAction";
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
-router.get("/api/plant", browse);
-// Define item-related routes
-
-/* ************************************************************************* */
+import plantAction from "./modules/Plant/plantAction";
+router.get("/api/plant", plantAction.browse);
 
 export default router;
