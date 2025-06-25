@@ -12,7 +12,7 @@ const router = createBrowserRouter([
         element: <PlantProfile />,
       },
       {
-        path: "/Tutorials",
+        path: "/tutorial",
         element: <Tutorial />,
       },
     ],

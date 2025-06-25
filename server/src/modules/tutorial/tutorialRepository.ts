@@ -1,22 +1,12 @@
-import DatabaseClient, { type Rows } from "../../../database/client";
-
-export interface Tutorial {
-  id: number;
-  url: string;
-  title: string;
-  description: string;
-  author: string;
-  duration: number;
-  category: string;
-}
+import databaseClient, { type Rows } from "../../../database/client";
+import type { Tutorial } from "../../types/tutorial";
 
 class TutorialRepository {
   async findAll(): Promise<Tutorial[]> {
     const query = `
       SELECT * FROM tutorial
-      WHERE category IN ('gardening', 'plant')
     `;
-    const [tutorials] = await DatabaseClient.query<Rows>(query);
+    const [tutorials] = await databaseClient.query<Rows>(query);
     return tutorials as Tutorial[];
   }
 }

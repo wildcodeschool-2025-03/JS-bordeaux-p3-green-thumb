@@ -1,3 +1,9 @@
+.error-message {
+  text-align: center;
+  font-size: medium;
+  color: red;
+}
+
 .section-tutorial {
   padding-bottom: 10px;
 }

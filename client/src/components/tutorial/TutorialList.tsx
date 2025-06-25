@@ -1,11 +1,5 @@
-import type { Tutorial } from "../../pages/tutorial/Tutorial";
 import "./TutorialList.css";
-
-type PreviewTutorial = {
-  title: string;
-  tutorials: Tutorial[];
-  onSelect: (Tutorial: Tutorial) => void;
-};
+import type { PreviewTutorialProps } from "../../types/tutorials/tutorials";
 
 function getYoutubeThumbnail(url: string): string | null {
   const regex =
@@ -18,7 +12,14 @@ export default function TutorialList({
   title,
   tutorials,
   onSelect,
-}: PreviewTutorial) {
+}: PreviewTutorialProps) {
+  if (!tutorials || tutorials.length === 0) {
+    return (
+      <div className="error-message">
+        <p>Aucun tutoriel à afficher.</p>
+      </div>
+    );
+  }
   return (
     <section className="section-tutorial">
       <h2 className="section-title">{title}</h2>

@@ -1,10 +1,5 @@
-import type { Tutorial } from "../../pages/tutorial/Tutorial";
 import "./TutorialVideo.css";
-
-type YTVideo = {
-  tutorial: Tutorial;
-  onClose: () => void;
-};
+import type { TutorialsVideoProps } from "../../types/tutorials/tutorials";
 
 function getYoutubeId(url: string): string | null {
   const regex =
@@ -19,8 +14,11 @@ function formatDuration(seconds: number): string {
   return `${min} min ${sec.toString().padStart(2, "0")} sec`;
 }
 
-export default function TutorialVideo({ tutorial, onClose }: YTVideo) {
-  const videoId = getYoutubeId(tutorial.url);
+export default function TutorialVideo({
+  tutorial,
+  onClose,
+}: TutorialsVideoProps) {
+  const youtubeId = getYoutubeId(tutorial.url);
 
   return (
     <div
@@ -33,10 +31,10 @@ export default function TutorialVideo({ tutorial, onClose }: YTVideo) {
         onKeyDown={(e) => e.key === "o"}
         onClick={(e) => e.stopPropagation()}
       >
-        {videoId && (
+        {youtubeId && (
           <iframe
             className="frame-video"
-            src={`https://www.youtube.com/embed/${videoId}`}
+            src={`https://www.youtube.com/embed/${youtubeId}`}
             title={tutorial.title}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

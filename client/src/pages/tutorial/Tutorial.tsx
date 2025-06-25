@@ -1,22 +1,13 @@
 import { useEffect, useState } from "react";
+import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import TutorialList from "../../components/tutorial/TutorialList";
 import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import "./Tutorial.css";
 import leaf from "../../assets/images/leaf.png";
 
-export type Tutorial = {
-  id: number;
-  title: string;
-  url: string;
-  description: string;
-  author: string;
-  duration: number;
-  category: string;
-};
-
 export default function Tutorial() {
-  const [tutorials, setTutorials] = useState<Tutorial[]>([]);
-  const [selectedTutorial, setSelectedTutorial] = useState<Tutorial | null>(
+  const [tutorials, setTutorials] = useState<Tutorials[]>([]);
+  const [selectedTutorial, setSelectedTutorial] = useState<Tutorials | null>(
     null,
   );
 
@@ -27,8 +18,8 @@ export default function Tutorial() {
           `${import.meta.env.VITE_API_URL}/api/tutorials`,
         );
         if (!res.ok) throw new Error("Erreur serveur");
-        const data = await res.json();
-        setTutorials(data);
+        const tutorials = await res.json();
+        setTutorials(tutorials);
       } catch (err) {
         console.error("Erreur lors du fetch des tutoriels :", err);
       }
@@ -37,8 +28,10 @@ export default function Tutorial() {
     fetchTutorials();
   }, []);
 
-  const gardeningBasics = tutorials.filter((t) => t.category === "gardening");
-  const plantFocus = tutorials.filter((t) => t.category === "plant");
+  const tutorialsgardening = tutorials.filter(
+    (t) => t.category === "gardening",
+  );
+  const tutorialsplants = tutorials.filter((t) => t.category === "plant");
 
   return (
     <>
@@ -52,13 +45,13 @@ export default function Tutorial() {
 
           <TutorialList
             title="Gardening step by step 🌱"
-            tutorials={gardeningBasics}
+            tutorials={tutorialsgardening}
             onSelect={setSelectedTutorial}
           />
 
           <TutorialList
             title="Flowers and Plants 🌸"
-            tutorials={plantFocus}
+            tutorials={tutorialsplants}
             onSelect={setSelectedTutorial}
           />
 
