@@ -1,0 +1,27 @@
+.tutorial-responsive {
+  height: 85dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.leaf-decor {
+  width: 60px;
+}
+
+.tutorial-box {
+  flex: 1;
+  max-width: 100vw;
+  overflow-y: auto;
+  background-color: #30312c;
+  border: 1px solid #b3d537;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: var(--main-font);
+  box-sizing: border-box;
+}
+
+hr {
+  border-color: #b3d537;
+  margin-bottom: 20px;
+}
