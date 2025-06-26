@@ -15,7 +15,12 @@ export default function MyGarden() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetch("/api/plant_garden")
+    fetch("/api/plant_garden", {
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+      },
+    })
       .then((response) => response.json())
       .then((data) => setPlants(data))
       .catch((err) => setError(err.message));

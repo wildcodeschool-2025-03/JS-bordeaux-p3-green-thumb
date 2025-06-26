@@ -62,8 +62,10 @@ app.use(
 // Import the API router
 import router from "./router";
 
+app.use(express.json());
+
 // Mount the API router under the "/api" endpoint
-app.use(router);
+app.use("/api/plant_garden", router);
 
 /* ************************************************************************* */
 

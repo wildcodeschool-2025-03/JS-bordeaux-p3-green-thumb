@@ -5,10 +5,14 @@ const router = express.Router();
 
 /* ************************************************************************* */
 
-router.get("/plant_garden", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const [rows] = await db.query(
-      "SELECT id, name, type, image_url AS image, last_watered FROM plants WHERE is_dead = 0",
+      `SELECT 
+        id, 
+        name, 
+        icon AS image 
+      FROM plant`,
     );
 
     res.json(rows);
