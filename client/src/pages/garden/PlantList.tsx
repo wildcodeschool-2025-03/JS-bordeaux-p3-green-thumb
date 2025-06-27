@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
 import PlantListItem from "../../components/garden/PlantListItem/PlantListItem";
 import "./plantList.css";
 
@@ -27,6 +28,8 @@ function PlantList() {
   const startIndex = (currentPage - 1) * itemByPage;
   const endIndex = startIndex + itemByPage;
   const paginatedData = data.slice(startIndex, endIndex);
+  const { gardenId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3310/api/plant")
@@ -54,7 +57,7 @@ function PlantList() {
   };
 
   const submitPlantSelection = () => {
-    fetch("http://localhost:3310/api/garden", {
+    fetch(`http://localhost:3310/plant_garden/${gardenId}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,11 +72,13 @@ function PlantList() {
       })
       .then((data) => {
         console.log("Réponse du serveur :", data);
+        navigate(`/garden/${gardenId}/`);
       })
       .catch((err) => {
         console.error("Erreur lors de l'envoi :", err);
       });
-    console.log(JSON.stringify(selectedPlants));
+
+    console.log("Données envoyées :", JSON.stringify(selectedPlants));
   };
 
   return (
