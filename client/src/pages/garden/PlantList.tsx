@@ -77,8 +77,6 @@ function PlantList() {
       .catch((err) => {
         console.error("Erreur lors de l'envoi :", err);
       });
-
-    console.log("Données envoyées :", JSON.stringify(selectedPlants));
   };
 
   return (
