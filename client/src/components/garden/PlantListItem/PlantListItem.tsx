@@ -15,7 +15,7 @@ function PlantListItem({ plant, quantity, onAdd, onRemove }: Props) {
     <div className={`plant-card ${quantity > 0 ? "selected" : ""}`}>
       <img src={plant.icon} alt={plant.name} className="plant-img" />
 
-      <span className="plant-name">{plant.name}</span>
+      <span className="plant-item-name">{plant.name}</span>
 
       <div className="plant-controls">
         <button type="button" onClick={onRemove}>
