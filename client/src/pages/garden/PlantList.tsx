@@ -2,40 +2,28 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import PlantListItem from "../../components/garden/PlantListItem/PlantListItem";
 import "./plantList.css";
-
-type Plant = {
-  id: number;
-  name: string;
-  icon: string;
-  description: string;
-  plant_exposition: string;
-  sowing?: string | null;
-  watering: number;
-  harvesting?: string | null;
-  toxic?: boolean;
-  edible?: boolean;
-};
+import type { Plant } from "../../types/garden/plant";
 
 function PlantList() {
-  const [data, setData] = useState<Plant[]>([]);
+  const [plants, setplants] = useState<Plant[]>([]);
   const [selectedPlants, setSelectedPlants] = useState<{
     [id: number]: number;
   }>({});
   const [currentPage, setCurrentPage] = useState(1);
   const itemByPage = 9;
 
-  const totalPages = Math.ceil(data.length / itemByPage);
+  const totalPages = Math.ceil(plants.length / itemByPage);
   const startIndex = (currentPage - 1) * itemByPage;
   const endIndex = startIndex + itemByPage;
-  const paginatedData = data.slice(startIndex, endIndex);
+  const paginatedData = plants.slice(startIndex, endIndex);
   const { gardenId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:3310/api/plant")
       .then((res) => res.json())
-      .then((json) => setData(json))
-      .catch((err) => console.error("Erreur lors du fetch :", err));
+      .then((json) => setplants(json))
+      .catch((err) => console.error("Error while fetching plants:", err));
   }, []);
 
   const incrementPlant = (id: number) => {
@@ -66,23 +54,23 @@ function PlantList() {
     })
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Échec de l'envoi");
+          throw new Error("Failed to submit plant selection");
         }
         return res.json();
       })
       .then((data) => {
-        console.log("Réponse du serveur :", data);
+        console.log("Server response:", data);
         navigate(`/garden/${gardenId}/`);
       })
       .catch((err) => {
-        console.error("Erreur lors de l'envoi :", err);
+        console.error("Error during submission:", err);
       });
   };
 
   return (
     <>
       <div className="plant-list">
-        <div className="plant-grid">
+        <article className="plant-grid">
           {paginatedData.map((plant) => (
             <PlantListItem
               key={plant.id}
@@ -92,10 +80,10 @@ function PlantList() {
               onRemove={() => decrementPlant(plant.id)}
             />
           ))}
-        </div>
+        </article>
 
         <div className="pagination-bar">
-          <div>
+          <section>
             <button
               type="button"
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
@@ -116,7 +104,7 @@ function PlantList() {
             >
               {">"}
             </button>
-          </div>
+          </section>
           <button type="button" onClick={submitPlantSelection}>
             ADD
           </button>

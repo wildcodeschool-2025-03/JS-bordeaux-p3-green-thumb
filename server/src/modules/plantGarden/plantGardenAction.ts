@@ -8,7 +8,7 @@ const addMany: RequestHandler = async (req, res) => {
   const plantMap = req.body as PlantQuantityMap;
 
   if (!plantMap || Object.keys(plantMap).length === 0) {
-    res.status(400).json({ error: "Aucune plante fournie dans la requête." });
+    res.status(400).json({ error: "No plants provided in the request." });
     return;
   }
 
@@ -23,10 +23,14 @@ const addMany: RequestHandler = async (req, res) => {
       }
     }
 
-    res.status(201).json({ message: "Plantes ajoutées au jardin." });
+    res
+      .status(201)
+      .json({ message: "Plants successfully added to the garden." });
   } catch (error) {
-    console.error("Erreur lors de l'insertion :", error);
-    res.status(500).json({ error: "Erreur lors de l'ajout des plantes." });
+    console.error("Error while inserting plants:", error);
+    res
+      .status(500)
+      .json({ error: "An error occurred while adding the plants." });
   }
 };
 
