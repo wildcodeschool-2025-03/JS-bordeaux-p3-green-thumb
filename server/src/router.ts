@@ -5,8 +5,10 @@ const router = express.Router();
 import plantAction from "./modules/Plant/plantAction";
 router.get("/api/plant", plantAction.browse);
 
-import gardenActions from "./modules/garden/gardenActions";
+import tutorialActions from "./modules/tutorial/tutorialActions";
+router.get("/api/tutorials", tutorialActions.readAll);
 
+import gardenActions from "./modules/garden/gardenActions";
 router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
 
 export default router;

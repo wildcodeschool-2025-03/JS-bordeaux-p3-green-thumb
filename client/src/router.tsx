@@ -3,6 +3,7 @@ import App from "./App";
 import MyGarden from "./pages/garden/MyGarden";
 import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
+import Tutorial from "./pages/tutorial/Tutorial";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/garden/:gardenId/plant/:plantId",
         element: <PlantProfile />,
+      },
+      {
+        path: "/tutorial",
+        element: <Tutorial />,
       },
     ],
   },
