@@ -1,13 +1,8 @@
+import { Outlet } from "react-router";
 import "./App.css";
 
-import MyGarden from "./pages/Garden/MyGarden.tsx";
-
 function App() {
-  return (
-    <>
-      <MyGarden />
-    </>
-  );
+  return <Outlet />;
 }
 
 export default App;

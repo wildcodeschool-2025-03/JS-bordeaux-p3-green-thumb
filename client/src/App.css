@@ -1,0 +1,5 @@
+body {
+  background: var(--main-background);
+  font: var(--main-font);
+  color: var(--main-font-color);
+}
