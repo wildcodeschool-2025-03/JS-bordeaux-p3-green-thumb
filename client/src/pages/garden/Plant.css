@@ -1,3 +1,13 @@
+.desktop-box {
+  @media (min-width: 992px) {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}
+
 .profile-card {
   border: solid var(--card-border);
   border-radius: 8px;
