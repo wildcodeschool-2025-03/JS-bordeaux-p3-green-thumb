@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import PlantCard from "../../components/PlantCard/PlantCard";
 import "../../styles/MyGarden.css";
+import { useNavigate } from "react-router-dom";
 import cemetry from "../../assets/images/icons/cemetery.png";
+import leaf from "../../assets/images/leaf.png";
 
 type Plant = {
   id: number;
@@ -14,6 +16,7 @@ type Plant = {
 export default function MyGarden() {
   const [plants, setPlants] = useState<Plant[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("/api/plant_garden", {
@@ -35,8 +38,16 @@ export default function MyGarden() {
 
       <article className="garden-box">
         <div className="garden-title-row">
-          <h1>My Garden 🌿</h1>
-          <button type="button" className="btn cemetery-btn">
+          <h1>
+            My Garden <img src={leaf} alt="leaf" />
+          </h1>
+          <button
+            type="button"
+            onClick={() => {
+              navigate("/cemetery");
+            }}
+            className="btn cemetery-btn"
+          >
             <img src={cemetry} alt="Cemetery Icon" />
           </button>
         </div>
