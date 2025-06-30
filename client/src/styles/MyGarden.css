@@ -1,54 +1,126 @@
+/* GLOBAL FIX: éviter débordements */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  max-width: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background-color: #0d0d0d;
+  color: white;
 }
 
 .my-garden {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: var(--main-background);
-  min-height: 100vh;
-  border: 1px solid var(--card-border);
+  width: 100%;
+  padding: 40px;
 }
 
-.header {
+.green-line {
+  border: none;
+  height: 4px;
+  background-color: #b3d537;
+  margin: 16px 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* HEADER STICKY FIX */
+.garden-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #0d0d0d;
+  padding: 16px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.garden-box {
+  border: 1px solid #b3d537;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible; /* ✅ important pour que sticky fonctionne */
+}
+
+.garden-title-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
   flex-wrap: wrap;
-  min-height: 15vh;
+  gap: 12px;
 }
 
-.my-garden h1 {
-  font-family: var(--main-font);
-  color: var(--main-font-color);
-  margin-bottom: 20px;
+.garden-title-row h1 {
+  margin: 0;
 }
 
-.my-garden p {
-  font-family: var(--main-font);
-  color: var(--main-font-color);
-  margin-bottom: 20px;
+.cemetery-btn img {
+  width: 32px;
+  height: 32px;
 }
 
-.btn {
-  padding: 12px 24px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  min-width: 200px; /* assure une taille cohérente */
-  text-align: center;
-  margin: 10px;
+.plant-cards-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Deux colonnes */
+  gap: 24px;
 }
 
-.btn:hover {
-  background-color: #9cc32f; /* un vert plus foncé au hover */
+.plant-card {
+  background-color: #1e1e1e;
+  border: 1px solid #b3d537;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  gap: 16px;
+  max-width: 100%;
+  align-items: center;
+  min-height: 140px;
+  overflow: hidden;
+}
+
+.plant-image {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 2px solid #b3d537;
+  border-radius: 10px;
+}
+
+.plant-name {
+  color: #b3d537;
+  font-weight: bold;
+}
+
+.plant-type {
+  color: red;
+}
+
+.last-watered {
+  color: #ccc;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .my-garden {
+    padding: 20px;
+  }
+
+  .garden-header {
+    padding: 12px 0;
+  }
+  .plant-cards-container {
+    grid-template-columns: 1fr;
+  }
 }
