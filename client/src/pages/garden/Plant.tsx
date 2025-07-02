@@ -41,61 +41,67 @@ export default function PlantProfile() {
 
   return (
     <>
-      <section className="profile-card">
-        <img src={plant.icon} alt={plant.name} className="plant-icon" />
+      <div className="desktop-box">
+        <section className="profile-card">
+          <img src={plant.icon} alt={plant.name} className="plant-icon" />
 
-        <section className="plant-infos">
-          <h2 className="plant-name">
-            {plant.name}
-            <img src={pen} alt="pencil icon" className="pen-icon" />
-          </h2>
-          <article className="birthdate-wrapper">
-            <img src={calendar} alt="calendar icon" className="calendar-icon" />
-            <span className="birthdate">{plant.born_at}</span>
+          <section className="plant-infos">
+            <h2 className="plant-name">
+              {plant.name}
+              <img src={pen} alt="pencil icon" className="pen-icon" />
+            </h2>
+            <article className="birthdate-wrapper">
+              <img
+                src={calendar}
+                alt="calendar icon"
+                className="calendar-icon"
+              />
+              <span className="birthdate">{plant.born_at}</span>
+            </article>
+          </section>
+
+          <article className="icon-card">
+            {plant.edible ? (
+              <img src={edible} alt="edible" className="info-icon" />
+            ) : (
+              <img src={notEdible} alt="not edible" className="info-icon" />
+            )}
+            {plant.toxic ? (
+              <img src={toxic} alt="toxic" className="toxic-icon" />
+            ) : (
+              <img src={harmless} alt="harmless" className="harmless-icon" />
+            )}
+            <img
+              src={
+                expositionIcons[
+                  plant.plant_exposition as keyof typeof expositionIcons
+                ]
+              }
+              alt={`exposition ${plant.plant_exposition}`}
+              className="exposition-icon"
+            />
+          </article>
+
+          <article className="gallery">
+            <header className="gallery-header">
+              <h2 className="gallery-title">Gallery</h2>
+              <img src={addPhoto} alt="add icon" className="add-photo-icon" />
+            </header>
+            <figure className="plant-photo-carousel">
+              <img
+                src="https://placehold.co/162x162/png"
+                alt="gallery placeholder"
+                className="mobile-gallery-photo"
+              />
+              <img
+                src="https://placehold.co/240x240/png"
+                alt="gallery placeholder"
+                className="desktop-gallery-photo"
+              />
+            </figure>
           </article>
         </section>
-
-        <article className="icon-card">
-          {plant.edible ? (
-            <img src={edible} alt="edible" className="info-icon" />
-          ) : (
-            <img src={notEdible} alt="not edible" className="info-icon" />
-          )}
-          {plant.toxic ? (
-            <img src={toxic} alt="toxic" className="toxic-icon" />
-          ) : (
-            <img src={harmless} alt="harmless" className="harmless-icon" />
-          )}
-          <img
-            src={
-              expositionIcons[
-                plant.plant_exposition as keyof typeof expositionIcons
-              ]
-            }
-            alt={`exposition ${plant.plant_exposition}`}
-            className="exposition-icon"
-          />
-        </article>
-
-        <article className="gallery">
-          <header className="gallery-header">
-            <h2 className="gallery-title">Gallery</h2>
-            <img src={addPhoto} alt="add icon" className="add-photo-icon" />
-          </header>
-          <figure className="plant-photo-carousel">
-            <img
-              src="https://placehold.co/162x162/png"
-              alt="gallery placeholder"
-              className="mobile-gallery-photo"
-            />
-            <img
-              src="https://placehold.co/240x240/png"
-              alt="gallery placeholder"
-              className="desktop-gallery-photo"
-            />
-          </figure>
-        </article>
-      </section>
+      </div>
     </>
   );
 }
