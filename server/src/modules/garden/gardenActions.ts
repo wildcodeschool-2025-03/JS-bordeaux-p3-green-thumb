@@ -20,3 +20,4 @@ const readPlant: RequestHandler = async (req, res) => {
 };
 
 export default { readPlant };
+export type { RequestHandler };
