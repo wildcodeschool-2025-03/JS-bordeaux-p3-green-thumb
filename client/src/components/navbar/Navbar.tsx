@@ -22,14 +22,7 @@ export default function Navbar() {
               alt="tutorial video icon"
               className="nav-icon"
             />
-            <p
-              className="nav-text"
-              style={{
-                color: isActive ? "var(--active-text-color)" : "white",
-              }}
-            >
-              Tutorials
-            </p>
+            <p className={`nav-text ${isActive ? "active" : ""}`}>Tutorials</p>
           </>
         )}
       </NavLink>
@@ -42,12 +35,7 @@ export default function Navbar() {
               alt="plant doctor icon"
               className="nav-icon"
             />
-            <p
-              className="nav-text"
-              style={{
-                color: isActive ? "var(--active-text-color)" : "white",
-              }}
-            >
+            <p className={`nav-text ${isActive ? "active" : ""}`}>
               Doctor'Plant
             </p>
           </>
@@ -62,14 +50,7 @@ export default function Navbar() {
               alt="dashboard icon"
               className="nav-icon"
             />
-            <p
-              className="nav-text"
-              style={{
-                color: isActive ? "var(--active-text-color)" : "white",
-              }}
-            >
-              Dashboard
-            </p>
+            <p className={`nav-text ${isActive ? "active" : ""}`}>Dashboard</p>
           </>
         )}
       </NavLink>
@@ -82,14 +63,7 @@ export default function Navbar() {
               alt="photofeed icon"
               className="nav-icon"
             />
-            <p
-              className="nav-text"
-              style={{
-                color: isActive ? "var(--active-text-color)" : "white",
-              }}
-            >
-              Photofeed
-            </p>
+            <p className={`nav-text ${isActive ? "active" : ""}`}>Photofeed</p>
           </>
         )}
       </NavLink>
@@ -102,14 +76,7 @@ export default function Navbar() {
               alt="my garden icon"
               className="nav-icon"
             />
-            <p
-              className="nav-text"
-              style={{
-                color: isActive ? "var(--active-text-color)" : "white",
-              }}
-            >
-              My Garden
-            </p>
+            <p className={`nav-text ${isActive ? "active" : ""}`}>My Garden</p>
           </>
         )}
       </NavLink>

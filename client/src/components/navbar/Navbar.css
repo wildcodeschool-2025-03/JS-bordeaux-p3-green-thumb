@@ -32,8 +32,17 @@
   font-family: var(--main-font);
   font-size: 24px;
   white-space: nowrap;
+  color: white;
   transition: color 0.3s ease;
   text-align: left;
+
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.nav-text.active {
+  color: var(--active-text-color);
 
   @media screen and (max-width: 992px) {
     display: none;
