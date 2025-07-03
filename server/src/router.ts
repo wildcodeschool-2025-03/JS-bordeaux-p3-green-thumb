@@ -1,6 +1,11 @@
 import express from "express";
 import db from "../database/client";
 
+import plantAction from "./modules/Plant/plantAction";
+import tutorialActions from "./modules/tutorial/tutorialActions";
+import gardenActions from "./modules/garden/gardenActions";
+import plantGardenAction from "./modules/plantGarden/plantGardenAction";
+
 const router = express.Router();
 
 /* ************************************************************************* */
@@ -23,11 +28,13 @@ router.get("/", async (req, res) => {
 });
 
 /* ************************************************************************* */
-import tutorialActions from "./modules/tutorial/tutorialActions";
+
+router.get("/api/plant", plantAction.browse);
 
 router.get("/api/tutorials", tutorialActions.readAll);
-import gardenActions from "./modules/garden/gardenActions";
 
 router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
+
+router.post("/plant_garden/:gardenId", plantGardenAction.addMany);
 
 export default router;
