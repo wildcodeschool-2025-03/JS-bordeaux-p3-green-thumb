@@ -2,7 +2,7 @@
 export type {};
 
 declare global {
-  type plant = {
+  type Plant = {
     id: number;
     name: string;
     icon: string;
@@ -14,6 +14,10 @@ declare global {
     toxic: boolean;
     edible: boolean;
   };
+  interface PlantGardenEntry {
+    garden_id: number;
+    plant_id: number;
+  }
   namespace Express {
     export interface Request {
       /* ************************************************************************* */

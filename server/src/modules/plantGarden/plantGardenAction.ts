@@ -4,7 +4,7 @@ import plantGardenRepository from "./plantGardenRepository";
 type PlantQuantityMap = Record<string, number>;
 
 const addMany: RequestHandler = async (req, res) => {
-  const gardenId = Number.parseInt(req.params.gardenId, 10);
+  const gardenId = Number(req.params.gardenId);
   const plantMap = req.body as PlantQuantityMap;
 
   if (!plantMap || Object.keys(plantMap).length === 0) {
@@ -14,7 +14,7 @@ const addMany: RequestHandler = async (req, res) => {
 
   try {
     for (const [plantIdStr, quantity] of Object.entries(plantMap)) {
-      const plantId = Number.parseInt(plantIdStr, 10);
+      const plantId = Number(plantIdStr);
       for (let i = 0; i < quantity; i++) {
         await plantGardenRepository.insert({
           garden_id: gardenId,

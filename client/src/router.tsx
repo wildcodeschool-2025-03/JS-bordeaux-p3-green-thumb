@@ -10,11 +10,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "garden/:gardenId",
+        path: "garden/:Id",
         element: <MyGarden />,
       },
       {
-        path: "garden/:gardenId/plant-list",
+        path: "garden/:Id/plant-list",
         element: <PlantList />,
       },
       {

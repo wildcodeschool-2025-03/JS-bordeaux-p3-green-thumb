@@ -5,24 +5,26 @@ import "./plantList.css";
 import type { Plant } from "../../types/garden/plant";
 
 function PlantList() {
-  const [plants, setplants] = useState<Plant[]>([]);
+  const [plants, setPlants] = useState<Plant[]>([]);
+
   const [selectedPlants, setSelectedPlants] = useState<{
     [id: number]: number;
   }>({});
+
   const [currentPage, setCurrentPage] = useState(1);
   const itemByPage = 9;
-
   const totalPages = Math.ceil(plants.length / itemByPage);
   const startIndex = (currentPage - 1) * itemByPage;
   const endIndex = startIndex + itemByPage;
   const paginatedData = plants.slice(startIndex, endIndex);
+
   const { gardenId } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:3310/api/plant")
+    fetch(`${import.meta.env.VITE_API_URL}/api/plant`)
       .then((res) => res.json())
-      .then((json) => setplants(json))
+      .then((plants) => setPlants(plants))
       .catch((err) => console.error("Error while fetching plants:", err));
   }, []);
 
@@ -69,7 +71,7 @@ function PlantList() {
 
   return (
     <>
-      <div className="plant-list">
+      <section className="plant-list">
         <article className="plant-grid">
           {paginatedData.map((plant) => (
             <PlantListItem
@@ -109,7 +111,7 @@ function PlantList() {
             ADD
           </button>
         </div>
-      </div>
+      </section>
     </>
   );
 }
