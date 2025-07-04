@@ -71,47 +71,49 @@ function PlantList() {
 
   return (
     <>
-      <section className="plant-list">
-        <article className="plant-grid">
-          {paginatedData.map((plant) => (
-            <PlantListItem
-              key={plant.id}
-              plant={plant}
-              quantity={selectedPlants[plant.id] || 0}
-              onAdd={() => incrementPlant(plant.id)}
-              onRemove={() => decrementPlant(plant.id)}
-            />
-          ))}
-        </article>
+      <div className="desktop-box">
+        <section className="plant-list">
+          <article className="plant-grid">
+            {paginatedData.map((plant) => (
+              <PlantListItem
+                key={plant.id}
+                plant={plant}
+                quantity={selectedPlants[plant.id] || 0}
+                onAdd={() => incrementPlant(plant.id)}
+                onRemove={() => decrementPlant(plant.id)}
+              />
+            ))}
+          </article>
 
-        <div className="pagination-bar">
-          <section>
-            <button
-              type="button"
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-            >
-              {"<"}
+          <div className="pagination-bar">
+            <section>
+              <button
+                type="button"
+                onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                {"<"}
+              </button>
+              <span>
+                {" "}
+                {currentPage} of {totalPages}{" "}
+              </span>
+              <button
+                type="button"
+                onClick={() =>
+                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+                }
+                disabled={currentPage === totalPages}
+              >
+                {">"}
+              </button>
+            </section>
+            <button type="button" onClick={submitPlantSelection}>
+              ADD
             </button>
-            <span>
-              {" "}
-              {currentPage} of {totalPages}{" "}
-            </span>
-            <button
-              type="button"
-              onClick={() =>
-                setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-              }
-              disabled={currentPage === totalPages}
-            >
-              {">"}
-            </button>
-          </section>
-          <button type="button" onClick={submitPlantSelection}>
-            ADD
-          </button>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </>
   );
 }
