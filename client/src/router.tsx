@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
-import MyGarden from "./pages/garden/MyGarden";
-import PlantProfile from "./pages/garden/Plant";
-import PlantList from "./pages/garden/PlantList";
+import MyGarden from "./pages/Garden/MyGarden";
+import PlantProfile from "./pages/Garden/Plant";
+import PlantList from "./pages/Garden/PlantList";
 import Tutorial from "./pages/tutorial/Tutorial";
 
 import Cemetery from "./pages/cemetery/Cemetery";
