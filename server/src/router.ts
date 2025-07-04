@@ -1,8 +1,10 @@
 import express from "express";
 
-import plantAction from "./modules/Plant/plantAction";
 import gardenActions from "./modules/garden/gardenActions";
+
+import plantAction from "./modules/plant/plantAction";
 import plantGardenAction from "./modules/plantGarden/plantGardenAction";
+
 import tutorialActions from "./modules/tutorial/tutorialActions";
 
 import db from "../database/client";
