@@ -1,10 +1,10 @@
 import express from "express";
-import db from "../database/client";
-
-import plantAction from "./modules/Plant/plantAction";
-import tutorialActions from "./modules/tutorial/tutorialActions";
 import gardenActions from "./modules/garden/gardenActions";
+import plantAction from "./modules/Plant/plantAction";
 import plantGardenAction from "./modules/plantGarden/plantGardenAction";
+import tutorialActions from "./modules/tutorial/tutorialActions";
+
+import db from "../database/client";
 
 const router = express.Router();
 
