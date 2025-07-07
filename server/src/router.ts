@@ -1,6 +1,9 @@
 import express from "express";
+import authActions from "../src/modules/auth/authActions";
 
 const router = express.Router();
+
+router.post("/api/login", authActions.login);
 
 import plantAction from "./modules/Plant/plantAction";
 router.get("/api/plant", plantAction.browse);
