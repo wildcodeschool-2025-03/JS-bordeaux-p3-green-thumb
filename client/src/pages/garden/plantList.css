@@ -1,0 +1,55 @@
+.desktop-box {
+  @media (min-width: 992px) {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}
+
+.plant-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 90dvh;
+  background-color: #262626;
+  border: 3px solid #9fcf00;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.plant-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(3, 1fr);
+  gap: 12px;
+  flex-grow: 1;
+  padding: 0 16px;
+  box-sizing: border-box;
+  justify-items: stretch;
+  align-items: stretch;
+}
+
+.pagination-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 10px 16px;
+  border-top: 2px solid #9fcf00;
+  background-color: #262626;
+  color: white;
+}
+.pagination-bar span {
+  margin: 0 8px;
+}
+
+.pagination-bar button {
+  background-color: #9fcf00;
+  border: none;
+  padding: 6px 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}

@@ -1,0 +1,70 @@
+.error-message {
+  text-align: center;
+  font-size: medium;
+  color: red;
+}
+
+.section-tutorial {
+  padding-bottom: 10px;
+}
+
+.carousel-box {
+  overflow-x: auto;
+  padding: 10px 0;
+
+  max-width: 100vw;
+}
+
+.gallery-video::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-video {
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.thumbnail {
+  min-width: 160px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #1e1e1e;
+  transition: transform 0.2s;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.thumbnail-title {
+  margin-top: 6px;
+  margin-left: 6px;
+  font-size: 14px;
+  color: var(--main-font-color, #fff);
+  text-align: left;
+  max-width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 600px) {
+  .thumbnail {
+    min-width: 120px;
+  }
+  .thumbnail-title {
+    max-width: 120px;
+    font-size: 12px;
+  }
+}
