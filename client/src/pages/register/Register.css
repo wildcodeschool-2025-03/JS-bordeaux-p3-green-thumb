@@ -2,17 +2,22 @@ body {
   background: var(--landing-background);
   background-size: cover;
 }
+
+.form-title {
+  background: #2a2623;
+}
+
 .form-wrapper {
   border: solid 1px var(--card-border);
   border-radius: 8px;
+  background: #34302d;
   height: 85dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   margin-left: 10px;
   margin-right: 10px;
-  @media (min-width: 992px) {
-    width: calc(100% - 250px);
+  @media screen and (min-width: 992px) {
     margin-left: 250px;
     padding: 0 20px;
     box-sizing: border-box;
@@ -20,18 +25,77 @@ body {
   }
 }
 
+.user-infos {
+  @media screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 8px;
+  }
+}
+
+.firstname-field {
+  @media screen and (min-width: 992px) {
+    grid-column: span 2 / span 2;
+  }
+}
+.lastname-field {
+  @media screen and (min-width: 992px) {
+    grid-column: span 2 / span 2;
+    grid-column-start: 3;
+  }
+}
+.username-field {
+  @media screen and (min-width: 992px) {
+    grid-column: span 2 / span 2;
+    grid-row-start: 2;
+  }
+}
+.city-field {
+  @media screen and (min-width: 992px) {
+    grid-column: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 2;
+  }
+}
+
+.email-field {
+  @media screen and (min-width: 992px) {
+    grid-column: span 4 / span 4;
+    grid-row-start: 3;
+  }
+}
+.password-field {
+  @media screen and (min-width: 992px) {
+    grid-column: span 2 / span 2;
+    grid-row-start: 4;
+  }
+}
+
+.confirm-password-field {
+  @media screen and (min-width: 992px) {
+    grid-column: span 2 / span 2;
+    grid-column-start: 3;
+    grid-row-start: 4;
+  }
+}
+
 .form-field {
   display: flex;
+  border: none;
   flex-direction: column;
-  width: 313px;
-  height: 60px;
+  /* width: 313px;
+  height: 60px; */
   border-radius: 8px;
   background: #413d3a;
+  margin: 0.8em;
 }
 
 .form-input {
   height: 25px;
   border: none;
   background: #413d3a;
+  font-weight: bold;
+  font-size: larger;
   color: var(--main-font-color);
 }
