@@ -1,27 +1,45 @@
 body {
   background: var(--landing-background);
   background-size: cover;
+  display: flex;
+  justify-content: center;
+}
+
+.form-title-wrapper {
+  background: #2a2623;
+  display: flex;
+  justify-content: center;
 }
 
 .form-title {
-  background: #2a2623;
+  padding: 0.75em 2em;
+  margin: 0;
+  font-size: 32px;
 }
 
 .form-wrapper {
   border: solid 1px var(--card-border);
   border-radius: 8px;
   background: #34302d;
-  height: 85dvh;
+  height: 730px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  margin-left: 10px;
-  margin-right: 10px;
   @media screen and (min-width: 992px) {
-    margin-left: 250px;
-    padding: 0 20px;
+    flex-direction: row;
+    width: 1113px;
+    height: 650px;
     box-sizing: border-box;
     overflow: hidden;
+    margin-top: 2em;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (min-width: 992px) {
+    padding-left: 4em;
   }
 }
 
@@ -31,6 +49,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     gap: 8px;
+    padding: 0.7em 2em;
   }
 }
 
@@ -80,12 +99,17 @@ body {
   }
 }
 
+.password-view-icon {
+  width: 20px;
+}
+.password-view-button {
+  border: none;
+  background: transparent;
+}
 .form-field {
   display: flex;
   border: none;
   flex-direction: column;
-  /* width: 313px;
-  height: 60px; */
   border-radius: 8px;
   background: #413d3a;
   margin: 0.8em;
@@ -98,4 +122,25 @@ body {
   font-weight: bold;
   font-size: larger;
   color: var(--main-font-color);
+}
+
+.register-button-wrapper {
+  border: none;
+  display: flex;
+  justify-content: center;
+  @media screen and (min-width: 992px) {
+    justify-content: right;
+    margin: 1em 2em;
+  }
+}
+
+.register-button {
+  background: none;
+  border: solid 1px #55514f;
+  color: #55514f;
+  padding: 0 2em;
+  width: 230px;
+  height: 56px;
+  border-radius: 8px;
+  cursor: pointer;
 }

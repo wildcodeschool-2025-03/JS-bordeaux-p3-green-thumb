@@ -8,6 +8,10 @@ import Tutorial from "./pages/tutorial/Tutorial";
 
 const router = createBrowserRouter([
   {
+    path: "/register",
+    element: <Register />,
+  },
+  {
     element: <App />,
     children: [
       {
@@ -25,10 +29,6 @@ const router = createBrowserRouter([
       {
         path: "/tutorial",
         element: <Tutorial />,
-      },
-      {
-        path: "/register",
-        element: <Register />,
       },
     ],
   },
