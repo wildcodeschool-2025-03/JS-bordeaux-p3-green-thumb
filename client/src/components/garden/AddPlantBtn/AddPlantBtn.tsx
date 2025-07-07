@@ -3,11 +3,11 @@ import { useNavigate, useParams } from "react-router";
 
 function AddPlantBtn() {
   const navigate = useNavigate();
-  const { Id } = useParams();
+  const { id } = useParams();
 
   const navigateToPlantList = () => {
-    if (!Id) return;
-    navigate(`/garden/${Id}/plant-list`);
+    if (!id) return;
+    navigate(`/garden/${id}/plant-list`);
   };
 
   return (
