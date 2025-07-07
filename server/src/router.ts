@@ -1,13 +1,18 @@
 import express from "express";
-import tutorialActions from "./modules/tutorial/tutorialActions";
 
 const router = express.Router();
 
+import plantAction from "./modules/Plant/plantAction";
+router.get("/api/plant", plantAction.browse);
+
+import tutorialActions from "./modules/tutorial/tutorialActions";
 router.get("/api/tutorials", tutorialActions.readAll);
 
 import gardenActions from "./modules/garden/gardenActions";
-
 router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
+
+import plantGardenAction from "./modules/plantGarden/plantGardenAction";
+router.post("/plant_garden/:gardenId", plantGardenAction.addMany);
 
 import userActions from "./modules/user/userActions";
 
