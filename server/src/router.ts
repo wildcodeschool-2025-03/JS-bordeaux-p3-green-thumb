@@ -2,8 +2,8 @@ import express from "express";
 
 const router = express.Router();
 
-import validateLogin from "./modules/auth/validateLogin";
 import authActions from "../src/modules/auth/authActions";
+import validateLogin from "./modules/auth/validateLogin";
 router.post("/api/login", validateLogin, authActions.login);
 
 import plantAction from "./modules/Plant/plantAction";
