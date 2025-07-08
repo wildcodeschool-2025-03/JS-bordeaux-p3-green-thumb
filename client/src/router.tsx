@@ -3,9 +3,14 @@ import App from "./App";
 import MyGarden from "./pages/garden/MyGarden";
 import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
+import Landing from "./pages/landing/Landing";
 import Tutorial from "./pages/tutorial/Tutorial";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
   {
     element: <App />,
     children: [
