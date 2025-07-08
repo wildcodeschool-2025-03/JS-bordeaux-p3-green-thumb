@@ -1,5 +1,5 @@
 import type { RequestHandler } from "express";
-import plantRepository from "../plant/plantRepository";
+import plantRepository from "./plantRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
   try {
