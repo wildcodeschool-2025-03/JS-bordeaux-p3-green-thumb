@@ -2,7 +2,7 @@ import express from "express";
 
 const router = express.Router();
 
-import plantAction from "./modules/plant/plantAction";
+import plantAction from "./modules/planttest/plantAction";
 router.get("/api/plant", plantAction.browse);
 
 import tutorialActions from "./modules/tutorial/tutorialActions";
