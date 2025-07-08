@@ -3,8 +3,8 @@ import express from "express";
 const router = express.Router();
 
 import authActions from "../src/modules/auth/authActions";
-import validateLogin from "./modules/auth/validateLogin";
-router.post("/api/login", validateLogin, authActions.login);
+router.post("/api/login", authActions.validateUser, authActions.login);
+router.get("/api/login", authActions.verifyToken);
 
 import plantAction from "./modules/Plant/plantAction";
 router.get("/api/plant", plantAction.browse);

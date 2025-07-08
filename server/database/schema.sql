@@ -1,7 +1,7 @@
 CREATE TABLE user (
   id INT PRIMARY KEY,
   username VARCHAR(20) NOT NULL,  
-  mail VARCHAR(255) UNIQUE NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
   password VARCHAR(145) NOT NULL,
   avatar VARCHAR(255) NOT NULL,
   city VARCHAR(60) NOT NULL,
@@ -10,10 +10,10 @@ CREATE TABLE user (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-INSERT INTO user (id, username, mail, password, avatar, city,has_pet, exposition) VALUES
-(1, 'Keanu Leaves','Keanu@ouimail.fr','1234','/images/avatar/avatar1.png','Bordeaux', True, 'North'),
-(2, 'Jean Feuille','JF@ouimail.fr','9875','/images/avatar/avatar2.png','Paris', False, 'South'),
-(3, 'Louis Plante','Loulou@ouimail.fr','4566','/images/avatar/avatar2.png','Tours', False, 'East');
+INSERT INTO user (id, username, email, password, avatar, city,has_pet, exposition) VALUES
+(1, 'Keanu Leaves','Keanu@ouimail.fr','TonMdp12345!','/images/avatar/avatar1.png','Bordeaux', True, 'North'),
+(2, 'Jean Feuille','JF@ouimail.fr','Password1234!','/images/avatar/avatar2.png','Paris', False, 'South'),
+(3, 'Louis Plante','Loulou@ouimail.fr','Password1234!','/images/avatar/avatar2.png','Tours', False, 'East');
 
 CREATE TABLE garden (
   id INT PRIMARY KEY,
