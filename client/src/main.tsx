@@ -1,6 +1,5 @@
 import { createRoot } from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router";
-import "./styles/Landing.css";
 import "./styles/_variables.css";
 
 /* ************************************************************************* */

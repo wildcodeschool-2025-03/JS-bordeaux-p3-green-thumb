@@ -1,10 +1,11 @@
 import type React from "react";
-import { useNavigate } from "react-router-dom";
-import "../../styles/Landing.css";
-import "../../styles/_variables.css";
+
+import "./Landing.css";
+import { useNavigate } from "react-router";
 
 const Landing: React.FC = () => {
   const navigate = useNavigate();
+
   const Login = () => {
     navigate("/login");
   };
