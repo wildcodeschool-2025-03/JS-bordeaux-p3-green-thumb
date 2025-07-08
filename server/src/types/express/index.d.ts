@@ -18,6 +18,12 @@ declare global {
     garden_id: number;
     plant_id: number;
   }
+  interface User {
+    id: number;
+    email: string;
+    password: string;
+  }
+
   namespace Express {
     export interface Request {
       /* ************************************************************************* */
