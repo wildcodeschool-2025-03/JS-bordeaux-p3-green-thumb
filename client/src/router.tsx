@@ -3,10 +3,15 @@ import App from "./App";
 import MyGarden from "./pages/garden/MyGarden";
 import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
+import Landing from "./pages/landing/Landing";
 import Register from "./pages/register/Register";
 import Tutorial from "./pages/tutorial/Tutorial";
 
 const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+  },
   {
     path: "/register",
     element: <Register />,
@@ -15,11 +20,11 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "garden/:Id",
+        path: "garden/:id",
         element: <MyGarden />,
       },
       {
-        path: "garden/:Id/plant-list",
+        path: "garden/:id/plant-list",
         element: <PlantList />,
       },
       {

@@ -1,0 +1,85 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.landing-container {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("../src/assets/images/landing-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 70px;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.logo-icon {
+  margin: 0;
+  font-size: 40px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.logo-icon img {
+  width: 147px;
+  height: 147px;
+  margin-bottom: 0;
+  display: block;
+}
+
+.welcome-title {
+  color: var(--main-font-color);
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 0px;
+}
+
+.btn {
+  font-size: 16px;
+  padding: 12px 30px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  width: 240px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+}
+
+.btn:first-of-type {
+  margin-top: 50px;
+}
+
+.btn-primary {
+  background-color: var(--card-border);
+  border: none;
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: #b0cc3b;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--card-border);
+  color: var(--card-border);
+}
+
+.btn-outline:hover {
+  background-color: rgba(198, 224, 69, 0.1);
+}

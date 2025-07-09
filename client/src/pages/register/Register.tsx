@@ -13,6 +13,7 @@ export default function Register() {
   const [isComplete, setIsComplete] = useState(false);
   const [type, setType] = useState("password");
   const [icon, setIcon] = useState(eyeOff);
+  const [passwordError, setPasswordError] = useState("");
 
   const firstnameRef = useRef<HTMLInputElement>(null);
   const lastnameRef = useRef<HTMLInputElement>(null);
@@ -28,6 +29,9 @@ export default function Register() {
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   const validateForm = () => {
+    const passwordMatch =
+      passwordRef.current?.value === confirmPasswordRef.current?.value;
+
     const complete =
       firstnameRef.current?.value &&
       lastnameRef.current?.value &&
@@ -36,9 +40,18 @@ export default function Register() {
       emailRef.current?.value &&
       passwordRef.current?.value &&
       confirmPasswordRef.current?.value &&
-      passwordRef.current.value === confirmPasswordRef.current.value;
+      passwordMatch;
 
     setIsComplete(!!complete);
+    if (
+      passwordRef.current?.value &&
+      confirmPasswordRef.current?.value &&
+      !passwordMatch
+    ) {
+      setPasswordError("Passwords do not match");
+    } else {
+      setPasswordError("");
+    }
   };
 
   const togglePasswordView = () => {
@@ -55,7 +68,7 @@ export default function Register() {
     event.preventDefault();
 
     if (passwordRef.current?.value !== confirmPasswordRef.current?.value) {
-      alert("Passwords do not match!");
+      console.info("Passwords do not match!");
       return;
     }
 
@@ -77,7 +90,7 @@ export default function Register() {
       );
 
       if (response.status === 201) {
-        navigate("/tutorial");
+        navigate("/login");
       } else {
         console.info(response);
       }
@@ -180,6 +193,7 @@ export default function Register() {
                   onInput={validateForm}
                 />
               </div>
+              {passwordError && <p className="form-error">{passwordError}</p>}
             </section>
             <div className="register-button-wrapper">
               <button

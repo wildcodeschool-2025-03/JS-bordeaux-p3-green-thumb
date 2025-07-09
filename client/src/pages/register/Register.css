@@ -11,7 +11,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-bottom: 2em;
 }
 
 .form-title-wrapper {
@@ -29,8 +28,8 @@
 .form-wrapper {
   border: solid 1px var(--card-border);
   background: #34302d;
-  height: 590px;
-  width: 348px;
+  height: auto;
+  width: 350px;
   display: flex;
   flex-direction: column;
   @media screen and (min-width: 992px) {
@@ -129,6 +128,11 @@ input,
   border: none;
   background: transparent;
 }
+.form-error {
+  color: red;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
 .form-field {
   display: flex;
   border: none;
@@ -149,10 +153,10 @@ input,
 .register-button-wrapper {
   border: none;
   display: flex;
+  margin: 1em 2em;
   justify-content: center;
   @media screen and (min-width: 992px) {
     justify-content: right;
-    margin: 1em 2em;
   }
 }
 
