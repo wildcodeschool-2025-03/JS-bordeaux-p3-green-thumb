@@ -11,6 +11,9 @@ const hashingOptions = {
 const hashPassword: RequestHandler = async (req, res, next) => {
   try {
     const { password } = req.body;
+    if (!password) {
+      res.status(400).json({ error: "password invalid" });
+    }
     const hashedPassword = await argon2.hash(password, hashingOptions);
     req.body.hashed_password = hashedPassword;
     req.body.password = undefined;

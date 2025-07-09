@@ -2,6 +2,18 @@ import type { RequestHandler } from "express";
 import userRepository from "./userRepository";
 
 const addNewUser: RequestHandler = async (req, res, next) => {
+  const requiredFields = [
+    "firstname",
+    "lastname",
+    "username",
+    "email",
+    "hashed_password",
+  ];
+
+  if (!requiredFields) {
+    res.status(400).json({ error: "missing fields" });
+  }
+
   try {
     const newUser = {
       firstname: req.body.firstname,
