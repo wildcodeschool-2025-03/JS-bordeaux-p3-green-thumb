@@ -142,6 +142,7 @@ input,
 }
 
 .form-input {
+  width: 90%;
   height: 25px;
   border: none;
   background: #413d3a;
@@ -172,5 +173,37 @@ input,
 
 .register-button--disabled {
   border: solid 1px var(--inactive-text-color);
+  color: var(--inactive-text-color);
+}
+
+.floating-label-container {
+  position: relative;
+  margin-top: 1em;
+}
+
+.floating-label-container input {
+  padding: 0 2em;
+  font-size: 1rem;
+  background: none;
+  outline: none;
+}
+
+.floating-label-container label {
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  transform: translateY(-50%);
+  padding: 0 4px;
+  color: var(--main-font-color);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.floating-label-container input:focus + label,
+.floating-label-container input:not(:placeholder-shown) + label {
+  top: -8px;
+  left: 8px;
+  font-size: 1rem;
   color: var(--inactive-text-color);
 }

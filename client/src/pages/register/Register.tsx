@@ -121,88 +121,108 @@ export default function Register() {
           <form onSubmit={submitRegister} className="form">
             <section className="user-infos">
               <div className="form-field firstname-field">
-                <label htmlFor="firstname">firstname</label>
-                <input
-                  id="firstname"
-                  ref={firstnameRef}
-                  type="text"
-                  className="form-input"
-                  onInput={validateForm}
-                />
+                <div className="floating-label-container">
+                  <input
+                    id="firstname"
+                    ref={firstnameRef}
+                    type="text"
+                    className="form-input"
+                    onInput={validateForm}
+                    placeholder=" "
+                  />
+                  <label htmlFor="firstname">Firstname</label>
+                </div>
               </div>
               <div className="form-field lastname-field">
-                <label htmlFor="lastname">lastname</label>
-                <input
-                  id="lastname"
-                  ref={lastnameRef}
-                  type="text"
-                  className="form-input"
-                  onInput={validateForm}
-                />
+                <div className="floating-label-container">
+                  <input
+                    id="lastname"
+                    ref={lastnameRef}
+                    type="text"
+                    className="form-input"
+                    onInput={validateForm}
+                    placeholder=" "
+                  />
+                  <label htmlFor="lastname">Lastname</label>
+                </div>
               </div>
               <div className="form-field username-field">
-                <label htmlFor="username">username</label>
-                <input
-                  id="username"
-                  ref={usernameRef}
-                  type="text"
-                  className="form-input"
-                  onInput={validateForm}
-                />
+                <div className="floating-label-container">
+                  <input
+                    id="username"
+                    ref={usernameRef}
+                    type="text"
+                    className="form-input"
+                    onInput={validateForm}
+                    placeholder=" "
+                  />
+                  <label htmlFor="username">Username</label>
+                </div>
               </div>
               <div className="form-field city-field">
-                <label htmlFor="city">city</label>
-                <input
-                  id="city"
-                  ref={cityRef}
-                  type="text"
-                  className="form-input"
-                  placeholder=""
-                  onInput={validateForm}
-                />
+                <div className="floating-label-container">
+                  <input
+                    id="city"
+                    ref={cityRef}
+                    type="text"
+                    className="form-input"
+                    onInput={validateForm}
+                    placeholder=" "
+                  />
+                  <label htmlFor="city">City</label>
+                </div>
               </div>
               <div className="form-field email-field">
-                <label htmlFor="email">email</label>
-                <input
-                  id="email"
-                  ref={emailRef}
-                  type="email"
-                  className="form-input"
-                  onInput={validateForm}
-                />
+                <div className="floating-label-container">
+                  <input
+                    id="email"
+                    ref={emailRef}
+                    type="email"
+                    className="form-input"
+                    onInput={validateForm}
+                    placeholder=" "
+                  />
+                  <label htmlFor="email">Email</label>
+                </div>
               </div>
               <div className="form-field password-field">
-                <label htmlFor="password">password </label>
-                <div className="password-label">
-                  <input
-                    id="password"
-                    ref={passwordRef}
-                    type={type}
-                    className="form-input "
-                    onInput={validateForm}
-                  />
-                  <button
-                    type="button"
-                    onClick={togglePasswordView}
-                    className="password-view-button"
-                  >
-                    <img
-                      src={icon}
-                      alt="view password icon"
-                      className="password-view-icon"
+                <div className="floating-label-container">
+                  <div className="password-label">
+                    <input
+                      id="password"
+                      ref={passwordRef}
+                      type={type}
+                      className="form-input "
+                      onInput={validateForm}
+                      placeholder=" "
                     />
-                  </button>
+                    <label htmlFor="password">Password</label>
+                    <button
+                      type="button"
+                      onClick={togglePasswordView}
+                      className="password-view-button"
+                    >
+                      <img
+                        src={icon}
+                        alt="view password icon"
+                        className="password-view-icon"
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="form-field confirm-password-field">
-                <label htmlFor="confirm password">confirm password</label>
-                <input
-                  id="confirm password"
-                  ref={confirmPasswordRef}
-                  type="password"
-                  className="form-input"
-                  onInput={validateForm}
-                />
+                <div className="floating-label-container">
+                  <input
+                    id="confirm password"
+                    ref={confirmPasswordRef}
+                    type="password"
+                    className="form-input"
+                    onInput={validateForm}
+                    placeholder=" "
+                  />
+                  <label htmlFor="confirm password">Confirm Password</label>
+                </div>
               </div>
               <div className="form-error">
                 {passwordError && <p>{passwordError}</p>}
