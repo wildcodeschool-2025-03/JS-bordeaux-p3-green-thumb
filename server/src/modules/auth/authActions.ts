@@ -1,6 +1,6 @@
 import type { RequestHandler } from "express";
-import jwt from "jsonwebtoken";
 import Joi from "joi";
+import jwt from "jsonwebtoken";
 import userRepository from "../user/userRepository";
 
 const loginSchema = Joi.object({
