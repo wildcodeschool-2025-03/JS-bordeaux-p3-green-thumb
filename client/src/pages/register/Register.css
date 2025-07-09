@@ -1,8 +1,5 @@
 .greenthumb-logo {
   width: 145px;
-  @media screen and (min-width: 992px) {
-    width: 281px;
-  }
 }
 
 .register-body {
@@ -11,6 +8,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .form-title-wrapper {
@@ -129,10 +127,12 @@ input,
   background: transparent;
 }
 .form-error {
+  width: 230px;
+  height: 10px;
   color: red;
   font-size: 0.9rem;
-  margin-top: 0.25rem;
 }
+
 .form-field {
   display: flex;
   border: none;
