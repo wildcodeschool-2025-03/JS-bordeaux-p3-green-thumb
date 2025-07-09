@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import PlantListItem from "../../components/garden/PlantListItem/PlantListItem";
 import "./plantList.css";
+import { useUserContext } from "../../context/UserContext.tsx";
 import type { Plant } from "../../types/garden/plant";
 
 function PlantList() {
+  const { user } = useUserContext();
+
   const [plants, setPlants] = useState<Plant[]>([]);
 
   const [selectedPlants, setSelectedPlants] = useState<{
@@ -22,11 +25,15 @@ function PlantList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/plant`)
+    fetch(`${import.meta.env.VITE_API_URL}/api/plant`, {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    })
       .then((res) => res.json())
       .then((plants) => setPlants(plants))
       .catch((err) => console.error("Error while fetching plants:", err));
-  }, []);
+  }, [user?.token]);
 
   const incrementPlant = (id: number) => {
     setSelectedPlants((prev) => ({
@@ -51,6 +58,7 @@ function PlantList() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
       body: JSON.stringify(selectedPlants),
     })

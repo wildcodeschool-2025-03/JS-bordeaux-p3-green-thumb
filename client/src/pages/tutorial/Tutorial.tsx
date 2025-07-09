@@ -4,8 +4,10 @@ import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import "./Tutorial.css";
 import leaf from "../../assets/images/leaf.png";
+import { useUserContext } from "../../context/UserContext.tsx";
 
 export default function Tutorial() {
+  const { user } = useUserContext();
   const [tutorials, setTutorials] = useState<Tutorials[]>([]);
   const [selectedTutorial, setSelectedTutorial] = useState<Tutorials | null>(
     null,
@@ -16,6 +18,11 @@ export default function Tutorial() {
       try {
         const res = await fetch(
           `${import.meta.env.VITE_API_URL}/api/tutorials`,
+          {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          },
         );
         if (!res.ok) throw new Error("Erreur serveur");
         const tutorials = await res.json();
@@ -26,7 +33,7 @@ export default function Tutorial() {
     };
 
     fetchTutorials();
-  }, []);
+  }, [user?.token]);
 
   const tutorialsgardening = tutorials.filter(
     (t) => t.category === "gardening",

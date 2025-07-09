@@ -4,7 +4,8 @@ const router = express.Router();
 
 import authActions from "../src/modules/auth/authActions";
 router.post("/api/login", authActions.validateUser, authActions.login);
-router.get("/api/login", authActions.verifyToken);
+
+router.use(authActions.verifyToken);
 
 import plantAction from "./modules/Plant/plantAction";
 router.get("/api/plant", plantAction.browse);

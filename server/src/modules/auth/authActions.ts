@@ -51,6 +51,10 @@ const login: RequestHandler = async (req, res, next) => {
       res.status(401).json({ message: "No user found" });
       return;
     }
+    if (user.password !== password) {
+      res.status(401).json({ message: "Invalid password" });
+      return;
+    }
 
     const { password: _, ...userWithoutPassword } = user;
 
@@ -59,7 +63,7 @@ const login: RequestHandler = async (req, res, next) => {
     };
 
     const token = jwt.sign(payload, process.env.APP_SECRET as string, {
-      expiresIn: "24h",
+      expiresIn: "72h",
     });
 
     res.json({

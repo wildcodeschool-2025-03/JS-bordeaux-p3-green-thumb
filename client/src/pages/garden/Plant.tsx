@@ -14,8 +14,10 @@ import pen from "../../assets/images/icons/pencil.png";
 import south from "../../assets/images/icons/south.png";
 import toxic from "../../assets/images/icons/toxic.png";
 import west from "../../assets/images/icons/west.png";
+import { useUserContext } from "../../context/UserContext.tsx";
 
 export default function PlantProfile() {
+  const { user } = useUserContext();
   const { gardenId, plantId } = useParams();
 
   const [plant, setPlant] = useState<Plant | null>(null);
@@ -30,10 +32,15 @@ export default function PlantProfile() {
   useEffect(() => {
     fetch(
       `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      },
     )
       .then((res) => res.json())
       .then((plant) => setPlant(plant));
-  }, [gardenId, plantId]);
+  }, [gardenId, plantId, user?.token]);
 
   if (!plant) {
     return <div>Loading...</div>;
