@@ -4,7 +4,6 @@ import MyGarden from "./pages/garden/MyGarden";
 import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
 import Login from "./pages/login/Login";
-
 import Tutorial from "./pages/tutorial/Tutorial";
 
 const router = createBrowserRouter([

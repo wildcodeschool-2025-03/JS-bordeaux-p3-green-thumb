@@ -13,6 +13,8 @@ export default function Tutorial() {
     null,
   );
 
+  console.log("Token tuto t'es ou ?? :", user.token);
+
   useEffect(() => {
     const fetchTutorials = async () => {
       try {
