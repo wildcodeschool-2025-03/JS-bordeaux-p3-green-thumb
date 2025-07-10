@@ -21,7 +21,7 @@ function PlantList() {
   const endIndex = startIndex + itemByPage;
   const paginatedData = plants.slice(startIndex, endIndex);
 
-  const { gardenId } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -54,7 +54,7 @@ function PlantList() {
   };
 
   const submitPlantSelection = () => {
-    fetch(`http://localhost:3310/plant_garden/${gardenId}`, {
+    fetch(`http://localhost:3310/plant_garden/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -68,9 +68,8 @@ function PlantList() {
         }
         return res.json();
       })
-      .then((data) => {
-        console.log("Server response:", data);
-        navigate(`/garden/${gardenId}/`);
+      .then(() => {
+        navigate(`/garden/${id}/`);
       })
       .catch((err) => {
         console.error("Error during submission:", err);

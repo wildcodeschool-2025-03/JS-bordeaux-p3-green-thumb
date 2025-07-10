@@ -7,7 +7,7 @@ router.post("/api/login", authActions.validateUser, authActions.login);
 
 router.use(authActions.verifyToken);
 
-import plantAction from "./modules/Plant/plantAction";
+import plantAction from "./modules/plant/plantAction";
 router.get("/api/plant", plantAction.browse);
 
 import tutorialActions from "./modules/tutorial/tutorialActions";
