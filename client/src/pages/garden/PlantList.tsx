@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import PlantListItem from "../../components/garden/PlantListItem/PlantListItem";
 import "./plantList.css";
-import { useUserContext } from "../../context/UserContext.tsx";
+import { useFetchWithAuth } from "../../hooks/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 
 function PlantList() {
-  const { user } = useUserContext();
+  const authFetch = useFetchWithAuth();
 
   const [plants, setPlants] = useState<Plant[]>([]);
 
@@ -25,15 +25,11 @@ function PlantList() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_URL}/api/plant`, {
-      headers: {
-        Authorization: `Bearer ${user.token}`,
-      },
-    })
+    authFetch(`${import.meta.env.VITE_API_URL}/api/plant`)
       .then((res) => res.json())
       .then((plants) => setPlants(plants))
       .catch((err) => console.error("Error while fetching plants:", err));
-  }, [user?.token]);
+  }, [authFetch]);
 
   const incrementPlant = (id: number) => {
     setSelectedPlants((prev) => ({
@@ -54,11 +50,10 @@ function PlantList() {
   };
 
   const submitPlantSelection = () => {
-    fetch(`http://localhost:3310/plant_garden/${id}`, {
+    authFetch(`http://localhost:3310/plant_garden/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
       },
       body: JSON.stringify(selectedPlants),
     })

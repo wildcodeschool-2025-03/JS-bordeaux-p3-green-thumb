@@ -4,27 +4,20 @@ import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import "./Tutorial.css";
 import leaf from "../../assets/images/leaf.png";
-import { useUserContext } from "../../context/UserContext.tsx";
+import { useFetchWithAuth } from "../../hooks/useFetchWithAuth.ts";
 
 export default function Tutorial() {
-  const { user } = useUserContext();
+  const fetchWithAuth = useFetchWithAuth();
   const [tutorials, setTutorials] = useState<Tutorials[]>([]);
   const [selectedTutorial, setSelectedTutorial] = useState<Tutorials | null>(
     null,
   );
 
-  console.log("Token tuto t'es ou ?? :", user.token);
-
   useEffect(() => {
     const fetchTutorials = async () => {
       try {
-        const res = await fetch(
+        const res = await fetchWithAuth(
           `${import.meta.env.VITE_API_URL}/api/tutorials`,
-          {
-            headers: {
-              Authorization: `Bearer ${user.token}`,
-            },
-          },
         );
         if (!res.ok) throw new Error("Erreur serveur");
         const tutorials = await res.json();
@@ -35,7 +28,7 @@ export default function Tutorial() {
     };
 
     fetchTutorials();
-  }, [user?.token]);
+  }, [fetchWithAuth]);
 
   const tutorialsgardening = tutorials.filter(
     (t) => t.category === "gardening",
