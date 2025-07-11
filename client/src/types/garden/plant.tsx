@@ -7,25 +7,12 @@ export type Plant = {
   toxic: boolean;
   plant_exposition: "north" | "south" | "east" | "west";
   born_at: string;
-  nickname: string;
+  nickname: string | null;
   avatar: string;
   plant_garden_id: number;
 };
 
-export type PlantCardProps = {
-  plant: {
-    id: number;
-    name: string;
-    icon: string;
-    created_at: string;
-    edible: boolean;
-    toxic: boolean;
-    plant_exposition: "north" | "south" | "east" | "west";
-    born_at: string;
-    nickname: string;
-    avatar: string;
-  };
-};
+export type PlantCardProps = { plant: Plant };
 
 export type PlantListItem = {
   plant: {
