@@ -4,84 +4,53 @@ import { useNavigate } from "react-router";
 import eyeOff from "../../assets/images/icons/password-hide.png";
 import eyeOn from "../../assets/images/icons/password-view.png";
 import leaf from "../../assets/images/leaf.png";
+import registerSchema from "../../components/register/registerSchema";
 
 import "./Register.css";
 
 export default function Register() {
   const navigate = useNavigate();
 
-  const [type, setType] = useState("password");
-  const [icon, setIcon] = useState(eyeOff);
+  const [showPassword, setShowPassword] = useState(false);
+
+  const [errors, setErrors] = useState<string[]>([]);
+
   const [isComplete, setIsComplete] = useState(false);
-  const [usernameError, setUsernameError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
 
   const firstnameRef = useRef<HTMLInputElement>(null);
   const lastnameRef = useRef<HTMLInputElement>(null);
   const usernameRef = useRef<HTMLInputElement>(null);
   const { ref: cityRef } = usePlacesWidget<HTMLInputElement>({
     apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-    onPlaceSelected: (place) => {
-      console.info("Selected city:", place);
-    },
   });
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const confirmPasswordRef = useRef<HTMLInputElement>(null);
 
   const validateForm = () => {
-    const username = usernameRef.current?.value ?? "";
-    const usernameValid = username.length > 0 && username.length <= 20;
+    const formData = {
+      firstname: firstnameRef.current?.value ?? "",
+      lastname: lastnameRef.current?.value ?? "",
+      username: usernameRef.current?.value ?? "",
+      city: cityRef.current?.value ?? "",
+      email: emailRef.current?.value ?? "",
+      password: passwordRef.current?.value ?? "",
+      confirmPassword: confirmPasswordRef.current?.value ?? "",
+    };
 
-    const passwordMatch =
-      passwordRef.current?.value === confirmPasswordRef.current?.value;
+    const { error } = registerSchema.validate(formData, { abortEarly: true });
 
-    const complete =
-      firstnameRef.current?.value &&
-      lastnameRef.current?.value &&
-      usernameValid &&
-      cityRef.current?.value &&
-      emailRef.current?.value &&
-      passwordRef.current?.value &&
-      confirmPasswordRef.current?.value &&
-      passwordMatch;
-
-    setIsComplete(!!complete);
-
-    if (
-      passwordRef.current?.value &&
-      confirmPasswordRef.current?.value &&
-      !passwordMatch
-    ) {
-      setPasswordError("Passwords don't match");
+    if (error) {
+      setErrors(error.details.map((detail) => detail.message));
+      setIsComplete(false);
     } else {
-      setPasswordError("");
-    }
-
-    if (username.length > 20) {
-      setUsernameError("Username must be 20 characters or less");
-    } else {
-      setUsernameError("");
-    }
-  };
-
-  const togglePasswordView = () => {
-    if (type === "password") {
-      setType("text");
-      setIcon(eyeOff);
-    } else {
-      setType("password");
-      setIcon(eyeOn);
+      setErrors([]);
+      setIsComplete(true);
     }
   };
 
   const submitRegister: FormEventHandler = async (event) => {
     event.preventDefault();
-
-    if (passwordRef.current?.value !== confirmPasswordRef.current?.value) {
-      console.info("Passwords do not match!");
-      return;
-    }
 
     try {
       const response = await fetch(
@@ -191,7 +160,7 @@ export default function Register() {
                     <input
                       id="password"
                       ref={passwordRef}
-                      type={type}
+                      type={showPassword ? "text" : "password"}
                       className="form-input "
                       onInput={validateForm}
                       placeholder=" "
@@ -199,11 +168,13 @@ export default function Register() {
                     <label htmlFor="password">Password</label>
                     <button
                       type="button"
-                      onClick={togglePasswordView}
+                      onClick={() => {
+                        setShowPassword((prev) => !prev);
+                      }}
                       className="password-view-button"
                     >
                       <img
-                        src={icon}
+                        src={showPassword ? eyeOn : eyeOff}
                         alt="view password icon"
                         className="password-view-icon"
                       />
@@ -214,21 +185,18 @@ export default function Register() {
               <div className="form-field confirm-password-field">
                 <div className="floating-label-container">
                   <input
-                    id="confirm password"
+                    id="confirm-password"
                     ref={confirmPasswordRef}
                     type="password"
                     className="form-input"
                     onInput={validateForm}
                     placeholder=" "
                   />
-                  <label htmlFor="confirm password">Confirm Password</label>
+                  <label htmlFor="confirm-password">Confirm Password</label>
                 </div>
               </div>
-              <div className="form-error">
-                {passwordError && <p>{passwordError}</p>}
-                {usernameError && <p>{usernameError}</p>}
-              </div>
             </section>
+
             <div className="register-button-wrapper">
               <button
                 type="submit"
@@ -237,6 +205,11 @@ export default function Register() {
               >
                 Create Account
               </button>
+              <div className="form-error">
+                {errors.map((error) => (
+                  <p key={error}>{error}</p>
+                ))}
+              </div>
             </div>
           </form>
         </main>

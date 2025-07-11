@@ -26,7 +26,7 @@
 .form-wrapper {
   border: solid 1px var(--card-border);
   background: #34302d;
-  height: auto;
+  height: 700px;
   width: 350px;
   display: flex;
   flex-direction: column;
@@ -127,11 +127,14 @@ input,
   background: transparent;
 }
 .form-error {
-  width: 230px;
   height: 10px;
   color: red;
   font-size: 0.9rem;
+  padding-left: 1.2em;
 }
+/* .form-error p {
+  padding: 2em;
+} */
 
 .form-field {
   display: flex;
