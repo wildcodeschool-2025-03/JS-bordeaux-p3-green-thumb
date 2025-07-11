@@ -1,11 +1,17 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import type { FormEventHandler } from "react";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
+import leaf from "../../assets/images/Logo-green-thumb.png";
+import eyeOff from "../../assets/images/icons/password-hide.png";
+import eyeOn from "../../assets/images/icons/password-view.png";
 import { useUserContext } from "../../context/UserContext";
+import "./Login.css";
 
 export default function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   const { setUser } = useUserContext();
 
@@ -26,6 +32,13 @@ export default function Login() {
       );
 
       if (!response.ok) {
+        if (response.status === 404) {
+          setError("User not found. Please check your email.");
+        } else if (response.status === 401) {
+          setError("Incorrect password. Please try again.");
+        } else {
+          setError("Login failed. Please try again.");
+        }
         return;
       }
 
@@ -39,20 +52,79 @@ export default function Login() {
       navigate("/tutorial");
     } catch (err) {
       console.error(err);
+      setError("Something went wrong.");
     }
   };
 
   return (
-    <form onSubmit={loginSubmit}>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input ref={emailRef} type="email" id="email" />
-      </div>
-      <div>
-        <label htmlFor="password">Password</label>
-        <input ref={passwordRef} type="password" id="password" />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+    <div className="login-body">
+      <img src={leaf} alt="leaf logo" className="greenthumb-logo" />
+      <main className="form-wrapper">
+        <div className="form-title-wrapper">
+          <h2 className="form-title">Login</h2>
+        </div>
+        <form onSubmit={loginSubmit} className="form">
+          <div className="user-infos">
+            <div className="form-field email-field">
+              <div className="floating-label-container">
+                <input
+                  id="email"
+                  ref={emailRef}
+                  type="email"
+                  className="form-input"
+                  placeholder=" "
+                />
+                <label htmlFor="email">Email</label>
+              </div>
+            </div>
+
+            <div className="form-field password-field">
+              <div className="floating-label-container">
+                <div className="password-label">
+                  <input
+                    id="password"
+                    ref={passwordRef}
+                    type={showPassword ? "text" : "password"}
+                    className="form-input"
+                    placeholder=" "
+                  />
+                  <label htmlFor="password">Password</label>
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                    className="password-view-button"
+                  >
+                    <img
+                      src={showPassword ? eyeOn : eyeOff}
+                      alt="view password icon"
+                      className="password-view-icon"
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="form-link combined-link">
+            <p>Not registered yet ?</p>
+            <Link to="/register" className="form-link-anchor">
+              Create an account
+            </Link>
+          </div>
+
+          <div className="register-button-wrapper">
+            <button type="submit" className="register-button">
+              Login
+            </button>
+          </div>
+
+          {error && (
+            <div className="form-error">
+              <p>{error}</p>
+            </div>
+          )}
+        </form>
+      </main>
+    </div>
   );
 }
