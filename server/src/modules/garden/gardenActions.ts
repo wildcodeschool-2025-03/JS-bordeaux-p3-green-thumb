@@ -19,4 +19,21 @@ const readPlant: RequestHandler = async (req, res) => {
   res.json(plant);
 };
 
-export default { readPlant };
+const readAllPlants: RequestHandler = async (req, res) => {
+  const id = Number(req.params.id);
+
+  if (Number.isNaN(id)) {
+    res.status(400).json({ error: "Invalid gardenId" });
+    return;
+  }
+
+  try {
+    const plants = await gardenRepository.findAllPlants(id);
+    res.json(plants?.length ? plants : []);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export default { readPlant, readAllPlants };

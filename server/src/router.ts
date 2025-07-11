@@ -10,6 +10,7 @@ router.get("/api/tutorials", tutorialActions.readAll);
 
 import gardenActions from "./modules/garden/gardenActions";
 router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
+router.get("/api/garden/:id", gardenActions.readAllPlants);
 
 import plantGardenAction from "./modules/plantGarden/plantGardenAction";
 router.post("/plant_garden/:gardenId", plantGardenAction.addMany);
