@@ -14,9 +14,8 @@ router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
 import plantGardenAction from "./modules/plantGarden/plantGardenAction";
 router.post("/plant_garden/:gardenId", plantGardenAction.addMany);
 
-import authActions from "./modules/auth/authActions";
 import userActions from "./modules/user/userActions";
 
-router.post("/api/users", authActions.hashPassword, userActions.addNewUser);
+router.post("/api/users", userActions.add);
 
 export default router;

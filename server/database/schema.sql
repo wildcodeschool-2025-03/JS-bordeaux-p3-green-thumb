@@ -12,8 +12,8 @@ CREATE TABLE user (
 );
 INSERT INTO user (firstname, lastname, username, city, email, hashed_password, avatar ) VALUES
 ( 'Keanu', 'Leaves', 'Keanu_Leaves','Bordeaux','Keanu@ouimail.fr','1234','/images/avatar/avatar1.png'),
-( 'Jean', 'Feuille','JeanDuj', 'JF@ouimail.fr','Paris', '9875','/images/avatar/avatar2.png'),
-( 'Louis', 'Plante', 'Loulou', 'Loulou@ouimail.fr','Tours','4566','/images/avatar/avatar2.png');
+( 'Jean', 'Feuille','JeanDuj', 'Paris','JF@ouimail.fr', '9875','/images/avatar/avatar2.png'),
+( 'Louis', 'Plante', 'Loulou', 'Tours','Loulou@ouimail.fr','4566','/images/avatar/avatar2.png');
 
 CREATE TABLE garden (
   id INT PRIMARY KEY,
