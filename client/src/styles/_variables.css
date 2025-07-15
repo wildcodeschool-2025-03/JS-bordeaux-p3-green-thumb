@@ -9,6 +9,7 @@
   --main-font: "Roboto";
   --main-font-color: #fafaf5;
   --active-text-color: #a2e821;
+  --inactive-text-color: #55514f;
 }
 
 @font-face {

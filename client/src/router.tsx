@@ -4,12 +4,17 @@ import MyGarden from "./pages/garden/MyGarden";
 import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
 import Landing from "./pages/landing/Landing";
+import Register from "./pages/register/Register";
 import Tutorial from "./pages/tutorial/Tutorial";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Landing />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     element: <App />,
