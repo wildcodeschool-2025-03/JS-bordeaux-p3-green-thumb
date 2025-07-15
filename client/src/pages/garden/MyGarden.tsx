@@ -14,22 +14,21 @@ function MyGarden() {
       .then((plants) => setPlants(plants))
       .catch((err) => console.error("Error while fetching plants:", err));
   }, [id]);
-  console.log(plants);
 
   return (
     <>
       <div className="desktop-box">
-        <div className="my-garden">
+        <section className="my-garden">
           {plants.length === 0 ? (
             <p className="empty-message">Ajoute ta première plante !</p>
           ) : (
-            <div className="garden-plants">
+            <article className="garden-plants">
               {plants.map((plant) => (
                 <PlantCard key={plant.plant_garden_id} plant={plant} />
               ))}
-            </div>
+            </article>
           )}
-        </div>
+        </section>
         <AddPlantBtn />
       </div>
     </>

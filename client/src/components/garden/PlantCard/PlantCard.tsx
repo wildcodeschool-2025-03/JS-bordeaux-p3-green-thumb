@@ -1,5 +1,7 @@
 import "./PlantCard.css";
-import type { PlantCardProps } from "../../../types/garden/plant";
+import type { Plant } from "../../../types/garden/plant";
+
+type PlantCardProps = { plant: Plant };
 
 export default function PlantCard({ plant }: PlantCardProps) {
   const [d, m, y] = plant.born_at.split(".");
@@ -10,39 +12,39 @@ export default function PlantCard({ plant }: PlantCardProps) {
   });
 
   return (
-    <div className="plant-card">
-      <div className="plant-image-wrapper">
+    <section className="plant-card">
+      <article className="plant-image-wrapper">
         <img src={plant.icon} alt={plant.name} className="plant-image" />
-      </div>
+      </article>
 
-      <div className="plant-info">
-        <div className="info-line">
+      <section className="plant-info">
+        <article className="info-line">
           <img
             src="/images/plant-icon/user.svg"
             alt="plant-name"
             className="info-icon"
           />
           <span>{plant.nickname || plant.name}</span>
-        </div>
+        </article>
 
-        <div className="info-line">
+        <article className="info-line">
           <img
             src="/images/plant-icon/calendrier.png"
             alt="plant-date"
             className="info-icon"
           />
           <span>{formattedDate}</span>
-        </div>
+        </article>
 
-        <div className="info-line">
+        <article className="info-line">
           <img
             src="/images/plant-icon/toxic.png"
             alt=""
             className="info-icon"
           />
           <span>{plant.toxic ? "Toxic" : "Harmless"}</span>
-        </div>
-      </div>
-    </div>
+        </article>
+      </section>
+    </section>
   );
 }

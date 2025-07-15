@@ -12,8 +12,6 @@ export type Plant = {
   plant_garden_id: number;
 };
 
-export type PlantCardProps = { plant: Plant };
-
 export type PlantListItem = {
   plant: {
     name: string;
