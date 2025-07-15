@@ -2,6 +2,9 @@ import express from "express";
 
 const router = express.Router();
 
+import plantDoctorAction from "./modules/plantDoctor/plantDoctorAction";
+router.post("/api/plant/identify", plantDoctorAction.analyzePlant);
+
 import plantAction from "./modules/plant/plantAction";
 router.get("/api/plant", plantAction.browse);
 
