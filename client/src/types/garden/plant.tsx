@@ -7,6 +7,17 @@ export type Plant = {
   toxic: boolean;
   plant_exposition: "north" | "south" | "east" | "west";
   born_at: string;
-  nickname: string;
+  nickname: string | null;
   avatar: string;
+  plant_garden_id: number;
+};
+
+export type PlantListItem = {
+  plant: {
+    name: string;
+    icon: string;
+  };
+  quantity: number;
+  onAdd: () => void;
+  onRemove: () => void;
 };
