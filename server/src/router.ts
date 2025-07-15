@@ -2,6 +2,9 @@ import express from "express";
 
 const router = express.Router();
 
+import userActions from "./modules/user/userActions";
+router.post("/api/users", userActions.add);
+
 import authActions from "../src/modules/auth/authActions";
 router.post("/api/login", authActions.validateUser, authActions.login);
 
@@ -15,6 +18,7 @@ router.get("/api/tutorials", tutorialActions.readAll);
 
 import gardenActions from "./modules/garden/gardenActions";
 router.get("/api/garden/:gardenId/plant/:plantId", gardenActions.readPlant);
+router.get("/api/garden/:id", gardenActions.readAllPlants);
 
 import plantGardenAction from "./modules/plantGarden/plantGardenAction";
 router.post("/plant_garden/:gardenId", plantGardenAction.addMany);

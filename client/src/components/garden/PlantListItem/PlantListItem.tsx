@@ -1,18 +1,9 @@
+import type { PlantListItem } from "../../../types/garden/plant";
 import "./PlantListItem.css";
 
-type Props = {
-  plant: {
-    name: string;
-    icon: string;
-  };
-  quantity: number;
-  onAdd: () => void;
-  onRemove: () => void;
-};
-
-function PlantListItem({ plant, quantity, onAdd, onRemove }: Props) {
+function PlantListItems({ plant, quantity, onAdd, onRemove }: PlantListItem) {
   return (
-    <div className={`plant-card ${quantity > 0 ? "selected" : ""}`}>
+    <div className={`plant-list-item ${quantity > 0 ? "selected" : ""}`}>
       <img src={plant.icon} alt={plant.name} className="plant-img" />
 
       <span className="plant-item-name">{plant.name}</span>
@@ -30,4 +21,4 @@ function PlantListItem({ plant, quantity, onAdd, onRemove }: Props) {
   );
 }
 
-export default PlantListItem;
+export default PlantListItems;

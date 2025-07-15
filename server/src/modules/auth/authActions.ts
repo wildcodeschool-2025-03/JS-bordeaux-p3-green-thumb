@@ -1,6 +1,8 @@
+import argon2 from "argon2";
 import type { RequestHandler } from "express";
 import Joi from "joi";
 import jwt from "jsonwebtoken";
+import type { UserFromDB } from "../../types/user";
 import userRepository from "../user/userRepository";
 
 const loginSchema = Joi.object({
@@ -8,25 +10,9 @@ const loginSchema = Joi.object({
     "string.empty": "Email is required",
     "string.email": "Email must be valid",
   }),
-  password: Joi.string()
-    .min(12)
-    .required()
-    .custom((value, helpers) => {
-      if (!/[0-9]/.test(value)) {
-        return helpers.error("password.noNumber");
-      }
-      if (!/[!@#$%^&*]/.test(value)) {
-        return helpers.error("password.noSpecial");
-      }
-      return value;
-    })
-    .messages({
-      "string.empty": "Password is required",
-      "string.min": "Password must be at least 12 characters long",
-      "password.noNumber": "Password must contain at least one number",
-      "password.noSpecial":
-        "Password must contain at least one special character",
-    }),
+  password: Joi.string().required().messages({
+    "string.empty": "Password is required",
+  }),
 });
 
 const validateUser: RequestHandler = (req, res, next) => {
@@ -51,12 +37,15 @@ const login: RequestHandler = async (req, res, next) => {
       res.status(404).json({ message: "No user found" });
       return;
     }
-    if (user.password !== password) {
+
+    const isPasswordValid = await argon2.verify(user.hashed_password, password);
+
+    if (!isPasswordValid) {
       res.status(401).json({ message: "Invalid password" });
       return;
     }
 
-    const { password: _, ...userWithoutPassword } = user;
+    const { hashed_password: _, ...userWithoutPassword } = user;
 
     const payload = {
       sub: user.id.toString(),

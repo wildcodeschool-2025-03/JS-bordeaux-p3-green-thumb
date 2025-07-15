@@ -1,13 +1,36 @@
 import databaseClient, { type Rows } from "../../../database/client";
+import type { Result } from "../../../database/client";
+import type { User } from "../../types/user";
+import type { UserFromDB } from "../../types/user";
 
 class userRepository {
-  async readByEmailWithPassword(email: string) {
+  async readByEmailWithPassword(
+    email: string,
+  ): Promise<UserFromDB | undefined> {
     const [user] = await databaseClient.query<Rows>(
-      "select * from user where email = ?",
+      "SELECT id, email, hashed_password FROM user WHERE email = ?",
       [email],
     );
 
-    return user[0] as User;
+    if (user.length === 0) return undefined;
+
+    return user[0] as UserFromDB;
+  }
+
+  async create(user: User) {
+    const [result] = await databaseClient.query<Result>(
+      "INSERT INTO user (firstname, lastname, username, city, email, hashed_password) values (?, ?, ?, ?, ?, ?)",
+      [
+        user.firstname,
+        user.lastname,
+        user.username,
+        user.city,
+        user.email,
+        user.hashed_password,
+      ],
+    );
+
+    return result.insertId;
   }
 }
 

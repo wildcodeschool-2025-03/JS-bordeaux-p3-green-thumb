@@ -6,6 +6,7 @@ import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
 import Landing from "./pages/landing/Landing";
 import Login from "./pages/login/Login";
+import Register from "./pages/register/Register";
 import Tutorial from "./pages/tutorial/Tutorial";
 
 const router = createBrowserRouter([
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     element: <App />,
@@ -38,7 +43,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/garden/:gardenId/plant/:plantId",
-
         element: (
           <PrivateRoadContext>
             <PlantProfile />
