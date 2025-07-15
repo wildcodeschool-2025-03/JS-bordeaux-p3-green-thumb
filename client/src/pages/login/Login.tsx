@@ -49,7 +49,7 @@ export default function Login() {
         infoUser: user,
       });
 
-      navigate("/tutorial");
+      navigate("/dashboard");
     } catch (err) {
       console.error(err);
       setError("Something went wrong.");
