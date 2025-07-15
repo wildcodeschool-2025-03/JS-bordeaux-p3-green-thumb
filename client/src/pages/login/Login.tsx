@@ -58,46 +58,46 @@ export default function Login() {
 
   return (
     <div className="login-body">
-      <img src={leaf} alt="leaf logo" className="greenthumb-logo" />
-      <main className="form-wrapper">
-        <div className="form-title-wrapper">
-          <h2 className="form-title">Login</h2>
+      <img src={leaf} alt="leaf logo" className="login-greenthumb-logo" />
+      <main className="login-form-wrapper">
+        <div className="login-form-title-wrapper">
+          <h2 className="login-form-title">Login</h2>
         </div>
-        <form onSubmit={loginSubmit} className="form">
-          <div className="user-infos">
-            <div className="form-field email-field">
-              <div className="floating-label-container">
+        <form onSubmit={loginSubmit} className="login-form">
+          <div className="login-user-infos">
+            <div className="login-form-field login-email-field">
+              <div className="login-floating-label-container">
                 <input
                   id="email"
                   ref={emailRef}
                   type="email"
-                  className="form-input"
+                  className="login-form-input"
                   placeholder=" "
                 />
                 <label htmlFor="email">Email</label>
               </div>
             </div>
 
-            <div className="form-field password-field">
-              <div className="floating-label-container">
-                <div className="password-label">
+            <div className="login-form-field login-password-field">
+              <div className="login-floating-label-container">
+                <div className="login-password-label">
                   <input
                     id="password"
                     ref={passwordRef}
                     type={showPassword ? "text" : "password"}
-                    className="form-input"
+                    className="login-form-input"
                     placeholder=" "
                   />
                   <label htmlFor="password">Password</label>
                   <button
                     type="button"
                     onClick={() => setShowPassword((prev) => !prev)}
-                    className="password-view-button"
+                    className="login-password-view-button"
                   >
                     <img
                       src={showPassword ? eyeOn : eyeOff}
                       alt="view password icon"
-                      className="password-view-icon"
+                      className="login-password-view-icon"
                     />
                   </button>
                 </div>
@@ -105,21 +105,21 @@ export default function Login() {
             </div>
           </div>
 
-          <div className="form-link combined-link">
+          <div className="login-form-link login-combined-link">
             <p>Not registered yet ?</p>
-            <Link to="/register" className="form-link-anchor">
+            <Link to="/register" className="login-form-link-anchor">
               Create an account
             </Link>
           </div>
 
-          <div className="register-button-wrapper">
-            <button type="submit" className="register-button">
+          <div className="login-button-wrapper">
+            <button type="submit" className="login-button">
               Login
             </button>
           </div>
 
           {error && (
-            <div className="form-error">
+            <div className="login-form-error">
               <p>{error}</p>
             </div>
           )}
