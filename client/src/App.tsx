@@ -1,10 +1,12 @@
+import { Outlet } from "react-router";
 import "./App.css";
-import Dashboard from "./pages/Dashboard/Dashboard.tsx";
+import Navbar from "./components/navbar/Navbar";
 
 function App() {
   return (
     <>
-      <Dashboard />
+      <Outlet />
+      <Navbar />
     </>
   );
 }

@@ -2,6 +2,22 @@
 export type {};
 
 declare global {
+  type Plant = {
+    id: number;
+    name: string;
+    icon: string;
+    description: string;
+    plant_exposition: string;
+    sowing: string;
+    watering: number;
+    harvesting: number;
+    toxic: boolean;
+    edible: boolean;
+  };
+  interface PlantGardenEntry {
+    garden_id: number;
+    plant_id: number;
+  }
   namespace Express {
     export interface Request {
       /* ************************************************************************* */
