@@ -10,7 +10,7 @@ const Landing: React.FC = () => {
     navigate("/login");
   };
   const Signup = () => {
-    navigate("/signup");
+    navigate("/register");
   };
   return (
     <div className="landing-container">

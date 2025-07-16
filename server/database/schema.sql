@@ -1,19 +1,19 @@
 CREATE TABLE user (
-  id INT PRIMARY KEY,
-  username VARCHAR(20) NOT NULL,  
-  mail VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(145) NOT NULL,
-  avatar VARCHAR(255) NOT NULL,
-  city VARCHAR(60) NOT NULL,
-  has_pet BOOLEAN NOT NULL,
-  exposition ENUM("North","South","East","West") DEFAULT NULL,
+  id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  firstname VARCHAR (80) NOT NULL,
+  lastname VARCHAR (80) NOT NULL,
+  username VARCHAR(20) NOT NULL,
+  city VARCHAR(60) NOT NULL,  
+  email VARCHAR(255) UNIQUE NOT NULL,
+  hashed_password VARCHAR(145) NOT NULL,
+  avatar VARCHAR(255) NULL,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
-INSERT INTO user (id, username, mail, password, avatar, city,has_pet, exposition) VALUES
-(1, 'Keanu Leaves','Keanu@ouimail.fr','1234','/images/avatar/avatar1.png','Bordeaux', True, 'North'),
-(2, 'Jean Feuille','JF@ouimail.fr','9875','/images/avatar/avatar2.png','Paris', False, 'South'),
-(3, 'Louis Plante','Loulou@ouimail.fr','4566','/images/avatar/avatar2.png','Tours', False, 'East');
+INSERT INTO user (firstname, lastname, username, city, email, hashed_password, avatar ) VALUES
+( 'Keanu', 'Leaves', 'Keanu_Leaves','Bordeaux','Keanu@ouimail.fr','TonMdp12345!','/images/avatar/avatar1.png'),
+( 'Jean', 'Feuille','JeanDuj', 'Paris','JF@ouimail.fr', 'TonMdp12345!','/images/avatar/avatar2.png'),
+( 'Louis', 'Plante', 'Loulou', 'Tours','Loulou@ouimail.fr','TonMdp12345!','/images/avatar/avatar2.png');
 
 CREATE TABLE garden (
   id INT PRIMARY KEY,
