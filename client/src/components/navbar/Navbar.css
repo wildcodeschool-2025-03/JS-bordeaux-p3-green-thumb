@@ -23,7 +23,7 @@
 .nav-item {
   display: flex;
   text-decoration: none;
-  justify-content: center;
+  margin-left: 1.7em;
   align-items: center;
   gap: 0.8em;
   width: 100%;

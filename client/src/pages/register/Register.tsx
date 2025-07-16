@@ -2,9 +2,9 @@ import { StatusCodes } from "http-status-codes";
 import { type FormEventHandler, useRef, useState } from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
 import { useNavigate } from "react-router";
-import leaf from "../../../public/images/app-icon/leaf.png";
-import eyeOff from "../../../public/images/app-icon/password-hide.png";
-import eyeOn from "../../../public/images/app-icon/password-view.png";
+import leaf from "/images/app-icon/leaf.png";
+import eyeOff from "/images/app-icon/password-hide.png";
+import eyeOn from "/images/app-icon/password-view.png";
 
 import registerSchema from "../../components/register/registerSchema";
 

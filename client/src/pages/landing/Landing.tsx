@@ -1,8 +1,7 @@
 import "./Landing.css";
 import { useNavigate } from "react-router";
-import phone from "../../../public/images/app-icon/phone-display.png";
-
-import leaf from "../../../public/images/app-icon/leaf.png";
+import leaf from "/images/app-icon/leaf.png";
+import phone from "/images/app-icon/phone-display.png";
 
 export default function Landing() {
   const navigate = useNavigate();
