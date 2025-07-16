@@ -1,4 +1,5 @@
 import type { RequestHandler } from "express";
+import { StatusCodes } from "http-status-codes";
 import plantGardenRepository from "./plantGardenRepository";
 
 type PlantQuantityMap = Record<string, number>;
@@ -8,7 +9,9 @@ const addMany: RequestHandler = async (req, res) => {
   const plantMap = req.body as PlantQuantityMap;
 
   if (!plantMap || Object.keys(plantMap).length === 0) {
-    res.status(400).json({ error: "No plants provided in the request." });
+    res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ error: "No plants provided in the request." });
     return;
   }
 
@@ -24,12 +27,12 @@ const addMany: RequestHandler = async (req, res) => {
     }
 
     res
-      .status(201)
+      .status(StatusCodes.CREATED)
       .json({ message: "Plants successfully added to the garden." });
   } catch (error) {
     console.error("Error while inserting plants:", error);
     res
-      .status(500)
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ error: "An error occurred while adding the plants." });
   }
 };

@@ -1,9 +1,10 @@
 import { type FormEventHandler, useRef, useState } from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
 import { useNavigate } from "react-router";
-import eyeOff from "../../assets/images/icons/password-hide.png";
-import eyeOn from "../../assets/images/icons/password-view.png";
 import leaf from "../../../public/images/app-icon/leaf.png";
+import eyeOff from "../../../public/images/app-icon/password-hide.png";
+import eyeOn from "../../../public/images/app-icon/password-view.png";
+
 import registerSchema from "../../components/register/registerSchema";
 
 import "./Register.css";

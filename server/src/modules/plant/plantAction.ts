@@ -1,4 +1,5 @@
 import type { RequestHandler } from "express";
+import { StatusCodes } from "http-status-codes";
 import plantRepository from "./plantRepository";
 
 const browse: RequestHandler = async (req, res, next) => {
@@ -6,14 +7,16 @@ const browse: RequestHandler = async (req, res, next) => {
     const plants = await plantRepository.findAll();
 
     if (!plants || plants.length === 0) {
-      res.status(404).json({ message: "No plants found." });
+      res.status(StatusCodes.NOT_FOUND).json({ message: "No plants found." });
       return;
     }
 
-    res.status(200).json(plants);
+    res.status(StatusCodes.OK).json(plants);
   } catch (err) {
     console.error("Error while retrieving plants:", err);
-    res.status(500).json({ message: "Server error while retrieving plants." });
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: "Server error while retrieving plants." });
   }
 };
 
