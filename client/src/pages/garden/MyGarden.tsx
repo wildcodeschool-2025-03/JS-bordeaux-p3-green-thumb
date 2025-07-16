@@ -23,7 +23,7 @@ function MyGarden() {
       <div className="desktop-box">
         <section className="my-garden">
           {plants.length === 0 ? (
-            <p className="empty-message">Ajoute ta première plante !</p>
+            <p className="empty-message">Add your first plant !</p>
           ) : (
             <article className="garden-plants">
               {plants.map((plant) => (
