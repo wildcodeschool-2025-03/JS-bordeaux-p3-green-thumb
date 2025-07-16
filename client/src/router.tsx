@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
-import PrivateRoadContext from "./context/PrivateRoadContext";
+import PrivateRouteContext from "./context/PrivateRouteContext";
 import MyGarden from "./pages/garden/MyGarden";
 import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
@@ -28,33 +28,33 @@ const router = createBrowserRouter([
       {
         path: "garden/:Id",
         element: (
-          <PrivateRoadContext>
+          <PrivateRouteContext>
             <MyGarden />
-          </PrivateRoadContext>
+          </PrivateRouteContext>
         ),
       },
       {
         path: "garden/:id/plant-list",
         element: (
-          <PrivateRoadContext>
+          <PrivateRouteContext>
             <PlantList />
-          </PrivateRoadContext>
+          </PrivateRouteContext>
         ),
       },
       {
         path: "/garden/:gardenId/plant/:plantId",
         element: (
-          <PrivateRoadContext>
+          <PrivateRouteContext>
             <PlantProfile />
-          </PrivateRoadContext>
+          </PrivateRouteContext>
         ),
       },
       {
         path: "/tutorial",
         element: (
-          <PrivateRoadContext>
+          <PrivateRouteContext>
             <Tutorial />
-          </PrivateRoadContext>
+          </PrivateRouteContext>
         ),
       },
     ],

@@ -1,4 +1,5 @@
 export interface User {
+  id: number;
   firstname: string;
   lastname: string;
   username: string;
@@ -6,6 +7,3 @@ export interface User {
   email: string;
   hashed_password: string;
 }
-export type UserFromDB = User & {
-  id: number;
-};

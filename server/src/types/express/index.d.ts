@@ -17,11 +17,6 @@ declare global {
     garden_id: number;
     plant_id: number;
   }
-  interface User {
-    id: number;
-    email: string;
-    password: string;
-  }
 
   export type MyPayload = JwtPayload & { sub: string };
 

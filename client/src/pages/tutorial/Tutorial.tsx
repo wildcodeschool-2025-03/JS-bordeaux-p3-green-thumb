@@ -4,7 +4,7 @@ import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import "./Tutorial.css";
 import leaf from "../../assets/images/leaf.png";
-import { useFetchWithAuth } from "../../hooks/useFetchWithAuth.ts";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth.ts";
 
 export default function Tutorial() {
   const fetchWithAuth = useFetchWithAuth();

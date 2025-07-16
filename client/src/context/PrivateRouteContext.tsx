@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { Navigate } from "react-router";
 import leaf from "../assets/images/Logo-green-thumb.png";
-import { useUserContext } from "../context/UserContext";
-import "./PrivateRoadContext.css";
+import { useUserContext } from "./UserContext";
+import "./PrivateRouteContext.css";
 
-interface PrivateRoad {
+interface PrivateRoute {
   children: ReactNode;
 }
 
-export default function PrivateRoadContext({ children }: PrivateRoad) {
+export default function PrivateRouteContext({ children }: PrivateRoute) {
   const { user } = useUserContext();
   const [moveToLogin, setMoveToLogin] = useState(false);
 

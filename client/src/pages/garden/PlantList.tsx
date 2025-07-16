@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import PlantListItem from "../../components/garden/PlantListItem/PlantListItem";
 import "./plantList.css";
-import { useFetchWithAuth } from "../../hooks/useFetchWithAuth";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 
 function PlantList() {

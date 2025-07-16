@@ -2,7 +2,6 @@ import argon2 from "argon2";
 import type { RequestHandler } from "express";
 import Joi from "joi";
 import jwt from "jsonwebtoken";
-import type { UserFromDB } from "../../types/user";
 import userRepository from "../user/userRepository";
 
 const loginSchema = Joi.object({
@@ -31,7 +30,7 @@ const login: RequestHandler = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    const user = await userRepository.readByEmailWithPassword(email);
+    const user = await userRepository.findByEmail(email);
 
     if (!user) {
       res.status(404).json({ message: "No user found" });

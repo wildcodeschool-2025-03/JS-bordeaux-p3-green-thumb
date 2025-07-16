@@ -14,7 +14,7 @@ import pen from "../../assets/images/icons/pencil.png";
 import south from "../../assets/images/icons/south.png";
 import toxic from "../../assets/images/icons/toxic.png";
 import west from "../../assets/images/icons/west.png";
-import { useFetchWithAuth } from "../../hooks/useFetchWithAuth.ts";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth.ts";
 
 export default function PlantProfile() {
   const authFetch = useFetchWithAuth();
