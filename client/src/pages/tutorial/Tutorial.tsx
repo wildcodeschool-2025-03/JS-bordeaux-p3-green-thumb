@@ -3,7 +3,7 @@ import TutorialList from "../../components/tutorial/TutorialList";
 import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import "./Tutorial.css";
-import leaf from "../../assets/images/leaf.png";
+import leaf from "../../../public/images/app-icon/leaf.png";
 
 export default function Tutorial() {
   const [tutorials, setTutorials] = useState<Tutorials[]>([]);
@@ -36,12 +36,10 @@ export default function Tutorial() {
   return (
     <>
       <div className="tutorial-responsive">
-        <img className="leaf-decor" src={leaf} alt="ceci est une feuille" />
+        <img className="leaf-decor" src={leaf} alt="greenthumb logo" />
         <div className="tutorial-box">
           <h1>Tutorials</h1>
           <hr />
-
-          {/*ici viendra le composant pour les favoris US-22*/}
 
           <TutorialList
             title="Gardening step by step 🌱"

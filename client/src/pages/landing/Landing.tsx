@@ -3,6 +3,8 @@ import type React from "react";
 import "./Landing.css";
 import { useNavigate } from "react-router";
 
+import leaf from "../../../public/images/app-icon/leaf.png";
+
 const Landing: React.FC = () => {
   const navigate = useNavigate();
 
@@ -17,7 +19,7 @@ const Landing: React.FC = () => {
       <div>coucou</div>
       <div className="logo-section">
         <div className="logo-icon">
-          <img src="../src/assets/images/Logo-green-thumb.png" alt="Logo" />
+          <img src={leaf} alt="greenthumb logo" />
         </div>
 
         <h1 className="welcome-title">WELCOME</h1>
