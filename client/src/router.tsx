@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import App from "./App";
 import PrivateRouteContext from "./context/PrivateRouteContext";
+import Dashboard from "./pages/Dashboard/Dashboard";
 import MyGarden from "./pages/garden/MyGarden";
 import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRouteContext>
             <PlantProfile />
+          </PrivateRouteContext>
+        ),
+      },
+      {
+        path: "/dashboard/:id",
+        element: (
+          <PrivateRouteContext>
+            <Dashboard />
           </PrivateRouteContext>
         ),
       },
