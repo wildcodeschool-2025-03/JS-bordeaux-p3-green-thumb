@@ -14,6 +14,7 @@ const Landing: React.FC = () => {
   };
   return (
     <div className="landing-container">
+      <div>coucou</div>
       <div className="logo-section">
         <div className="logo-icon">
           <img src="../src/assets/images/Logo-green-thumb.png" alt="Logo" />
