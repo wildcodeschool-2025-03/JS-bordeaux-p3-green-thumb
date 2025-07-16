@@ -10,8 +10,12 @@ import photofeedoff from "../../assets/images/navbar/photofeedoff.svg";
 import photofeedon from "../../assets/images/navbar/photofeedon.svg";
 import tutorialoff from "../../assets/images/navbar/tutorialoff.svg";
 import tutorialon from "../../assets/images/navbar/tutorialon.svg";
+import { useUserContext } from "../../context/UserContext";
 
 export default function Navbar() {
+  const { user } = useUserContext();
+  const id = user?.infoUser?.id;
+
   return (
     <nav className="menu-nav">
       <NavLink to="/tutorial" className="nav-item">
@@ -68,7 +72,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/garden" className="nav-item">
+      <NavLink to={`/garden/${id}`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
