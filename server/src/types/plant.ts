@@ -11,3 +11,11 @@ export interface Plant {
   edible: boolean;
   born_at: string;
 }
+
+export interface GardenPlant {
+  image: string;
+  name: string;
+  toxic: boolean;
+  nickname: string;
+  born_at: string;
+}
