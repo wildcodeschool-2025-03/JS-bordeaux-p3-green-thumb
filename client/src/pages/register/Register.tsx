@@ -1,3 +1,4 @@
+import { StatusCodes } from "http-status-codes";
 import { type FormEventHandler, useRef, useState } from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
 import { useNavigate } from "react-router";
@@ -70,7 +71,7 @@ export default function Register() {
         },
       );
 
-      if (response.status === 201) {
+      if (response.status === StatusCodes.CREATED) {
         navigate("/login");
       } else {
         console.info(response);
