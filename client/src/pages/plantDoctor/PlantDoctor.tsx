@@ -46,22 +46,36 @@ export default function PlantDoctor() {
   };
 
   return (
-    <div className="plant-doctor-responsive">
+    <div className="plant-doctor-container">
       <div className="plant-doctor-box">
-        <img className="leaf-decor" src={leaf} alt="ceci est une feuille" />
-        <h1>Plant Doctor</h1>
-        <hr className="line-decor" />
-        {!result && <PlantPhotoUploader onSubmit={onImageSubmit} />}
-        {loading && <p className="loading-text">Analysis in progress...</p>}
+        <img className="plant-doctor-leaf" src={leaf} alt="leaf" />
+        <h1 className="plant-doctor-title">Plant Doctor</h1>
+        <hr className="plant-doctor-line" />
+
+        {!result && (
+          <div className="plant-doctor-uploader-wrapper">
+            <PlantPhotoUploader onSubmit={onImageSubmit} />
+          </div>
+        )}
+
+        {loading && (
+          <p className="plant-doctor-loading-text">Analysis in progress...</p>
+        )}
 
         {result && (
           <div className="plant-doctor-content">
             {previewUrl && (
-              <div className="preview-container">
-                <img className="preview-image" src={previewUrl} alt="preview" />
+              <div className="plant-doctor-preview-container">
+                <img
+                  className="plant-doctor-preview-image"
+                  src={previewUrl}
+                  alt="preview"
+                />
               </div>
             )}
-            <PlantResult result={result} onReset={reset} />
+            <div className="plant-doctor-result-wrapper">
+              <PlantResult result={result} onReset={reset} />
+            </div>
           </div>
         )}
       </div>

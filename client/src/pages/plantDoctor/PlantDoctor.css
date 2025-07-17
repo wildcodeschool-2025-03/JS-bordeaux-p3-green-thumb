@@ -1,4 +1,4 @@
-.plant-doctor-responsive {
+.plant-doctor-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -7,8 +7,10 @@
   background-color: #1e1e1e;
   height: 90vh;
   overflow: hidden;
+}
 
-  @media (min-width: 992px) {
+@media (min-width: 992px) {
+  .plant-doctor-container {
     margin-left: 250px;
     height: 100vh;
     padding: 60px 20px;
@@ -31,16 +33,27 @@
   max-height: calc(100vh - 100px);
 }
 
-.leaf-decor {
+.plant-doctor-leaf {
   width: 60px;
 }
-.plant-doctor-box h1 {
+
+.plant-doctor-title {
   margin: 0;
 }
 
-.line-decor {
+.plant-doctor-line {
   border-color: #b3d537;
   width: 100%;
+}
+
+.plant-doctor-uploader-wrapper {
+  width: 100%;
+}
+
+.plant-doctor-loading-text {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
 }
 
 .plant-doctor-content {
@@ -57,16 +70,19 @@
   }
 }
 
-.preview-container {
+.plant-doctor-preview-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  @media (min-width: 992px) {
+}
+
+@media (min-width: 992px) {
+  .plant-doctor-preview-container {
     padding-top: 160px;
   }
 }
 
-.preview-image {
+.plant-doctor-preview-image {
   width: 100%;
   max-width: 300px;
   border-radius: 12px;
@@ -74,7 +90,7 @@
   object-fit: contain;
 }
 
-.result-container {
+.plant-doctor-result-wrapper {
   flex: 1;
   overflow-y: auto;
 }

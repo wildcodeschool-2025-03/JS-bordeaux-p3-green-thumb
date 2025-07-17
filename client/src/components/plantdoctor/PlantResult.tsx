@@ -42,26 +42,37 @@ export default function PlantResult({ result, onReset }: PlantResultProps) {
   const health = result.health_assessment;
 
   return (
-    <div className="result-container">
-      <h2>Analysis Result</h2>
-      <hr className="line-decor" />
+    <div className="plant-result-container">
+      <h2 className="plant-result-title">Analysis Result</h2>
+      <hr className="plant-result-line" />
 
       {filteredSuggestions.length === 0 && (
-        <p>Sorry, the plant could not be reliably identified.</p>
+        <p className="plant-result-empty">
+          Sorry, the plant could not be reliably identified.
+        </p>
       )}
 
       {filteredSuggestions.map((s) => (
-        <div key={s.plant_name} className="suggestion-card">
-          <h3>{s.plant_details.common_names?.[0] || s.plant_name}</h3>
-          <p>
+        <div key={s.plant_name} className="plant-result-card">
+          <h3 className="plant-result-common-name">
+            {s.plant_details.common_names?.[0] || s.plant_name}
+          </h3>
+          <p className="plant-result-scientific-name">
             <strong>Scientific Name:</strong> {s.plant_name}
           </p>
 
           {s.plant_details.wiki_description?.value && (
-            <p>{s.plant_details.wiki_description.value}</p>
+            <p className="plant-result-description">
+              {s.plant_details.wiki_description.value}
+            </p>
           )}
           {s.plant_details.url && (
-            <a href={s.plant_details.url} target="_blank" rel="noreferrer">
+            <a
+              className="plant-result-link"
+              href={s.plant_details.url}
+              target="_blank"
+              rel="noreferrer"
+            >
               Learn more
             </a>
           )}
@@ -69,17 +80,19 @@ export default function PlantResult({ result, onReset }: PlantResultProps) {
       ))}
 
       {health && (
-        <div className="health-info">
-          <h3>Health Assessment</h3>
-          <p>
+        <div className="plant-result-health">
+          <h3 className="plant-result-health-title">Health Assessment</h3>
+          <p className="plant-result-health-status">
             Status:{" "}
             {health.is_healthy ? "Healthy" : "Potential Issues Detected ⚠️"}
           </p>
-          <p>Confidence: {(health.is_healthy_probability * 100).toFixed(1)}%</p>
+          <p className="plant-result-health-confidence">
+            Confidence: {(health.is_healthy_probability * 100).toFixed(1)}%
+          </p>
 
           {!health.is_healthy &&
             health.diseases?.map((disease) => (
-              <p key={disease.name}>
+              <p key={disease.name} className="plant-result-disease">
                 - {disease.disease_details.local_name} (
                 {(disease.probability * 100).toFixed(1)}%)
               </p>
@@ -87,7 +100,11 @@ export default function PlantResult({ result, onReset }: PlantResultProps) {
         </div>
       )}
 
-      <button onClick={onReset} className="reset-button" type="button">
+      <button
+        onClick={onReset}
+        className="plant-result-reset-button"
+        type="button"
+      >
         Analyze another plant
       </button>
     </div>

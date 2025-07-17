@@ -1,16 +1,27 @@
-.result-container {
+.plant-result-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-h2 {
+.plant-result-title {
   text-align: center;
   font-size: 1.8rem;
   color: #2e7d32;
 }
 
-.suggestion-card {
+.plant-result-line {
+  border-color: #4caf50;
+  width: 100%;
+}
+
+.plant-result-empty {
+  text-align: center;
+  font-style: italic;
+  color: #999;
+}
+
+.plant-result-card {
   background: #f0f4f1;
   padding: 1.5rem;
   border-left: 6px solid #4caf50;
@@ -18,46 +29,49 @@ h2 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.suggestion-card h3 {
+.plant-result-common-name {
   margin: 0 0 0.5rem 0;
   color: #388e3c;
   font-size: 1.3rem;
 }
 
-.suggestion-card p {
+.plant-result-scientific-name,
+.plant-result-description {
   margin: 0.3rem 0;
   color: #444;
 }
 
-.suggestion-card a {
+.plant-result-link {
   margin-top: 0.5rem;
   display: inline-block;
   color: #1e88e5;
   text-decoration: none;
 }
 
-.suggestion-card a:hover {
+.plant-result-link:hover {
   text-decoration: underline;
 }
 
-.health-info {
+.plant-result-health {
   background: #fff8e1;
   border-left: 6px solid #ffb300;
   padding: 1rem;
   border-radius: 12px;
 }
 
-.health-info h3 {
+.plant-result-health-title {
   margin-bottom: 0.8rem;
   color: #ff8f00;
 }
 
-.health-info p {
+.plant-result-health-status,
+.plant-result-health-confidence,
+.plant-result-disease {
   margin: 0.4rem 0;
   color: black;
 }
 
-.reset-button {
+.plant-result-reset-button {
   align-self: start;
   background-color: #1976d2;
   color: white;
@@ -69,6 +83,6 @@ h2 {
   transition: background 0.3s ease;
 }
 
-.reset-button:hover {
+.plant-result-reset-button:hover {
   background-color: #0d47a1;
 }

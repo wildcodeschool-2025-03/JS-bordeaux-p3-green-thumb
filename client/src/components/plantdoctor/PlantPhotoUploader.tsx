@@ -24,7 +24,7 @@ export default function PlantPhotoUploader({ onSubmit }: Props) {
   return (
     <form className="photo-uploader-form" onSubmit={handleSubmit}>
       <label htmlFor="plant-photo" className="upload-label">
-        Choisir une photo de plante :
+        Choose a plant photo :
       </label>
       <input
         id="plant-photo"
@@ -34,7 +34,7 @@ export default function PlantPhotoUploader({ onSubmit }: Props) {
         className="upload-input"
       />
       <button type="submit" className="upload-button" disabled={!file}>
-        Analyser
+        Analyze
       </button>
     </form>
   );
