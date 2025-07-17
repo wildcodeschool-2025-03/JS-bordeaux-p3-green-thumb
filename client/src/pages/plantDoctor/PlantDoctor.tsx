@@ -1,0 +1,70 @@
+import { useState } from "react";
+import PlantPhotoUploader from "../../components/plantdoctor/PlantPhotoUploader";
+import PlantResult from "../../components/plantdoctor/PlantResult";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
+import type { PlantIdentificationResponse } from "../../types/garden/plant";
+import "./PlantDoctor.css";
+import leaf from "../../assets/images/leaf.png";
+
+export default function PlantDoctor() {
+  const [result, setResult] = useState<PlantIdentificationResponse | null>(
+    null,
+  );
+  const [loading, setLoading] = useState(false);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const authFetch = useFetchWithAuth();
+
+  const onImageSubmit = async (file: File) => {
+    setLoading(true);
+    setPreviewUrl(URL.createObjectURL(file));
+
+    const formData = new FormData();
+    formData.append("image", file);
+    formData.append("lang", "en");
+
+    try {
+      const response = await authFetch(
+        `${import.meta.env.VITE_API_URL}/api/plant/identify`,
+        {
+          method: "POST",
+          body: formData,
+        },
+      );
+
+      const data: PlantIdentificationResponse = await response.json();
+      setResult(data);
+    } catch (err) {
+      console.error("PlantDoctor is not available... :", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const reset = () => {
+    setResult(null);
+    setPreviewUrl(null);
+  };
+
+  return (
+    <div className="plant-doctor-responsive">
+      <div className="plant-doctor-box">
+        <img className="leaf-decor" src={leaf} alt="ceci est une feuille" />
+        <h1>Plant Doctor</h1>
+        <hr className="line-decor" />
+        {!result && <PlantPhotoUploader onSubmit={onImageSubmit} />}
+        {loading && <p className="loading-text">Analysis in progress...</p>}
+
+        {result && (
+          <div className="plant-doctor-content">
+            {previewUrl && (
+              <div className="preview-container">
+                <img className="preview-image" src={previewUrl} alt="preview" />
+              </div>
+            )}
+            <PlantResult result={result} onReset={reset} />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

@@ -38,7 +38,7 @@ class PlantDoctorRepository {
         api_key: this.apiKey,
         images: [imageBase64],
         modifiers: ["health_all"],
-        plant_language: "fr",
+        plant_language: "en",
         plant_details: ["common_names", "url", "wiki_description", "taxonomy"],
       }),
     });

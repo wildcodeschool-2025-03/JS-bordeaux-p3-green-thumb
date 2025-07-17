@@ -7,6 +7,7 @@ import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
 import Landing from "./pages/landing/Landing";
 import Login from "./pages/login/Login";
+import PlantDoctor from "./pages/plantDoctor/PlantDoctor";
 import Register from "./pages/register/Register";
 import Tutorial from "./pages/tutorial/Tutorial";
 
@@ -31,6 +32,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRouteContext>
             <MyGarden />
+          </PrivateRouteContext>
+        ),
+      },
+      {
+        path: "/plantdoctor",
+        element: (
+          <PrivateRouteContext>
+            <PlantDoctor />
           </PrivateRouteContext>
         ),
       },

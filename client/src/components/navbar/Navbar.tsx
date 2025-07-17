@@ -46,7 +46,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/dashboard" className="nav-item">
+      <NavLink to={`/dashboard/${id}`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
