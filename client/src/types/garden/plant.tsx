@@ -2,6 +2,7 @@ export type Plant = {
   id: number;
   name: string;
   icon: string;
+  description: string;
   created_at: string;
   edible: boolean;
   toxic: boolean;
