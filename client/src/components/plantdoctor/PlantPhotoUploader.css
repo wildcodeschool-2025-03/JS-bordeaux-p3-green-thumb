@@ -37,3 +37,30 @@
 .upload-button:hover:not(:disabled) {
   background-color: #388e3c;
 }
+
+.hidden-file-input {
+  display: none;
+}
+
+.custom-upload-button {
+  display: inline-block;
+  background-color: #a2ff9e;
+  color: #1a1a1a;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.custom-upload-button:hover {
+  background-color: #8be08a;
+}
+
+.file-name {
+  display: inline-block;
+  margin-left: 12px;
+  font-style: italic;
+  color: #ccc;
+}
