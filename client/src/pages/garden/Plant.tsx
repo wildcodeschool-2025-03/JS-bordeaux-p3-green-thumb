@@ -43,12 +43,12 @@ export default function PlantProfile() {
   return (
     <>
       <div className="plant-profile-wrapper">
-        <div className="plant-photo-gallery ">
+        <section className="plant-photo-gallery ">
           <img src={addPhoto} alt="add icon" className="add-photo-icon" />
           <Gallery />
-        </div>
+        </section>
 
-        <div className="plant-profile-card">
+        <section className="plant-profile-card">
           <h3>Plant Profile</h3>
           <hr />
           <h2>
@@ -95,12 +95,23 @@ export default function PlantProfile() {
               </div>
             </article>
           </section>
-        </div>
+        </section>
 
-        <div className="plant-profile-reminder">
+        <section className="plant-profile-reminder">
           <h3>Reminder</h3>
           <hr />
-        </div>
+          <div className="info-wrapper">
+            <article className="watering-info">
+              <h2>Water {plant.name}</h2>
+            </article>
+            <article className="exposition-info">
+              <h2>Give {plant.name} the right exposure</h2>
+            </article>
+            <article className="alert-info">
+              <h2>Remember to add fertilizer</h2>
+            </article>
+          </div>
+        </section>
       </div>
     </>
   );

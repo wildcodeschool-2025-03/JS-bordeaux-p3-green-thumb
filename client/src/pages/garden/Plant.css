@@ -15,11 +15,12 @@
 }
 
 .plant-photo-gallery {
-  border: solid 1px var(--app-icon);
+  border: solid 1px #fff;
   border-radius: 8px;
-  width: 100%;
-  margin: 0 1em;
+  width: 90%;
+  margin: 1em;
   @media screen and (min-width: 992px) {
+    width: 100%;
     grid-column: span 2 / span 2;
     justify-self: center;
   }
@@ -39,12 +40,13 @@
 
   @media screen and (max-width: 992px) {
     margin: 1em;
+    max-height: 180px;
   }
 }
 
 .plant-profile-card h2,
 h3 {
-  margin-left: 1em;
+  margin: 0 1em;
 }
 
 hr {
@@ -53,21 +55,21 @@ hr {
 .plant-profile-infos {
   background-color: var(--main-background);
   width: 90%;
+  max-height: 180px;
   border-radius: 8px;
   margin-bottom: 1em;
   margin-left: 1em;
-  padding-left: 1em;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
 
   @media screen and (min-width: 992px) {
     height: 180px;
+    padding-left: 1em;
   }
 }
 
 .plant-profile-infos p {
-  padding: 1em 0;
+  @media screen and (min-width: 992px) {
+    margin: 0;
+  }
 }
 
 .profile-card {
@@ -92,11 +94,13 @@ hr {
 }
 
 .icon-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  padding-right: 1em;
-  margin-bottom: 1em;
+  @media screen and (min-width: 992px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-right: 1em;
+    margin-bottom: 1em;
+  }
 }
 
 .birthdate-infos {
@@ -111,13 +115,22 @@ hr {
   padding-left: 1em;
 }
 
+.icons {
+  display: flex;
+  flex-direction: row;
+}
+
 .info-icon,
 .exposition-icon,
 .calendar-icon,
 .harmless-icon {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   padding-left: 1em;
+  @media screen and (min-width: 992px) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .pen-icon {
@@ -130,6 +143,37 @@ hr {
 }
 
 .plant-profile-reminder {
-  border: solid 1px var(--app-icon);
+  border: solid 1px #fff;
   border-radius: 8px;
+
+  @media screen and (max-width: 992px) {
+    margin: 1em;
+  }
+}
+
+.info-wrapper {
+  padding: 1em;
+}
+
+.info-wrapper h2 {
+  padding-left: 2em;
+}
+
+.watering-info,
+.exposition-info,
+.alert-info {
+  border-radius: 8px;
+  width: 90%;
+  @media screen and (max-width: 992px) {
+    margin: 1em;
+  }
+}
+
+.watering-info,
+.exposition-info {
+  background-color: var(--app-icon);
+}
+
+.alert-info {
+  background-color: #ec1010;
 }
