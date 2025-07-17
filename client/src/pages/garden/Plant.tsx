@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Gallery from "../../components/garden/Gallery/Gallery";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 
 import "./Plant.css";
@@ -17,6 +18,7 @@ import toxic from "/images/app-icon/toxic.png";
 import west from "/images/app-icon/west.png";
 
 export default function PlantProfile() {
+  const authFetch = useFetchWithAuth();
   const { gardenId, plantId } = useParams();
 
   const [plant, setPlant] = useState<Plant | null>(null);
@@ -29,12 +31,12 @@ export default function PlantProfile() {
   };
 
   useEffect(() => {
-    fetch(
+    authFetch(
       `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
     )
       .then((res) => res.json())
       .then((plant) => setPlant(plant));
-  }, [gardenId, plantId]);
+  }, [gardenId, plantId, authFetch]);
 
   if (!plant) {
     return <div>Loading...</div>;
