@@ -11,6 +11,7 @@ export type Plant = {
   nickname: string | null;
   avatar: string;
   plant_garden_id: number;
+  main_cause_of_decay: string;
 };
 
 export type PlantListItem = {

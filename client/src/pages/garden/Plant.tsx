@@ -104,13 +104,15 @@ export default function PlantProfile() {
           <hr />
           <div className="info-wrapper">
             <article className="watering-info">
-              <h2>Water {plant.name}</h2>
+              <h2>Water {plant.name} </h2>
             </article>
             <article className="exposition-info">
               <h2>Give {plant.name} the right exposure</h2>
             </article>
+            <h3>Usual cause of decay</h3>
+
             <article className="alert-info">
-              <h2>Remember to add fertilizer</h2>
+              <h2> {plant.main_cause_of_decay}</h2>
             </article>
           </div>
         </section>

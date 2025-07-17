@@ -1,6 +1,7 @@
 .plant-profile-wrapper {
   display: flex;
   flex-direction: column;
+  height: 100vh;
   @media (min-width: 992px) {
     width: calc(100% - 250px);
     margin-left: 250px;
@@ -17,8 +18,7 @@
 .plant-photo-gallery {
   border: solid 1px #fff;
   border-radius: 8px;
-  width: 90%;
-  margin: 1em;
+  margin: 0.5em;
   @media screen and (min-width: 992px) {
     width: 100%;
     grid-column: span 2 / span 2;
@@ -39,19 +39,31 @@
   border-radius: 8px;
 
   @media screen and (max-width: 992px) {
-    margin: 1em;
+    margin: 0.5em;
     max-height: 180px;
   }
 }
 
 .plant-profile-card h2,
 h3 {
-  margin: 0 1em;
+  margin-left: 1em;
+  margin-bottom: 0;
+
+  @media screen and (min-width: 992px) {
+    margin-bottom: 1em;
+  }
+}
+
+.plant-profile-card h3 {
+  @media screen and (max-width: 992px) {
+    font-size: small;
+  }
 }
 
 hr {
   width: 90%;
 }
+
 .plant-profile-infos {
   background-color: var(--main-background);
   width: 90%;
@@ -95,6 +107,8 @@ hr {
 }
 
 .icon-card {
+  display: flex;
+  justify-content: space-around;
   @media screen and (min-width: 992px) {
     display: flex;
     justify-content: space-between;
@@ -125,18 +139,23 @@ hr {
   flex-direction: row;
 }
 
+.pen-icon {
+  width: 18px;
+  padding-left: 0.7em;
+}
+
 .info-icon,
 .exposition-icon,
 .harmless-icon {
   width: 35px;
   height: 35px;
-  padding-left: 1em;
 }
 
 .calendar-icon {
   width: 32px;
   height: 32px;
 }
+
 .info-icon,
 .exposition-icon,
 .harmless-icon,
@@ -147,39 +166,65 @@ hr {
   }
 }
 
-.pen-icon {
-  width: 18px;
-  padding-left: 0.7em;
-}
-
 .toxic-icon {
-  width: 53px;
+  width: 35px;
+  height: 35px;
+  @media screen and (min-width: 992px) {
+    width: 53px;
+    height: 53px;
+  }
 }
-
 .plant-profile-reminder {
   border: solid 1px #fff;
   border-radius: 8px;
 
   @media screen and (max-width: 992px) {
+    margin: 0.5em;
+    max-height: 180px;
+  }
+}
+
+.plant-profile-reminder hr {
+  margin-bottom: 0;
+}
+
+.plant-profile-reminder h2 {
+  margin: 0;
+  @media screen and (min-width: 992px) {
     margin: 1em;
   }
 }
 
 .info-wrapper {
   padding: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8em;
 }
 
 .info-wrapper h2 {
   padding-left: 2em;
+  font-size: small;
+  @media screen and (min-width: 992px) {
+    font-size: large;
+  }
+}
+
+.info-wrapper h3 {
+  margin: 0;
+  font-size: small;
+  @media screen and (min-width: 992px) {
+    font-size: large;
+  }
 }
 
 .watering-info,
 .exposition-info,
 .alert-info {
-  border-radius: 8px;
-  width: 90%;
-  @media screen and (max-width: 992px) {
-    margin: 1em;
+  border-radius: 4px;
+  padding: 0.1em;
+  @media screen and (min-width: 992px) {
+    border-radius: 8px;
   }
 }
 
