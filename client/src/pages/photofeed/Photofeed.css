@@ -1,0 +1,48 @@
+.photofeed-responsive {
+  height: 85dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (min-width: 992px) {
+  .photofeed-responsive {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+}
+
+.leaf-decor {
+  width: 60px;
+}
+
+.photofeed-box {
+  flex: 1;
+  max-width: 100vw;
+  overflow-y: auto;
+  background-color: #30312c;
+  border: 1px solid #b3d537;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: var(--main-font);
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+}
+
+.photofeed-box hr {
+  border-color: #b3d537;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.photofeed-alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}

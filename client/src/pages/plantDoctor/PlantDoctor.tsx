@@ -47,8 +47,8 @@ export default function PlantDoctor() {
 
   return (
     <div className="plant-doctor-container">
+      <img className="plant-doctor-leaf" src={leaf} alt="leaf" />
       <div className="plant-doctor-box">
-        <img className="plant-doctor-leaf" src={leaf} alt="leaf" />
         <h1 className="plant-doctor-title">Plant Doctor</h1>
         <hr className="plant-doctor-line" />
 

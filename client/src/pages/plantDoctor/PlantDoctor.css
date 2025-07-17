@@ -1,17 +1,17 @@
 .plant-doctor-container {
+  height: 85dvh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 20px 10px;
-  box-sizing: border-box;
-  background-color: #1e1e1e;
-  height: 90vh;
+  flex-direction: column;
   overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 @media (min-width: 992px) {
   .plant-doctor-container {
     margin-left: 250px;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     padding: 60px 20px;
   }
