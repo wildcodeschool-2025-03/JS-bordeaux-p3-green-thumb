@@ -69,6 +69,7 @@ hr {
 .plant-profile-infos p {
   @media screen and (min-width: 992px) {
     margin: 0;
+    padding-top: 1em;
   }
 }
 
@@ -100,6 +101,7 @@ hr {
     align-items: baseline;
     padding-right: 1em;
     margin-bottom: 1em;
+    padding-top: 3em;
   }
 }
 
@@ -111,8 +113,11 @@ hr {
 .birthdate {
   font: var(--main-font);
   color: var(--main-font-color);
-  font-size: large;
+  font-size: smaller;
   padding-left: 1em;
+  @media screen and (min-width: 992px) {
+    font-size: larger;
+  }
 }
 
 .icons {
@@ -122,11 +127,20 @@ hr {
 
 .info-icon,
 .exposition-icon,
-.calendar-icon,
 .harmless-icon {
   width: 35px;
   height: 35px;
   padding-left: 1em;
+}
+
+.calendar-icon {
+  width: 32px;
+  height: 32px;
+}
+.info-icon,
+.exposition-icon,
+.harmless-icon,
+.calendar-icon {
   @media screen and (min-width: 992px) {
     width: 50px;
     height: 50px;
