@@ -1,0 +1,27 @@
+.alert-box {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+
+  @media (min-width: 992px) {
+    width: calc(100% - 250px);
+    margin-left: 250px;
+    height: 100vh;
+  }
+}
+
+.alert-box img {
+  width: 60px;
+  height: 60px;
+}
+
+.alert-box p {
+  font-family: var(--main-font);
+  font-size: 25px;
+}

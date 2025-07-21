@@ -4,8 +4,10 @@ import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import "./Tutorial.css";
 import leaf from "../../assets/images/leaf.png";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth.ts";
 
 export default function Tutorial() {
+  const fetchWithAuth = useFetchWithAuth();
   const [tutorials, setTutorials] = useState<Tutorials[]>([]);
   const [selectedTutorial, setSelectedTutorial] = useState<Tutorials | null>(
     null,
@@ -14,7 +16,7 @@ export default function Tutorial() {
   useEffect(() => {
     const fetchTutorials = async () => {
       try {
-        const res = await fetch(
+        const res = await fetchWithAuth(
           `${import.meta.env.VITE_API_URL}/api/tutorials`,
         );
         if (!res.ok) throw new Error("Erreur serveur");
@@ -26,7 +28,7 @@ export default function Tutorial() {
     };
 
     fetchTutorials();
-  }, []);
+  }, [fetchWithAuth]);
 
   const tutorialsgardening = tutorials.filter(
     (t) => t.category === "gardening",
@@ -40,8 +42,6 @@ export default function Tutorial() {
         <div className="tutorial-box">
           <h1>Tutorials</h1>
           <hr />
-
-          {/*ici viendra le composant pour les favoris US-22*/}
 
           <TutorialList
             title="Gardening step by step 🌱"

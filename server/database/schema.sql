@@ -11,9 +11,9 @@ CREATE TABLE user (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO user (firstname, lastname, username, city, email, hashed_password, avatar ) VALUES
-( 'Keanu', 'Leaves', 'Keanu_Leaves','Bordeaux','Keanu@ouimail.fr','1234','/images/avatar/avatar1.png'),
-( 'Jean', 'Feuille','JeanDuj', 'Paris','JF@ouimail.fr', '9875','/images/avatar/avatar2.png'),
-( 'Louis', 'Plante', 'Loulou', 'Tours','Loulou@ouimail.fr','4566','/images/avatar/avatar2.png');
+( 'Keanu', 'Leaves', 'Keanu_Leaves','Bordeaux','Keanu@ouimail.fr','TonMdp12345!','/images/avatar/avatar1.png'),
+( 'Jean', 'Feuille','JeanDuj', 'Paris','JF@ouimail.fr', 'TonMdp12345!','/images/avatar/avatar2.png'),
+( 'Louis', 'Plante', 'Loulou', 'Tours','Loulou@ouimail.fr','TonMdp12345!','/images/avatar/avatar2.png');
 
 CREATE TABLE garden (
   id INT PRIMARY KEY,
