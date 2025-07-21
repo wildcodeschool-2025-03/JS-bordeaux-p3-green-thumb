@@ -46,6 +46,11 @@
   width: 100%;
 }
 
+.explication-doctor {
+  font-family: var(--main-font);
+  padding-bottom: 5px;
+}
+
 .plant-doctor-uploader-wrapper {
   width: 100%;
 }

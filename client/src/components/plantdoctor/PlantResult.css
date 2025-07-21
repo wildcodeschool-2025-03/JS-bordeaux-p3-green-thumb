@@ -73,7 +73,7 @@
 
 .plant-result-reset-button {
   align-self: start;
-  background-color: #1976d2;
+  background-color: #62a614dd;
   color: white;
   border: none;
   padding: 0.6rem 1rem;
@@ -84,5 +84,5 @@
 }
 
 .plant-result-reset-button:hover {
-  background-color: #0d47a1;
+  background-color: #76c918dd;
 }
