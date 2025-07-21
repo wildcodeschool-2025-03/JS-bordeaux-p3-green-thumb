@@ -1,5 +1,5 @@
 import "./Photofeed.css";
-import leaf from "../../assets/images/leaf.png";
+import leaf from "/images/app-icon/leaf.png";
 
 export default function Photofeed() {
   return (

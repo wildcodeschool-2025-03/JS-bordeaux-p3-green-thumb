@@ -4,7 +4,7 @@ import PlantResult from "../../components/plantdoctor/PlantResult";
 import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { PlantIdentificationResponse } from "../../types/garden/plant";
 import "./PlantDoctor.css";
-import leaf from "../../assets/images/leaf.png";
+import leaf from "/images/app-icon/leaf.png";
 
 export default function PlantDoctor() {
   const [result, setResult] = useState<PlantIdentificationResponse | null>(
