@@ -1,0 +1,96 @@
+.plant-doctor-container {
+  height: 85dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+@media (min-width: 992px) {
+  .plant-doctor-container {
+    margin-left: 250px;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 60px 20px;
+  }
+}
+
+.plant-doctor-box {
+  background-color: #30312c;
+  border: 1px solid #b3d537;
+  border-radius: 12px;
+  padding: 20px;
+  font-family: var(--main-font);
+  color: white;
+  width: 100%;
+  max-width: 1000px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  max-height: calc(100vh - 100px);
+}
+
+.plant-doctor-leaf {
+  width: 60px;
+}
+
+.plant-doctor-title {
+  margin: 0;
+}
+
+.plant-doctor-line {
+  border-color: #b3d537;
+  width: 100%;
+}
+
+.plant-doctor-uploader-wrapper {
+  width: 100%;
+}
+
+.plant-doctor-loading-text {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+}
+
+.plant-doctor-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 992px) {
+  .plant-doctor-content {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 40px;
+  }
+}
+
+.plant-doctor-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .plant-doctor-preview-container {
+    padding-top: 160px;
+  }
+}
+
+.plant-doctor-preview-image {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 12px;
+  border: 2px solid #b3d537;
+  object-fit: contain;
+}
+
+.plant-doctor-result-wrapper {
+  flex: 1;
+  overflow-y: auto;
+}

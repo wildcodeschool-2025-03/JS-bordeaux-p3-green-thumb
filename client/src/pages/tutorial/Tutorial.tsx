@@ -43,8 +43,6 @@ export default function Tutorial() {
           <h1>Tutorials</h1>
           <hr />
 
-          {/*ici viendra le composant pour les favoris US-22*/}
-
           <TutorialList
             title="Gardening step by step 🌱"
             tutorials={tutorialsgardening}
