@@ -55,7 +55,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/photofeed" className="nav-item">
+      <NavLink to="/garden/1/plant/9" className="nav-item">
         {({ isActive }) => (
           <>
             <img
