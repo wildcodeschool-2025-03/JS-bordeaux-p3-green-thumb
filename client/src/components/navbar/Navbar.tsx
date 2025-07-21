@@ -12,6 +12,9 @@ import tutorialoff from "/images/navbar-icon/tutorialoff.svg";
 import tutorialon from "/images/navbar-icon/tutorialon.svg";
 
 export default function Navbar() {
+  const { user } = useUserContext();
+  const id = user?.infoUser?.id;
+
   return (
     <nav className="menu-nav">
       <NavLink to="/tutorial" className="nav-item">
@@ -68,7 +71,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/garden" className="nav-item">
+      <NavLink to={`/garden/${id}`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
