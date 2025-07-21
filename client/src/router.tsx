@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "garden/:Id",
+        path: "garden/:id",
         element: (
           <PrivateRouteContext>
             <MyGarden />
