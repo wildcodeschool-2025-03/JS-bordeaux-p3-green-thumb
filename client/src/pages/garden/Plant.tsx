@@ -30,6 +30,17 @@ export default function PlantProfile() {
     west: west,
   };
 
+  const wateringInstructions = (watering: number) => {
+    switch (watering) {
+      case 1:
+        return `Water ${plant?.name} once every two week`;
+      case 2:
+        return `Water ${plant?.name}  once a week`;
+      case 3:
+        return `Water ${plant?.name}  every two day`;
+    }
+  };
+
   useEffect(() => {
     authFetch(
       `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
@@ -104,10 +115,10 @@ export default function PlantProfile() {
           <hr />
           <div className="info-wrapper">
             <article className="watering-info">
-              <h2>Water {plant.name} </h2>
+              <h2>{wateringInstructions(plant.watering)}</h2>
             </article>
             <article className="exposition-info">
-              <h2>Give {plant.name} the right exposure</h2>
+              <h2>{plant.tip}</h2>
             </article>
             <h3>Usual cause of decay</h3>
 

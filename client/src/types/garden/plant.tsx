@@ -7,11 +7,13 @@ export type Plant = {
   edible: boolean;
   toxic: boolean;
   plant_exposition: "north" | "south" | "east" | "west";
+  watering: number;
   born_at: string;
   nickname: string | null;
   avatar: string;
   plant_garden_id: number;
   main_cause_of_decay: string;
+  tip: string;
 };
 
 export type PlantListItem = {
