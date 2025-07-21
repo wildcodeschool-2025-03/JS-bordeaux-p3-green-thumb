@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { NavLink } from "react-router";
+import { useParams } from "react-router";
 import dashboardoff from "../../assets/images/navbar/dashboardoff.svg";
 import dashboardon from "../../assets/images/navbar/dashboardon.svg";
 import doctoroff from "../../assets/images/navbar/doctoroff.svg";
@@ -12,6 +13,8 @@ import tutorialoff from "../../assets/images/navbar/tutorialoff.svg";
 import tutorialon from "../../assets/images/navbar/tutorialon.svg";
 
 export default function Navbar() {
+  const { id } = useParams();
+  if (!id) return null;
   return (
     <nav className="menu-nav">
       <NavLink to="/tutorial" className="nav-item">
@@ -42,7 +45,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/dashboard" className="nav-item">
+      <NavLink to={`/dashboard/${id}/`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
@@ -68,7 +71,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/garden" className="nav-item">
+      <NavLink to={`/garden/${id}/`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
