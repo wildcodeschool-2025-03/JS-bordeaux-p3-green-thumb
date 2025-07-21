@@ -18,8 +18,6 @@ function MyGarden() {
       .catch((err) => console.error("Error while fetching plants:", err));
   }, [id, authFetch]);
 
-  console.log(plants);
-
   return (
     <>
       <div className="desktop-box">
