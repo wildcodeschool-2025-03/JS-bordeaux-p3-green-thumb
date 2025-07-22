@@ -7,6 +7,8 @@ import PlantProfile from "./pages/garden/Plant";
 import PlantList from "./pages/garden/PlantList";
 import Landing from "./pages/landing/Landing";
 import Login from "./pages/login/Login";
+import Photofeed from "./pages/photofeed/Photofeed";
+import PlantDoctor from "./pages/plantDoctor/PlantDoctor";
 import Register from "./pages/register/Register";
 import Tutorial from "./pages/tutorial/Tutorial";
 
@@ -35,6 +37,14 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/plantdoctor/:id",
+        element: (
+          <PrivateRouteContext>
+            <PlantDoctor />
+          </PrivateRouteContext>
+        ),
+      },
+      {
         path: "garden/:id/plant-list",
         element: (
           <PrivateRouteContext>
@@ -59,10 +69,26 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/tutorial",
+        path: "/tutorial/:id",
         element: (
           <PrivateRouteContext>
             <Tutorial />
+          </PrivateRouteContext>
+        ),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRouteContext>
+            <Dashboard />
+          </PrivateRouteContext>
+        ),
+      },
+      {
+        path: "/photofeed",
+        element: (
+          <PrivateRouteContext>
+            <Photofeed />
           </PrivateRouteContext>
         ),
       },

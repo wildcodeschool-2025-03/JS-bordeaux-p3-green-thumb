@@ -7,7 +7,7 @@ import type { User } from "../../types/user";
 class userRepository {
   async findByEmail(email: string): Promise<User | undefined> {
     const [user] = await databaseClient.query<Rows>(
-      "SELECT id, email, hashed_password FROM user WHERE email = ?",
+      "SELECT id, email, city, hashed_password FROM user WHERE email = ?",
       [email],
     );
     if (user.length === 0) return undefined;

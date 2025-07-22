@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import AddPlantBtn from "../../components/garden/AddPlantBtn/AddPlantBtn";
 import PlantCard from "../../components/garden/PlantCard/PlantCard";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 import "./myGarden.css";
-import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 
 function MyGarden() {
+  const authFetch = useFetchWithAuth();
   const [plants, setPlants] = useState<Plant[]>([]);
   const { id } = useParams();
-  const authFetch = useFetchWithAuth();
 
   useEffect(() => {
     if (!id) return;
@@ -34,7 +34,7 @@ function MyGarden() {
       <div className="desktop-box">
         <section className="my-garden">
           {plants.length === 0 ? (
-            <p className="empty-message">Ajoute ta première plante !</p>
+            <p className="empty-message">Add your first plant !</p>
           ) : (
             <article className="garden-plants">
               {plants.map((plant) => (
