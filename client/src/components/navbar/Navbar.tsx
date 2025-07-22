@@ -7,7 +7,6 @@ import doctoron from "/images/navbar-icon/doctoron.svg";
 import mygardenoff from "/images/navbar-icon/mygardenoff.svg";
 import mygardenon from "/images/navbar-icon/mygardenon.svg";
 import photofeedoff from "/images/navbar-icon/photofeedoff.svg";
-import photofeedon from "/images/navbar-icon/photofeedon.svg";
 import tutorialoff from "/images/navbar-icon/tutorialoff.svg";
 import tutorialon from "/images/navbar-icon/tutorialon.svg";
 import { useUserContext } from "../../context/UserContext";
