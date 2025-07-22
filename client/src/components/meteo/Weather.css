@@ -1,0 +1,40 @@
+.weather-widget {
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 10px;
+  margin-right: 20px;
+  font-family: var(--main-font);
+  color: var(--main-font-color);
+  opacity: 0.9;
+  backdrop-filter: blur(6px);
+  @media screen and (min-width: 992px) {
+    margin-top: 30px;
+    margin-right: 40px;
+  }
+}
+
+.weather-top {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.weather-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.weather-temp {
+  font-size: 3rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.weather-title {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--main-font-color);
+}
