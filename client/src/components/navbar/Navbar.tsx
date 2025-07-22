@@ -59,7 +59,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/garden/1/plant/4" className="nav-item">
+      <NavLink to="/garden/1/plant/28" className="nav-item">
         {({ isActive }) => (
           <>
             <img

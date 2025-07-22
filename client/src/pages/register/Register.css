@@ -145,6 +145,9 @@ input,
   flex-direction: column;
   background: #413d3a;
   margin: 0.8em;
+  @media screen and (min-width: 992px) {
+    height: 4em;
+  }
 }
 
 .form-input {
@@ -215,5 +218,5 @@ input,
   top: -8px;
   left: 8px;
   font-size: 1rem;
-  color: var(--inactive-text-color);
+  color: var(--card-border);
 }

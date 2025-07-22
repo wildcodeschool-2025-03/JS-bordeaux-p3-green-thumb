@@ -77,7 +77,7 @@ export default function Register() {
         console.info(response);
       }
     } catch (err) {
-      console.error(err);
+      err;
     }
   };
 

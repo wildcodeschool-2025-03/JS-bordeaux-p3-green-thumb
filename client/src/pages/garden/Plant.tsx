@@ -5,7 +5,6 @@ import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 
 import "./Plant.css";
-import addPhoto from "/images/app-icon/add-photo.png";
 import calendar from "/images/app-icon/calendar.svg";
 import east from "/images/app-icon/east.png";
 import edible from "/images/app-icon/edible.png";
@@ -57,7 +56,6 @@ export default function PlantProfile() {
     <>
       <div className="plant-profile-wrapper">
         <section className="plant-photo-gallery ">
-          <img src={addPhoto} alt="add icon" className="add-photo-icon" />
           <Gallery />
         </section>
 

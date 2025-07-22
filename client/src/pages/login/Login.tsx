@@ -58,9 +58,9 @@ export default function Login() {
 
   return (
     <div className="login-body">
-      <img src={leaf} alt="leaf logo" className="login-greenthumb-logo" />
       <main className="login-form-wrapper">
         <div className="login-form-title-wrapper">
+          <img src={leaf} alt="leaf logo" className="login-greenthumb-logo" />
           <h2 className="login-form-title">Login</h2>
         </div>
         <form onSubmit={loginSubmit} className="login-form">
