@@ -12,9 +12,20 @@ function MyGarden() {
   const { id } = useParams();
 
   useEffect(() => {
+    if (!id) return;
+
     authFetch(`${import.meta.env.VITE_API_URL}/api/garden/${id}`)
       .then((res) => res.json())
-      .then((plants) => setPlants(plants))
+      .then((data) => {
+        if (Array.isArray(data)) {
+          setPlants(data);
+        } else if (Array.isArray(data.plants)) {
+          setPlants(data.plants);
+        } else {
+          console.error("Unexpected API format:", data);
+          setPlants([]);
+        }
+      })
       .catch((err) => console.error("Error while fetching plants:", err));
   }, [id, authFetch]);
 

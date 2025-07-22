@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import { NavLink } from "react-router";
+import { useParams } from "react-router";
 import dashboardoff from "/images/navbar-icon/dashboardoff.svg";
 import dashboardon from "/images/navbar-icon/dashboardon.svg";
 import doctoroff from "/images/navbar-icon/doctoroff.svg";
@@ -9,12 +10,10 @@ import mygardenon from "/images/navbar-icon/mygardenon.svg";
 import photofeedoff from "/images/navbar-icon/photofeedoff.svg";
 import tutorialoff from "/images/navbar-icon/tutorialoff.svg";
 import tutorialon from "/images/navbar-icon/tutorialon.svg";
-import { useUserContext } from "../../context/UserContext";
 
 export default function Navbar() {
-  const { user } = useUserContext();
-  const id = user?.infoUser?.id;
-
+  const { id } = useParams();
+  if (!id) return null;
   return (
     <nav className="menu-nav">
       <NavLink to={`/garden/${id}`} className="nav-item">
@@ -30,7 +29,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/plantdoctor" className="nav-item">
+      <NavLink to={`/plantdoctor/${id}`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
@@ -45,7 +44,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/dashboard" className="nav-item">
+      <NavLink to={`/dashboard/${id}/`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
@@ -58,7 +57,7 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/tutorial" className="nav-item">
+      <NavLink to={`/tutorial/${id}/`} className="nav-item">
         {({ isActive }) => (
           <>
             <img

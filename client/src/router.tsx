@@ -29,15 +29,7 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "/dashboard",
-        element: (
-          <PrivateRouteContext>
-            <Dashboard />
-          </PrivateRouteContext>
-        ),
-      },
-      {
-        path: "garden/:Id",
+        path: "garden/:id",
         element: (
           <PrivateRouteContext>
             <MyGarden />
@@ -45,7 +37,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/plantdoctor",
+        path: "/plantdoctor/:id",
         element: (
           <PrivateRouteContext>
             <PlantDoctor />
@@ -69,7 +61,15 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/tutorial",
+        path: "/dashboard/:id",
+        element: (
+          <PrivateRouteContext>
+            <Dashboard />
+          </PrivateRouteContext>
+        ),
+      },
+      {
+        path: "/tutorial/:id",
         element: (
           <PrivateRouteContext>
             <Tutorial />

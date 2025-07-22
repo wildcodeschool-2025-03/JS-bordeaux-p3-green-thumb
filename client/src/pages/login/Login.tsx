@@ -6,6 +6,7 @@ import eyeOff from "/images/app-icon/password-hide.png";
 import eyeOn from "/images/app-icon/password-view.png";
 import { useUserContext } from "../../context/UserContext";
 import "./Login.css";
+import { useEffect } from "react";
 
 export default function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -14,6 +15,15 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const { setUser } = useUserContext();
+  const { user } = useUserContext();
+  const id = user?.infoUser?.id;
+
+  useEffect(() => {
+    const id = user?.infoUser?.id;
+    if (id) {
+      navigate(`/dashboard/${id}`);
+    }
+  }, [user, navigate]);
 
   const loginSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
@@ -42,14 +52,14 @@ export default function Login() {
         return;
       }
 
-      const { token, user } = await response.json();
+      const { token, user: loggedUser } = await response.json();
 
       setUser({
         token,
-        infoUser: user,
+        infoUser: loggedUser,
       });
 
-      navigate("/dashboard");
+      navigate(`/dashboard/${id}`);
     } catch (err) {
       console.error(err);
       setError("Something went wrong.");
