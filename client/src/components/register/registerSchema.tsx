@@ -4,6 +4,10 @@ const passwordRequirementsMessage =
   "Password must contain at least one number and one special character.";
 
 const registerSchema = Joi.object({
+  firstname: Joi.string().required().messages({ "string.empty": "" }),
+
+  lastname: Joi.string().required().messages({ "string.empty": "" }),
+
   username: Joi.string().max(20).required().messages({
     "string.empty": "Username is required.",
     "string.max": "Username must be 20 characters or less.",
