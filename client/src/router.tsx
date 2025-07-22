@@ -29,6 +29,14 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
+        path: "/dashboard",
+        element: (
+          <PrivateRouteContext>
+            <Dashboard />
+          </PrivateRouteContext>
+        ),
+      },
+      {
         path: "garden/:Id",
         element: (
           <PrivateRouteContext>

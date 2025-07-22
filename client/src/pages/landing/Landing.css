@@ -1,26 +1,42 @@
-html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 .landing-container {
-  height: 100vh;
-  width: 100vw;
-  background-image: url("../src/assets/images/landing-background.jpg");
+  background-image: var(--landing-background);
   background-size: cover;
   background-position: center;
-  background-repeat: no-repeat;
-
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  padding-top: 70px;
+  justify-content: center;
+  height: 100vh;
 }
 
-.logo-section {
+.landing-banner {
+  background: var(--transparent-card-background);
+  border: solid 1px #879271;
+  border-radius: 25px;
+  margin-right: 10em;
+  display: flex;
+  max-width: 800px;
+  justify-content: center;
+  align-items: center;
+
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.phone-representation {
+  width: 50%;
+  margin: 70px 0;
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.banner-title {
+  text-align: center;
+  font-size: 30px;
+}
+
+.welcome-section {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,6 +77,7 @@ body {
 
 .btn:first-of-type {
   margin-top: 50px;
+  color: white;
 }
 
 .btn-primary {

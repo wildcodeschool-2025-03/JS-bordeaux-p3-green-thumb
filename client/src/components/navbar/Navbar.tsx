@@ -1,14 +1,14 @@
 import "./Navbar.css";
 import { NavLink } from "react-router";
-import dashboardoff from "../../assets/images/navbar/dashboardoff.svg";
-import dashboardon from "../../assets/images/navbar/dashboardon.svg";
-import doctoroff from "../../assets/images/navbar/doctoroff.svg";
-import doctoron from "../../assets/images/navbar/doctoron.svg";
-import mygardenoff from "../../assets/images/navbar/mygardenoff.svg";
-import mygardenon from "../../assets/images/navbar/mygardenon.svg";
-import photofeedoff from "../../assets/images/navbar/photofeedoff.svg";
-import tutorialoff from "../../assets/images/navbar/tutorialoff.svg";
-import tutorialon from "../../assets/images/navbar/tutorialon.svg";
+import dashboardoff from "/images/navbar-icon/dashboardoff.svg";
+import dashboardon from "/images/navbar-icon/dashboardon.svg";
+import doctoroff from "/images/navbar-icon/doctoroff.svg";
+import doctoron from "/images/navbar-icon/doctoron.svg";
+import mygardenoff from "/images/navbar-icon/mygardenoff.svg";
+import mygardenon from "/images/navbar-icon/mygardenon.svg";
+import photofeedoff from "/images/navbar-icon/photofeedoff.svg";
+import tutorialoff from "/images/navbar-icon/tutorialoff.svg";
+import tutorialon from "/images/navbar-icon/tutorialon.svg";
 import { useUserContext } from "../../context/UserContext";
 
 export default function Navbar() {

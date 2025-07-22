@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
 import type { FormEventHandler } from "react";
 import { Link, useNavigate } from "react-router";
-import leaf from "../../assets/images/Logo-green-thumb.png";
-import eyeOff from "../../assets/images/icons/password-hide.png";
-import eyeOn from "../../assets/images/icons/password-view.png";
+import leaf from "/images/app-icon/leaf.png";
+import eyeOff from "/images/app-icon/password-hide.png";
+import eyeOn from "/images/app-icon/password-view.png";
 import { useUserContext } from "../../context/UserContext";
 import "./Login.css";
 
@@ -58,9 +58,9 @@ export default function Login() {
 
   return (
     <div className="login-body">
-      <img src={leaf} alt="leaf logo" className="login-greenthumb-logo" />
       <main className="login-form-wrapper">
         <div className="login-form-title-wrapper">
+          <img src={leaf} alt="leaf logo" className="login-greenthumb-logo" />
           <h2 className="login-form-title">Login</h2>
         </div>
         <form onSubmit={loginSubmit} className="login-form">

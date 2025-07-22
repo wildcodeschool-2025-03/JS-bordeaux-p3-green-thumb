@@ -1,5 +1,6 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
+import { StatusCodes } from "http-status-codes";
 import userRepository from "./userRepository";
 
 const hashingOptions = {
@@ -14,7 +15,7 @@ const add: RequestHandler = async (req, res, next) => {
     const { password, firstname, lastname, username, city, email } = req.body;
 
     if (!password) {
-      res.status(400).json({ error: "password invalid" });
+      res.status(StatusCodes.BAD_REQUEST).json({ error: "password invalid" });
       return;
     }
 
@@ -31,7 +32,7 @@ const add: RequestHandler = async (req, res, next) => {
 
     const insertId = await userRepository.create(newUser);
 
-    res.status(201).json({ insertId });
+    res.status(StatusCodes.CREATED).json({ insertId });
   } catch (err) {
     next(err);
   }

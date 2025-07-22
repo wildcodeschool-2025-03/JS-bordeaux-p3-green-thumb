@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import Gallery from "../../components/garden/Gallery/Gallery";
+import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 
 import "./Plant.css";
-import addPhoto from "../../assets/images/icons/add-photo.png";
-import calendar from "../../assets/images/icons/calendar.png";
-import east from "../../assets/images/icons/east.png";
-import edible from "../../assets/images/icons/edible.png";
-import harmless from "../../assets/images/icons/harmless.png";
-import north from "../../assets/images/icons/north.png";
-import notEdible from "../../assets/images/icons/not-edible.png";
-import pen from "../../assets/images/icons/pencil.png";
-import south from "../../assets/images/icons/south.png";
-import toxic from "../../assets/images/icons/toxic.png";
-import west from "../../assets/images/icons/west.png";
-import { useFetchWithAuth } from "../../tools/useFetchWithAuth.ts";
+import calendar from "/images/app-icon/calendar.svg";
+import east from "/images/app-icon/east.png";
+import edible from "/images/app-icon/edible.png";
+import harmless from "/images/app-icon/harmless.png";
+import north from "/images/app-icon/north.png";
+import notEdible from "/images/app-icon/not-edible.png";
+import pen from "/images/app-icon/pencil.png";
+import south from "/images/app-icon/south.png";
+import toxic from "/images/app-icon/toxic.png";
+import west from "/images/app-icon/west.png";
 
 export default function PlantProfile() {
   const authFetch = useFetchWithAuth();
@@ -27,6 +27,17 @@ export default function PlantProfile() {
     south: south,
     east: east,
     west: west,
+  };
+
+  const wateringInstructions = (watering: number) => {
+    switch (watering) {
+      case 1:
+        return `Water ${plant?.name} once every two week`;
+      case 2:
+        return `Water ${plant?.name}  once a week`;
+      case 3:
+        return `Water ${plant?.name}  every two day`;
+    }
   };
 
   useEffect(() => {
@@ -43,65 +54,76 @@ export default function PlantProfile() {
 
   return (
     <>
-      <div className="desktop-box">
-        <section className="profile-card">
-          <img src={plant.icon} alt={plant.name} className="plant-icon" />
+      <div className="plant-profile-wrapper">
+        <section className="plant-photo-gallery ">
+          <Gallery />
+        </section>
 
-          <section className="plant-infos">
-            <h2 className="plant-name">
-              {plant.name}
-              <img src={pen} alt="pencil icon" className="pen-icon" />
-            </h2>
-            <article className="birthdate-wrapper">
-              <img
-                src={calendar}
-                alt="calendar icon"
-                className="calendar-icon"
-              />
-              <span className="birthdate">{plant.born_at}</span>
+        <section className="plant-profile-card">
+          <h3>Plant Profile</h3>
+          <hr />
+          <h2>
+            {plant.name}
+            <img src={pen} alt="pencil icon" className="pen-icon" />
+          </h2>
+          <section className="plant-profile-infos">
+            <p>{plant.description}</p>
+
+            <article className="icon-card">
+              <div className="birthdate-infos">
+                <img
+                  src={calendar}
+                  alt="calendar icon"
+                  className="calendar-icon"
+                />
+                <span className="birthdate">{plant.born_at}</span>
+              </div>
+
+              <div className="icons">
+                {plant.edible ? (
+                  <img src={edible} alt="edible" className="info-icon" />
+                ) : (
+                  <img src={notEdible} alt="not edible" className="info-icon" />
+                )}
+                {plant.toxic ? (
+                  <img src={toxic} alt="toxic" className="toxic-icon" />
+                ) : (
+                  <img
+                    src={harmless}
+                    alt="harmless"
+                    className="harmless-icon"
+                  />
+                )}
+                <img
+                  src={
+                    expositionIcons[
+                      plant.plant_exposition as keyof typeof expositionIcons
+                    ]
+                  }
+                  alt={`exposition ${plant.plant_exposition}`}
+                  className="exposition-icon"
+                />
+              </div>
             </article>
           </section>
+        </section>
 
-          <article className="icon-card">
-            {plant.edible ? (
-              <img src={edible} alt="edible" className="info-icon" />
-            ) : (
-              <img src={notEdible} alt="not edible" className="info-icon" />
-            )}
-            {plant.toxic ? (
-              <img src={toxic} alt="toxic" className="toxic-icon" />
-            ) : (
-              <img src={harmless} alt="harmless" className="harmless-icon" />
-            )}
-            <img
-              src={
-                expositionIcons[
-                  plant.plant_exposition as keyof typeof expositionIcons
-                ]
-              }
-              alt={`exposition ${plant.plant_exposition}`}
-              className="exposition-icon"
-            />
-          </article>
+        <section className="plant-profile-reminder">
+          <h3>Reminder</h3>
+          <hr />
+          <div className="info-wrapper">
+            <article className="watering-info">
+              <h2>{wateringInstructions(plant.watering)}</h2>
+            </article>
+            <article className="exposition-info">
+              <h2>{plant.tip}</h2>
+            </article>
+            <h3>Usual cause of decay</h3>
 
-          <article className="gallery">
-            <header className="gallery-header">
-              <h2 className="gallery-title">Gallery</h2>
-              <img src={addPhoto} alt="add icon" className="add-photo-icon" />
-            </header>
-            <figure className="plant-photo-carousel">
-              <img
-                src="https://placehold.co/162x162/png"
-                alt="gallery placeholder"
-                className="mobile-gallery-photo"
-              />
-              <img
-                src="https://placehold.co/240x240/png"
-                alt="gallery placeholder"
-                className="desktop-gallery-photo"
-              />
-            </figure>
-          </article>
+            <article className="alert-info">
+              <h2> {plant.main_cause_of_decay}</h2>
+            </article>
+          </div>
         </section>
       </div>
     </>

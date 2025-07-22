@@ -1,9 +1,11 @@
+import { StatusCodes } from "http-status-codes";
 import { type FormEventHandler, useRef, useState } from "react";
 import { usePlacesWidget } from "react-google-autocomplete";
 import { useNavigate } from "react-router";
-import eyeOff from "../../assets/images/icons/password-hide.png";
-import eyeOn from "../../assets/images/icons/password-view.png";
-import leaf from "../../assets/images/leaf.png";
+import leaf from "/images/app-icon/leaf.png";
+import eyeOff from "/images/app-icon/password-hide.png";
+import eyeOn from "/images/app-icon/password-view.png";
+
 import registerSchema from "../../components/register/registerSchema";
 
 import "./Register.css";
@@ -69,22 +71,22 @@ export default function Register() {
         },
       );
 
-      if (response.status === 201) {
+      if (response.status === StatusCodes.CREATED) {
         navigate("/login");
       } else {
         console.info(response);
       }
     } catch (err) {
-      console.error(err);
+      err;
     }
   };
 
   return (
     <>
       <div className="register-body">
-        <img src={leaf} alt="leaf logo" className="greenthumb-logo" />
         <main className="form-wrapper">
           <div className="form-title-wrapper">
+            <img src={leaf} alt="leaf logo" className="greenthumb-logo" />
             <h2 className="form-title">Register</h2>
           </div>
           <form onSubmit={submitRegister} className="form">
@@ -147,7 +149,7 @@ export default function Register() {
                     id="email"
                     ref={emailRef}
                     type="email"
-                    className="form-input"
+                    className="form-input email-form-input"
                     onInput={validateForm}
                     placeholder=" "
                   />
