@@ -10,7 +10,6 @@
 @media (min-width: 992px) {
   .plant-doctor-container {
     margin-left: 250px;
-    justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 60px 20px;

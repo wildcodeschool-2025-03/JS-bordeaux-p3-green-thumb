@@ -1,6 +1,7 @@
 export type UserInfo = {
   id: number;
   email: string;
+  city: string;
 };
 
 export type UserContextType = {
