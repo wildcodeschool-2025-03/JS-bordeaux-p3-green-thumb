@@ -18,15 +18,15 @@ export default function Navbar() {
 
   return (
     <nav className="menu-nav">
-      <NavLink to="/tutorial" className="nav-item">
+      <NavLink to={`/garden/${id}`} className="nav-item">
         {({ isActive }) => (
           <>
             <img
-              src={isActive ? tutorialon : tutorialoff}
-              alt="tutorial video icon"
+              src={isActive ? mygardenon : mygardenoff}
+              alt="my garden icon"
               className="nav-icon"
             />
-            <p className={`nav-text ${isActive ? "active" : ""}`}>Tutorials</p>
+            <p className={`nav-text ${isActive ? "active" : ""}`}>My Garden</p>
           </>
         )}
       </NavLink>
@@ -59,31 +59,25 @@ export default function Navbar() {
         )}
       </NavLink>
 
-      <NavLink to="/garden/1/plant/28" className="nav-item">
+      <NavLink to="/tutorial" className="nav-item">
         {({ isActive }) => (
           <>
             <img
-              src={isActive ? photofeedon : photofeedoff}
-              alt="photofeed icon"
+              src={isActive ? tutorialon : tutorialoff}
+              alt="tutorial video icon"
               className="nav-icon"
             />
-            <p className={`nav-text ${isActive ? "active" : ""}`}>Photofeed</p>
+            <p className={`nav-text ${isActive ? "active" : ""}`}>Tutorials</p>
           </>
         )}
       </NavLink>
 
-      <NavLink to={`/garden/${id}`} className="nav-item">
-        {({ isActive }) => (
-          <>
-            <img
-              src={isActive ? mygardenon : mygardenoff}
-              alt="my garden icon"
-              className="nav-icon"
-            />
-            <p className={`nav-text ${isActive ? "active" : ""}`}>My Garden</p>
-          </>
-        )}
-      </NavLink>
+      <nav className="nav-item">
+        <>
+          <img src={photofeedoff} alt="photofeed icon" className="nav-icon" />
+          <p className="nav-text">Photofeed</p>
+        </>
+      </nav>
     </nav>
   );
 }
