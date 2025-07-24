@@ -6,6 +6,7 @@
   border: 2px solid #c4ff3f;
   border-radius: 12px;
   background: #1e1c1a;
+  cursor: pointer;
 }
 
 .plant-image-wrapper {

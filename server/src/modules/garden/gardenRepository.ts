@@ -4,10 +4,10 @@ import type { GardenPlant, Plant } from "../../types/plant";
 class GardenRepository {
   async findPlant(gardenId: number, plantId: number) {
     const query = `
-      SELECT p.*, DATE_FORMAT(pg.born_at, '%d.%m.%y') AS born_at
-      FROM plant AS p
-      JOIN plant_garden AS pg ON p.id = pg.plant_id
-      WHERE pg.garden_id = ? AND pg.plant_id = ?
+       SELECT p.*, pg.id AS plant_garden_id, DATE_FORMAT(pg.born_at, '%d.%m.%y') AS born_at
+  FROM plant AS p
+  JOIN plant_garden AS pg ON p.id = pg.plant_id
+  WHERE pg.garden_id = ? AND pg.id = ?
     `;
     const [rows] = await databaseClient.query<Rows>(query, [gardenId, plantId]);
 
