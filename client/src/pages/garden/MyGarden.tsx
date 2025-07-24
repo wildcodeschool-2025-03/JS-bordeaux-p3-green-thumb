@@ -11,9 +11,9 @@ function MyGarden() {
   const [plants, setPlants] = useState<Plant[]>([]);
   const { id } = useParams();
 
-  useEffect(() => {
-    if (!id) return;
+  if (!id) return;
 
+  useEffect(() => {
     authFetch(`${import.meta.env.VITE_API_URL}/api/garden/${id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -38,7 +38,11 @@ function MyGarden() {
           ) : (
             <article className="garden-plants">
               {plants.map((plant) => (
-                <PlantCard key={plant.plant_garden_id} plant={plant} />
+                <PlantCard
+                  key={plant.plant_garden_id}
+                  plant={plant}
+                  gardenId={id}
+                />
               ))}
             </article>
           )}

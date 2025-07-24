@@ -51,6 +51,7 @@ export default function PlantProfile() {
   if (!plant) {
     return <div>Loading...</div>;
   }
+  console.log("Fetching plant profile for:", { gardenId, plantId });
 
   return (
     <>
