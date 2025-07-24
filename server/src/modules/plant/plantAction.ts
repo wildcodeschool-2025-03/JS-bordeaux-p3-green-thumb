@@ -13,11 +13,33 @@ const browse: RequestHandler = async (req, res, next) => {
 
     res.status(StatusCodes.OK).json(plants);
   } catch (err) {
-    console.error("Error while retrieving plants:", err);
     res
       .status(StatusCodes.INTERNAL_SERVER_ERROR)
       .json({ message: "Server error while retrieving plants." });
   }
 };
 
-export default { browse };
+const update: RequestHandler = async (req, res, next) => {
+  const { gardenId, plantId } = req.params;
+  const { nickname } = req.body;
+
+  try {
+    const updatedPlant = await plantRepository.updateNickname(
+      nickname,
+      Number(gardenId),
+      Number(plantId),
+    );
+
+    if (!updatedPlant) {
+      res.status(StatusCodes.NOT_FOUND).json({ message: "No plant found" });
+    }
+
+    res.status(StatusCodes.OK).json(updatedPlant);
+  } catch (err) {
+    res
+      .status(StatusCodes.INTERNAL_SERVER_ERROR)
+      .json({ message: "Server error while updating nickname" });
+  }
+};
+
+export default { browse, update };

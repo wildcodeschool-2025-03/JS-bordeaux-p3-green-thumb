@@ -1,13 +1,12 @@
 .plant-profile-wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  z-index: 1;
   @media (min-width: 992px) {
     width: calc(100% - 250px);
     margin-left: 250px;
     padding: 0 4em;
     box-sizing: border-box;
-    overflow: hidden;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 342px 350px;

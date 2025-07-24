@@ -12,6 +12,7 @@ router.use(authActions.verifyToken);
 
 import plantAction from "./modules/plant/plantAction";
 router.get("/api/plant", plantAction.browse);
+router.put("/api/garden/:gardenId/plant/:plantId/nickname", plantAction.update);
 
 import tutorialActions from "./modules/tutorial/tutorialActions";
 router.get("/api/tutorials", tutorialActions.readAll);

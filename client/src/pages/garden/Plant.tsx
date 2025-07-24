@@ -21,23 +21,14 @@ export default function PlantProfile() {
   const { gardenId, plantId } = useParams();
 
   const [plant, setPlant] = useState<Plant | null>(null);
+  const [editingNickname, setEditingNickname] = useState(false);
+  const [nicknameInput, setNicknameInput] = useState("");
 
   const expositionIcons = {
     north: north,
     south: south,
     east: east,
     west: west,
-  };
-
-  const wateringInstructions = (watering: number) => {
-    switch (watering) {
-      case 1:
-        return `Water ${plant?.name} once every two week`;
-      case 2:
-        return `Water ${plant?.name}  once a week`;
-      case 3:
-        return `Water ${plant?.name}  every two day`;
-    }
   };
 
   useEffect(() => {
@@ -51,7 +42,48 @@ export default function PlantProfile() {
   if (!plant) {
     return <div>Loading...</div>;
   }
-  console.log("Fetching plant profile for:", { gardenId, plantId });
+
+  const saveNickname = async () => {
+    if (!nicknameInput || nicknameInput === plant?.nickname) {
+      setEditingNickname(false);
+      return;
+    }
+
+    try {
+      const response = await authFetch(
+        `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}/nickname`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ nickname: nicknameInput }),
+        },
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to update nickname");
+      }
+
+      const updatedPlant = await response.json();
+      setPlant(updatedPlant);
+    } catch (err) {
+    } finally {
+      setEditingNickname(false);
+    }
+  };
+
+  const wateringInstructions = (watering: number) => {
+    const plantName = plant?.nickname || plant?.name;
+    switch (watering) {
+      case 1:
+        return `Water ${plantName} once every two weeks`;
+      case 2:
+        return `Water ${plantName}  once a week`;
+      case 3:
+        return `Water ${plantName}  every two days`;
+    }
+  };
 
   return (
     <>
@@ -64,9 +96,33 @@ export default function PlantProfile() {
           <h3>Plant Profile</h3>
           <hr />
           <h2>
-            {plant.name}
-            <img src={pen} alt="pencil icon" className="pen-icon" />
+            {editingNickname ? (
+              <input
+                type="text"
+                value={nicknameInput}
+                onChange={(e) => setNicknameInput(e.target.value)}
+                onBlur={saveNickname}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") saveNickname();
+                }}
+              />
+            ) : (
+              <>
+                {plant.nickname || plant.name}
+                <img
+                  src={pen}
+                  alt="pencil icon"
+                  className="pen-icon"
+                  onClick={() => {
+                    setEditingNickname(true);
+                    setNicknameInput(plant.nickname || plant.name);
+                  }}
+                  onKeyDown={undefined}
+                />
+              </>
+            )}
           </h2>
+
           <section className="plant-profile-infos">
             <p>{plant.description}</p>
 
