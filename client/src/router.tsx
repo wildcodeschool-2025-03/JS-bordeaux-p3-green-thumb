@@ -77,14 +77,6 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/dashboard",
-        element: (
-          <PrivateRouteContext>
-            <Dashboard />
-          </PrivateRouteContext>
-        ),
-      },
-      {
         path: "/photofeed",
         element: (
           <PrivateRouteContext>
