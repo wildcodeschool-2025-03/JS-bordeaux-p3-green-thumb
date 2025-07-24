@@ -31,16 +31,17 @@ export default function PlantProfile() {
     west: west,
   };
 
-  const wateringInstructions = (watering: number) => {
-    switch (watering) {
-      case 1:
-        return `Water ${plant?.name} once every two week`;
-      case 2:
-        return `Water ${plant?.name}  once a week`;
-      case 3:
-        return `Water ${plant?.name}  every two day`;
-    }
-  };
+  useEffect(() => {
+    authFetch(
+      `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
+    )
+      .then((res) => res.json())
+      .then((plant) => setPlant(plant));
+  }, [gardenId, plantId, authFetch]);
+
+  if (!plant) {
+    return <div>Loading...</div>;
+  }
 
   const saveNickname = async () => {
     if (!nicknameInput || nicknameInput === plant?.nickname) {
@@ -72,17 +73,17 @@ export default function PlantProfile() {
     }
   };
 
-  useEffect(() => {
-    authFetch(
-      `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
-    )
-      .then((res) => res.json())
-      .then((plant) => setPlant(plant));
-  }, [gardenId, plantId, authFetch]);
-
-  if (!plant) {
-    return <div>Loading...</div>;
-  }
+  const wateringInstructions = (watering: number) => {
+    const plantName = plant?.nickname || plant?.name;
+    switch (watering) {
+      case 1:
+        return `Water ${plantName} once every two weeks`;
+      case 2:
+        return `Water ${plantName}  once a week`;
+      case 3:
+        return `Water ${plantName}  every two days`;
+    }
+  };
 
   return (
     <>
