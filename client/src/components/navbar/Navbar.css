@@ -23,7 +23,6 @@
   text-decoration: none;
   align-items: center;
   gap: 0.8em;
-  width: 100%;
   @media screen and (min-width: 992px) {
     margin-top: 10px;
     padding-left: 1em;

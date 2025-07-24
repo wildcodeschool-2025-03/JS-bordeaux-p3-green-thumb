@@ -49,10 +49,10 @@ export default function PlantDoctor() {
     <div className="plant-doctor-container">
       <img className="plant-doctor-leaf" src={leaf} alt="leaf" />
       <div className="plant-doctor-box">
-        <h1 className="plant-doctor-title">Plant Doctor</h1>
+        <h1 className="plant-doctor-title">Doctor Plant</h1>
         <hr className="plant-doctor-line" />
         <p className="explication-doctor">
-          DoctorPlant is a smart tool that helps you take care of your plants.
+          Doctor Plant is a smart tool that helps you take care of your plants.
           Simply take a photo of your plant and upload it to our website. In
           just a few seconds, DoctorPlant analyzes the image, identifies the
           plant, and detects any diseases.
