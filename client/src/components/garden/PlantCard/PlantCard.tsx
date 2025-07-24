@@ -19,11 +19,7 @@ export default function PlantCard({ plant, gardenId }: PlantCardProps) {
     month: "long",
     year: "numeric",
   });
-  console.log("Navigating to plant profile with:", {
-    gardenId,
-    plantGardenId: plant.plant_garden_id,
-    plant,
-  });
+
   return (
     <section className="plant-card" onClick={showProfile} onKeyUp={showProfile}>
       <article className="plant-image-wrapper">
