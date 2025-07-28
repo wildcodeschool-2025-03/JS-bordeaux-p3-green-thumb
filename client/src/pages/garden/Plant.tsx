@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Gallery from "../../components/garden/Gallery/Gallery";
+
 import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 
@@ -15,6 +15,9 @@ import pen from "/images/app-icon/pencil.png";
 import south from "/images/app-icon/south.png";
 import toxic from "/images/app-icon/toxic.png";
 import west from "/images/app-icon/west.png";
+import geraniumone from "/images/user-images/geranium-one.jpg";
+import geraniumthree from "/images/user-images/geranium-three.jpeg";
+import geraniumtwo from "/images/user-images/geranium-two.jpg";
 
 export default function PlantProfile() {
   const authFetch = useFetchWithAuth();
@@ -23,6 +26,8 @@ export default function PlantProfile() {
   const [plant, setPlant] = useState<Plant | null>(null);
   const [editingNickname, setEditingNickname] = useState(false);
   const [nicknameInput, setNicknameInput] = useState("");
+  const images = [geraniumone, geraniumtwo, geraniumthree];
+  const [currentImage, setCurrentImage] = useState(0);
 
   const expositionIcons = {
     north: north,
@@ -88,8 +93,34 @@ export default function PlantProfile() {
   return (
     <>
       <div className="plant-profile-wrapper">
-        <section className="plant-photo-gallery ">
-          <Gallery />
+        <section className="plant-photo-gallery">
+          <button
+            type="button"
+            className="carousel-button left"
+            onClick={() =>
+              setCurrentImage((prev) =>
+                prev === 0 ? images.length - 1 : prev - 1,
+              )
+            }
+          >
+            ‹
+          </button>
+          <img
+            src={images[currentImage]}
+            alt={`plant-${currentImage}`}
+            className="carousel-image"
+          />
+          <button
+            type="button"
+            className="carousel-button right"
+            onClick={() =>
+              setCurrentImage((prev) =>
+                prev === images.length - 1 ? 0 : prev + 1,
+              )
+            }
+          >
+            ›
+          </button>
         </section>
 
         <section className="plant-profile-card">

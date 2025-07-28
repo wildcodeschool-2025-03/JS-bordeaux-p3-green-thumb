@@ -13,7 +13,7 @@ CREATE TABLE user (
 INSERT INTO user (firstname, lastname, username, city, email, hashed_password, avatar ) VALUES
 ( 'Keanu', 'Leaves', 'Keanu_Leaves','Bordeaux','Keanu@ouimail.fr','TonMdp12345!','/images/avatar/avatar1.png'),
 ( 'Jean', 'Feuille','JeanDuj', 'Paris','JF@ouimail.fr', 'TonMdp12345!','/images/avatar/avatar2.png'),
-( 'Louis', 'Plante', 'Loulou', 'Tours','Loulou@ouimail.fr','TonMdp12345!','/images/avatar/avatar2.png');
+( 'Louis', 'Plante', 'Loulou', 'Tours','Loulou@ouimail.fr','TonMdp12345!','/images/avatar/avatar2.png'),
 
 CREATE TABLE garden (
   id INT PRIMARY KEY,
@@ -69,16 +69,16 @@ INSERT INTO plant (id, name, icon, description, plant_exposition, watering, toxi
 (18, 'Star Jasmine', '/images/plant-icon/jasmin.png', 'Highly fragrant climber with evergreen foliage', 'south', 2, TRUE, FALSE, 'Poor air circulation', 'Train on a trellis for better airflow.'),
 (19, 'Clematis', '/images/plant-icon/clematite.png', 'Climbing plant with decorative flowers', 'east', 2, TRUE, FALSE, 'Wilt due to fungal attack', 'Mulch roots and keep base shaded.'),
 (20, 'Cherry Tomatoes', '/images/plant-icon/tomates.png', 'Sweet small tomatoes, easy to grow in pots', 'south', 3, TRUE, TRUE, 'Fungal disease and overwatering', 'Stake early to support and ventilate.'),
-(21, 'Rubber Plant (Ficus elastica)', '/images/plant-icon/ficus.png', 'Also called rubber tree, tough plant with large glossy leaves', 'east', 2, TRUE, FALSE, 'Overwatering', 'Let top soil dry out between waterings.'),
+(21, 'Rubber Plant', '/images/plant-icon/ficus.png', 'Also called rubber tree, tough plant with large glossy leaves', 'east', 2, TRUE, FALSE, 'Overwatering', 'Let top soil dry out between waterings.'),
 (22, 'Monstera deliciosa', '/images/plant-icon/monstera.png', 'Tropical plant with large split leaves, very decorative', 'east', 2, TRUE, FALSE, 'Low humidity and overwatering', 'Wipe leaves to remove dust and help photosynthesis.'),
-(23, 'Pothos (Epipremnum)', '/images/plant-icon/pothos.png', 'Easy-care climber, ideal for hanging', 'north', 2, TRUE, FALSE, 'Root rot from standing water', 'Trim vines to promote bushier growth.'),
+(23, 'Pothos ', '/images/plant-icon/pothos.png', 'Easy-care climber, ideal for hanging', 'north', 2, TRUE, FALSE, 'Root rot from standing water', 'Trim vines to promote bushier growth.'),
 (24, 'Calathea', '/images/plant-icon/calathea.png', 'Decorative and moving foliage, likes humidity', 'east', 3, FALSE, FALSE, 'Low humidity or water quality', 'Use filtered water and mist often.'),
-(25, 'Snake Plant (Sansevieria)', '/images/plant-icon/sansevieria.png', 'Very tough, tolerates low light', 'north', 1, TRUE, FALSE, 'Overwatering', 'Water monthly and keep in indirect light.'),
-(26, 'Zamioculcas zamiifolia (ZZ Plant)', '/images/plant-icon/zamioculas.png', 'ZZ plant, very resilient, great for beginners', 'north', 1, TRUE, FALSE, 'Overwatering', 'Only water when soil is completely dry.'),
+(25, 'Snake Plant ', '/images/plant-icon/sansevieria.png', 'Very tough, tolerates low light', 'north', 1, TRUE, FALSE, 'Overwatering', 'Water monthly and keep in indirect light.'),
+(26, 'ZZ Plant', '/images/plant-icon/zamioculas.png', 'ZZ plant, very resilient, great for beginners', 'north', 1, TRUE, FALSE, 'Overwatering', 'Only water when soil is completely dry.'),
 (27, 'Dracaena marginata', '/images/plant-icon/dracanea.png', 'Tree-like plant with thin, graphic leaves', 'east', 2, TRUE, FALSE, 'Fluoride in tap water', 'Use rainwater or filtered water if possible.'),
-(28, 'Spider Plant (Chlorophytum)', '/images/plant-icon/chlorophytum.png', 'Easy to grow, air purifying and non-toxic', 'east', 2, FALSE, FALSE, 'Dry air or neglect', 'Cut dead tips and repot annually.'),
+(28, 'Spider Plant ', '/images/plant-icon/chlorophytum.png', 'Easy to grow, air purifying and non-toxic', 'east', 2, FALSE, FALSE, 'Dry air or neglect', 'Cut dead tips and repot annually.'),
 (29, 'Dieffenbachia', '/images/plant-icon/dieffenbachia.png', 'Highly decorative spotted foliage, but very toxic', 'east', 2, TRUE, FALSE, 'Overwatering and cold', 'Keep warm and out of cold drafts.'),
-(30, 'Philodendron scandens', '/images/plant-icon/philodendron.png', 'Climbing or trailing, easy-care plant', 'north', 2, TRUE, FALSE, 'Too little light or soggy soil', 'Place in bright, indirect light.');
+(30, 'Philodendron', '/images/plant-icon/philodendron.png', 'Climbing or trailing, easy-care plant', 'north', 2, TRUE, FALSE, 'Too little light or soggy soil', 'Place in bright, indirect light.');
 
 
 
