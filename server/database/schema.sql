@@ -97,26 +97,26 @@ CREATE TABLE tag (
 );
 
 INSERT INTO tag (id,tagname) VALUES
-(1, 'plante aromatique'),
+(1, 'aromatic plant'),
 (2, 'decoration'),
-(3, 'legume'),
-(4, 'hiver'),
-(5, 'printemps'),
-(6, 'ete'),
-(7, 'automne'),
-(8, 'rouge'),
-(9, 'rose'),
-(10,'bleu'),
-(11, 'violet'),
-(12, 'fleur'),
-(13, 'jaune'),
-(14, 'entretien'),
-(15, 'rempotage'),
-(16, 'bouturage'),
-(17, 'fertilisation'),
-(18, 'recolte'),
-(19, 'semence'),
-(20, 'arrosage');
+(3, 'vegetable'),
+(4, 'winter'),
+(5, 'spring'),
+(6, 'summer'),
+(7, 'autumn'),
+(8, 'red'),
+(9, 'pink'),
+(10, 'blue'),
+(11, 'purple'),
+(12, 'flower'),
+(13, 'yellow'),
+(14, 'maintenance'),
+(15, 'repotting'),
+(16, 'cutting propagation'),
+(17, 'fertilization'),
+(18, 'harvest'),
+(19, 'seed'),
+(20, 'watering');
 
 CREATE TABLE plant_tag (
   plant_id INT,
@@ -167,27 +167,110 @@ CREATE TABLE tutorial (
 );
 
 INSERT INTO tutorial (id, url, title, description, author, duration, category) VALUES
-(1,'https://www.youtube.com/watch?v=vWyTYN7N9Wo&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&ab_channel=TRUFFAUT', 'Choisir ses plantes', 'Sélectionnez des plantes qui s’épanouissent en intérieur, comme le pothos, le monstera, ou les herbes aromatiques (basilic, menthe). Tenez compte de l’exposition lumineuse et de l’humidité de votre espace.', 'Truffaut', 266, 'gardening'),
-(2,'https://www.youtube.com/watch?v=PmKX4GRluB0&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=2&ab_channel=MarionBotanical', 'Préparer le matériel', 'Munissez-vous des outils essentiels : pots avec drainage, terreau adapté, arrosoir, vaporisateur, et éventuellement un humidificateur pour maintenir une hygrométrie adéquate.', 'Marion Botanical', 685, 'gardening'),
-(3,'https://www.youtube.com/watch?v=mgIYmtqQRWI&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=3&ab_channel=TRUFFAUT', 'Installer les plantes', 'Placez vos plantes dans des zones bénéficiant de lumière naturelle, en évitant les courants d’air et les sources de chaleur directe. Certaines plantes préfèrent une lumière tamisée, d’autres un ensoleillement plus direct.', 'Truffaut', 78, 'gardening'),
-(4,'https://www.youtube.com/watch?v=qN0suT-28S0&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=4&ab_channel=TRUFFAUT', 'Maîtriser l’arrosage', 'Arrosez lorsque les premiers centimètres du sol sont secs au toucher. Enfoncez votre doigt dans le terreau pour vérifier l’humidité. Un arrosage excessif peut entraîner des maladies fongiques.', 'Truffaut', 132, 'gardening'),
-(5,'https://www.youtube.com/watch?v=d7BYBXGrpF8&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=5&ab_channel=TRUFFAUT', 'Fertiliser régulièrement', 'Apportez de l’engrais adapté à vos plantes durant leur période de croissance active (printemps-été). Réduisez ou cessez la fertilisation en automne et en hiver.', 'Truffaut', 209, 'gardening'),
-(6,'https://www.youtube.com/watch?v=8z44UVIqJVw&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=6&ab_channel=TRUFFAUT', 'Tailler et entretenir', 'Éliminez les feuilles jaunies ou abîmées pour favoriser la croissance de nouvelles pousses. Taillez les plantes pour maintenir leur forme et stimuler leur développement.', 'Truffaut', 233, 'gardening'),
-(7,'https://www.youtube.com/watch?v=lFPYt1XTTtA&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=7&ab_channel=TRUFFAUT', 'Rempoter si nécessaire', 'Lorsque les racines deviennent à l’étroit, rempotez vos plantes dans un contenant légèrement plus grand avec du terreau frais. Cela favorise une croissance saine.', 'Truffaut', 194, 'gardening'),
-(8,'https://www.youtube.com/watch?v=rAw-_MsM5x8&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=8&ab_channel=TRUFFAUT', 'Bouturer pour multiplier', 'Multipliez vos plantes en prélevant des boutures. Placez-les dans l’eau ou directement dans le terreau jusqu’à l’apparition de racines.', 'Truffaut', 335, 'gardening'),
-(9,'https://www.youtube.com/watch?v=oRfu6uUhmcY&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=9&ab_channel=TRUFFAUT', 'Surveiller les parasites', 'Inspectez régulièrement vos plantes pour détecter la présence de cochenilles, pucerons ou acariens. En cas d’infestation, nettoyez les feuilles avec un chiffon humide ou utilisez un traitement biologique.', 'Truffaut', 113, 'gardening'),
-(10,'https://www.youtube.com/watch?v=iXs6R5YdM0E&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=10&ab_channel=TRUFFAUT', 'Récolter et profiter', 'Pour les plantes aromatiques et les salades, récoltez les feuilles au fur et à mesure de leur croissance. Cela stimule la plante et vous permet de profiter de vos cultures.', 'Truffaut', 153, 'gardening'),
-(11, 'https://youtu.be/uctr040MJLE?si=TqjP2eqfyQuoGA1e', 'Bouture & Géranium', 'Suivez pas à pas en vidéo les conseils de nos jardiniers pour réaliser facilement vos boutures de géraniums', 'Truffaut', 148, 'plant'),
-(12, 'https://www.youtube.com/watch?v=FvrnxZDWlEE&ab_channel=newsjardintv', 'Tailler la lavande', 'Une technique simple de taille de la lavande, qui s effectue bien sûr après la floraison', 'NewsJardinTV', 150, 'plant'),
-(13, 'https://www.youtube.com/watch?v=VK8qmgZqCGY&ab_channel=TRUFFAUT', 'Planter des hortensias', 'Besoin de conseils pour bien planter et entretenir des hortensias', 'Truffaut', 93, 'plant'),
-(14, 'https://www.youtube.com/watch?v=TcIH4VaBXcE&ab_channel=TRUFFAUT', 'Entretenir sa monstera', 'Plante iconique des intérieurs végétalisés, le Monstera Deliciosa, aussi appelé faux philodendron, séduit par son feuillage graphique et sa croissance impressionnante', 'Truffaut', 66, 'plant'),
-(15, 'https://www.youtube.com/watch?v=ZO7hXXMeXx0&ab_channel=TRUFFAUT', 'La ciboulette', 'La ciboulette est une plante aromatique qui parfume idéalement la crème fraîche et les salades.', 'Truffaut', 140, 'plant'),
-(16, 'https://www.youtube.com/watch?v=msVCUfza9No&ab_channel=OrBrun', 'Cultiver la menthe', 'Aujourd hui on apprends comment planter et rempoter la menthe, mais aussi comment entretenir la menthe en pot ! ', 'Or Brun', 150, 'plant'),
-(17, 'https://www.youtube.com/watch?v=aV86MKUxilY&ab_channel=TRUFFAUT', 'Les plantes aromathiques', 'Pierre-Adrien vous présente les plantes aromatiques qui apprécient plutôt une exposition à la mi-ombre et un arrosage régulier, comme le basilic, la verveine, la menthe, le persil ou la ciboulette.', 'Truffaut', 198, 'plant'),
-(18, 'https://www.youtube.com/watch?v=BkJI063QolQ&ab_channel=UneFleurParmilesFleurs', 'Tomates Cerises du jardin', 'Rempoter des tomates cerises en pot, c’est facile si on connaît quelques astuces !', 'Une fleur parmi les fleurs', 321, 'plant'),
-(19, 'https://www.youtube.com/watch?v=ivPRIdz8LMM&ab_channel=MonJardin%C3%A0Vivre', 'Zamioculcas zamiifolia', 'Vous adorez les plantes d’intérieur mais vous n’avez pas la main verte ?  Tournez-vous vers les zamioculcas !', 'Les gens du jardin', 151, 'plant'),
-(20, 'https://www.youtube.com/watch?v=RJ4GzrB1UDo&t=50s&ab_channel=FUCHSIADELHOMMEAU', 'La capucine dans la cuisine', 'La capucine est comestible, ses feuilles, ses pétales et ses graines trouvent leur place dans votre alimentation.', 'Simon Guillo', 207, 'plant'),
-(21, 'https://www.youtube.com/watch?v=6sAQ3LrcVKY&ab_channel=MarionBotanical', 'Le philodendron !', 'Une collection de philodendron', 'Marion', 824, 'plant');
+(1, 'https://www.youtube.com/watch?v=vWyTYN7N9Wo&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&ab_channel=TRUFFAUT', 
+    'Choosing your plants', 
+    'Select plants that thrive indoors, such as pothos, monstera, or aromatic herbs (basil, mint). Consider the light exposure and humidity of your space.', 
+    'Truffaut', 266, 'gardening'),
+
+(2, 'https://www.youtube.com/watch?v=PmKX4GRluB0&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=2&ab_channel=MarionBotanical', 
+    'Preparing your tools', 
+    'Get the essential tools: pots with drainage, suitable potting soil, watering can, spray bottle, and possibly a humidifier to maintain proper humidity.', 
+    'Marion Botanical', 685, 'gardening'),
+
+(3, 'https://www.youtube.com/watch?v=mgIYmtqQRWI&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=3&ab_channel=TRUFFAUT', 
+    'Placing your plants', 
+    'Place your plants in areas with natural light, avoiding drafts and direct heat sources. Some prefer filtered light, others more direct sun.', 
+    'Truffaut', 78, 'gardening'),
+
+(4, 'https://www.youtube.com/watch?v=qN0suT-28S0&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=4&ab_channel=TRUFFAUT', 
+    'Mastering watering', 
+    'Water when the top few centimeters of soil feel dry. Check moisture by sticking your finger into the soil. Overwatering can lead to fungal diseases.', 
+    'Truffaut', 132, 'gardening'),
+
+(5, 'https://www.youtube.com/watch?v=d7BYBXGrpF8&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=5&ab_channel=TRUFFAUT', 
+    'Fertilizing regularly', 
+    'Use appropriate fertilizer during the active growing season (spring–summer). Reduce or stop fertilizing in fall and winter.', 
+    'Truffaut', 209, 'gardening'),
+
+(6, 'https://www.youtube.com/watch?v=8z44UVIqJVw&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=6&ab_channel=TRUFFAUT', 
+    'Pruning and maintenance', 
+    'Remove yellowed or damaged leaves to encourage new growth. Prune to maintain shape and stimulate development.', 
+    'Truffaut', 233, 'gardening'),
+
+(7, 'https://www.youtube.com/watch?v=lFPYt1XTTtA&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=7&ab_channel=TRUFFAUT', 
+    'Repotting if needed', 
+    'When roots become cramped, repot your plants in a slightly larger container with fresh soil. This supports healthy growth.', 
+    'Truffaut', 194, 'gardening'),
+
+(8, 'https://www.youtube.com/watch?v=rAw-_MsM5x8&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=8&ab_channel=TRUFFAUT', 
+    'Propagating by cuttings', 
+    'Multiply your plants by taking cuttings. Place them in water or soil until roots appear.', 
+    'Truffaut', 335, 'gardening'),
+
+(9, 'https://www.youtube.com/watch?v=oRfu6uUhmcY&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=9&ab_channel=TRUFFAUT', 
+    'Monitoring pests', 
+    'Regularly inspect your plants for mealybugs, aphids, or mites. If infested, wipe leaves with a damp cloth or use a natural treatment.', 
+    'Truffaut', 113, 'gardening'),
+
+(10, 'https://www.youtube.com/watch?v=iXs6R5YdM0E&list=PLh5ydXBmoUgQwvj2aUlNzzZYth2XXQkIW&index=10&ab_channel=TRUFFAUT', 
+     'Harvest and enjoy', 
+     'For herbs and lettuces, harvest leaves as they grow. This encourages the plant and lets you enjoy fresh harvests.', 
+     'Truffaut', 153, 'gardening'),
+
+(11, 'https://youtu.be/uctr040MJLE?si=TqjP2eqfyQuoGA1e', 
+     'Geranium Cuttings', 
+     'Follow step-by-step advice from our gardeners to easily take cuttings from your geraniums.', 
+     'Truffaut', 148, 'plant'),
+
+(12, 'https://www.youtube.com/watch?v=FvrnxZDWlEE&ab_channel=newsjardintv', 
+     'Pruning lavender', 
+     'A simple lavender pruning technique, performed after blooming.', 
+     'NewsJardinTV', 150, 'plant'),
+
+(13, 'https://www.youtube.com/watch?v=VK8qmgZqCGY&ab_channel=TRUFFAUT', 
+     'Planting hydrangeas', 
+     'Need tips for properly planting and caring for hydrangeas?', 
+     'Truffaut', 93, 'plant'),
+
+(14, 'https://www.youtube.com/watch?v=TcIH4VaBXcE&ab_channel=TRUFFAUT', 
+     'Caring for your monstera', 
+     'A favorite houseplant, the Monstera Deliciosa (also known as false philodendron) stands out with its striking leaves and impressive growth.', 
+     'Truffaut', 66, 'plant'),
+
+(15, 'https://www.youtube.com/watch?v=ZO7hXXMeXx0&ab_channel=TRUFFAUT', 
+     'Chives', 
+     'Chives are aromatic herbs that add great flavor to sour cream and salads.', 
+     'Truffaut', 140, 'plant'),
+
+(16, 'https://www.youtube.com/watch?v=msVCUfza9No&ab_channel=OrBrun', 
+     'Growing mint', 
+     'Today we learn how to plant and repot mint, and how to care for mint in a pot!', 
+     'Or Brun', 150, 'plant'),
+
+(17, 'https://www.youtube.com/watch?v=aV86MKUxilY&ab_channel=TRUFFAUT', 
+     'Aromatic plants', 
+     'Pierre-Adrien presents aromatic plants that prefer partial shade and regular watering, like basil, verbena, mint, parsley, or chives.', 
+     'Truffaut', 198, 'plant'),
+
+(18, 'https://www.youtube.com/watch?v=BkJI063QolQ&ab_channel=UneFleurParmilesFleurs', 
+     'Cherry tomatoes from the garden', 
+     'Repotting cherry tomatoes in pots is easy when you know a few tricks!', 
+     'Une fleur parmi les fleurs', 321, 'plant'),
+
+(19, 'https://www.youtube.com/watch?v=ivPRIdz8LMM&ab_channel=MonJardin%C3%A0Vivre', 
+     'Zamioculcas zamiifolia', 
+     'Love houseplants but not very green-thumbed? Go for Zamioculcas!', 
+     'Les gens du jardin', 151, 'plant'),
+
+(20, 'https://www.youtube.com/watch?v=RJ4GzrB1UDo&t=50s&ab_channel=FUCHSIADELHOMMEAU', 
+     'Nasturtium in the kitchen', 
+     'Nasturtium is edible—its leaves, petals, and seeds are great in your cooking.', 
+     'Simon Guillo', 207, 'plant'),
+
+(21, 'https://www.youtube.com/watch?v=6sAQ3LrcVKY&ab_channel=MarionBotanical', 
+     'The philodendron!', 
+     'A philodendron collection.', 
+     'Marion', 824, 'plant');
 
 CREATE TABLE tutorial_tag(
   tutorial_id INT,

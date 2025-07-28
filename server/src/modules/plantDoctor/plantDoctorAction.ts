@@ -1,4 +1,5 @@
 import type { NextFunction, Request, RequestHandler, Response } from "express";
+import { StatusCodes } from "http-status-codes";
 import multer from "multer";
 import plantDoctorRepository from "./plantDoctorRepository";
 
@@ -15,14 +16,14 @@ const analyzePlant: RequestHandler = async (
 ) => {
   try {
     if (!req.file) {
-      res.status(400).json({ error: "No photo found" });
+      res.status(StatusCodes.BAD_REQUEST).json({ error: "No photo found" });
       return;
     }
 
     const imageBase64 = req.file.buffer.toString("base64");
     const result = await plantDoctorRepository.identifyPlant(imageBase64);
 
-    res.status(200).json(result);
+    res.status(StatusCodes.OK).json(result);
   } catch (error) {
     next(error);
   }
