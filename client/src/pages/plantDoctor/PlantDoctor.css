@@ -1,5 +1,5 @@
 .plant-doctor-container {
-  height: 85dvh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -12,7 +12,6 @@
     margin-left: 250px;
     align-items: center;
     height: 100vh;
-    padding: 60px 20px;
   }
 }
 
@@ -30,6 +29,9 @@
   flex-direction: column;
   overflow-y: auto;
   max-height: calc(100vh - 100px);
+  @media (min-width: 992px) {
+    overflow-y: none;
+  }
 }
 
 .plant-doctor-leaf {
@@ -78,12 +80,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-@media (min-width: 992px) {
-  .plant-doctor-preview-container {
-    padding-top: 160px;
-  }
+  margin-top: 15px;
 }
 
 .plant-doctor-preview-image {
@@ -92,9 +89,4 @@
   border-radius: 12px;
   border: 2px solid #b3d537;
   object-fit: contain;
-}
-
-.plant-doctor-result-wrapper {
-  flex: 1;
-  overflow-y: auto;
 }

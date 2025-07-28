@@ -16,7 +16,6 @@ export default function PlantDoctor() {
 
   const onImageSubmit = async (file: File) => {
     setLoading(true);
-    setPreviewUrl(URL.createObjectURL(file));
 
     const formData = new FormData();
     formData.append("image", file);
@@ -59,13 +58,32 @@ export default function PlantDoctor() {
         </p>
 
         {!result && (
-          <div className="plant-doctor-uploader-wrapper">
-            <PlantPhotoUploader onSubmit={onImageSubmit} />
-          </div>
-        )}
+          <>
+            <div className="plant-doctor-uploader-wrapper">
+              <PlantPhotoUploader
+                onSubmit={onImageSubmit}
+                onFileSelect={(file) =>
+                  setPreviewUrl(URL.createObjectURL(file))
+                }
+              />
+            </div>
 
-        {loading && (
-          <p className="plant-doctor-loading-text">Analysis in progress...</p>
+            {previewUrl && (
+              <div className="plant-doctor-preview-container">
+                <img
+                  className="plant-doctor-preview-image"
+                  src={previewUrl}
+                  alt="preview"
+                />
+              </div>
+            )}
+
+            {loading && (
+              <p className="plant-doctor-loading-text">
+                Analysis in progress...
+              </p>
+            )}
+          </>
         )}
 
         {result && (
