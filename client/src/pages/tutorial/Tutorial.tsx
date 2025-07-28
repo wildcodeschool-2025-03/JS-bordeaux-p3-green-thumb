@@ -42,6 +42,12 @@ export default function Tutorial() {
         <div className="tutorial-box">
           <h1>Tutorials</h1>
           <hr />
+          <p className="explication-doctor">
+            On this page, you will find a variety of gardening tutorials and
+            plant care tips. Whether you’re a beginner or an experienced
+            gardener, these guides will help you learn more about different
+            plants and how to keep them healthy and thriving.
+          </p>
 
           <TutorialList
             title="Gardening step by step 🌱"
