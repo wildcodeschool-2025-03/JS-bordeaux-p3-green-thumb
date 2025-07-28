@@ -1,8 +1,7 @@
 .plant-doctor-container {
-  height: 100dvh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   margin-left: 10px;
   margin-right: 10px;
 }
