@@ -18,7 +18,7 @@ import west from "/images/app-icon/west.png";
 
 export default function PlantProfile() {
   const authFetch = useFetchWithAuth();
-  const { gardenId, plantId } = useParams();
+  const { id, plantId } = useParams();
 
   const [plant, setPlant] = useState<Plant | null>(null);
   const [editingNickname, setEditingNickname] = useState(false);
@@ -33,11 +33,11 @@ export default function PlantProfile() {
 
   useEffect(() => {
     authFetch(
-      `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
+      `${import.meta.env.VITE_API_URL}/api/garden/${id}/plant/${plantId}`,
     )
       .then((res) => res.json())
       .then((plant) => setPlant(plant));
-  }, [gardenId, plantId, authFetch]);
+  }, [id, plantId, authFetch]);
 
   if (!plant) {
     return <div>Loading...</div>;
@@ -51,7 +51,7 @@ export default function PlantProfile() {
 
     try {
       const response = await authFetch(
-        `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}/nickname`,
+        `${import.meta.env.VITE_API_URL}/api/garden/${id}/plant/${plantId}/nickname`,
         {
           method: "PUT",
           headers: {
