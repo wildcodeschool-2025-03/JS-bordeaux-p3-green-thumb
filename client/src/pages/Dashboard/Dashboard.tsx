@@ -13,7 +13,7 @@ export default function Dashboard() {
         {/* Weather Component */}
         <div className="weather">
           <div>24°C</div>
-          <div className="small-text">Partiellement nuageux</div>
+          <div className="small-text">Partly cloudy</div>
         </div>
       </div>
 

@@ -1,5 +1,6 @@
 import argon2 from "argon2";
 import type { RequestHandler } from "express";
+import { StatusCodes } from "http-status-codes";
 import Joi from "joi";
 import jwt from "jsonwebtoken";
 import userRepository from "../user/userRepository";
@@ -19,7 +20,7 @@ const validateUser: RequestHandler = (req, res, next) => {
 
   if (error) {
     const errors = error.details.map((detail) => detail.message);
-    res.status(422).json({ errors });
+    res.status(StatusCodes.UNPROCESSABLE_ENTITY).json({ errors });
     return;
   }
 
@@ -33,14 +34,16 @@ const login: RequestHandler = async (req, res, next) => {
     const user = await userRepository.findByEmail(email);
 
     if (!user) {
-      res.status(404).json({ message: "No user found" });
+      res.status(StatusCodes.NOT_FOUND).json({ message: "No user found" });
       return;
     }
 
     const isPasswordValid = await argon2.verify(user.hashed_password, password);
 
     if (!isPasswordValid) {
-      res.status(401).json({ message: "Invalid password" });
+      res
+        .status(StatusCodes.UNAUTHORIZED)
+        .json({ message: "Invalid password" });
       return;
     }
 
@@ -82,7 +85,7 @@ const verifyToken: RequestHandler = (req, res, next) => {
     next();
   } catch (err) {
     console.error(err);
-    res.sendStatus(401);
+    res.sendStatus(StatusCodes.UNAUTHORIZED);
   }
 };
 

@@ -53,7 +53,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/garden/:gardenId/plant/:plantId",
+        path: "/garden/:id/plant/:plantId",
         element: (
           <PrivateRouteContext>
             <PlantProfile />

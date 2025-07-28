@@ -19,11 +19,11 @@ export default function Tutorial() {
         const res = await fetchWithAuth(
           `${import.meta.env.VITE_API_URL}/api/tutorials`,
         );
-        if (!res.ok) throw new Error("Erreur serveur");
+        if (!res.ok) throw new Error("servor error");
         const tutorials = await res.json();
         setTutorials(tutorials);
       } catch (err) {
-        console.error("Erreur lors du fetch des tutoriels :", err);
+        console.error("error while fetching tutorials:", err);
       }
     };
 
