@@ -1,10 +1,17 @@
 .desktop-box {
+  height: 85dvh;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  margin-left: 10px;
+  margin-right: 10px;
   @media (min-width: 992px) {
+    height: 100dvh;
     width: calc(100% - 250px);
     margin-left: 250px;
-    padding: 0 20px;
+    padding: 20px 20px;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow: auto;
   }
 }
 
