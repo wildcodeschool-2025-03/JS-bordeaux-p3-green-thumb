@@ -1,71 +1,93 @@
 import "./dashboard.css";
+import type { KeyboardEvent } from "react";
+import { useState } from "react";
+import Weather from "../../components/meteo/Weather";
 
 export default function Dashboard() {
+  const [open, setOpen] = useState(false);
+
+  const handleKeyDown = (e: KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === "o") {
+      setOpen((prev) => !prev);
+    }
+  };
+
   return (
-    <div className="dashboard">
-      {/* User Info Component */}
-      <div className="header">
-        <div className="user-info">
-          <img src="/user-avatar.png" alt="User" />
-          <span>User_420</span>
-        </div>
+    <>
+      <Weather />
+      <div className="legal-notice-container">
+        <div className="legal-notice-box">
+          <button
+            type="button"
+            className="legal-notice-toggle"
+            onClick={() => setOpen(!open)}
+            onKeyDown={handleKeyDown}
+          >
+            {open ? "Hide Legal Notice" : "Show Legal Notice"}
+          </button>
 
-        {/* Weather Component */}
-        <div className="weather">
-          <div>24°C</div>
-          <div className="small-text">Partiellement nuageux</div>
-        </div>
-      </div>
+          <div className={`legal-notice-content ${open ? "open" : ""}`}>
+            <section className="legal-notice-section">
+              <h2 className="legal-notice-subtitle">1. Website Publisher</h2>
+              <p className="legal-notice-text">
+                Name / Company: Greenthumb
+                <br />
+                Address: 6 rue du Général de Gaulle
+                <br />
+                Phone: +33 5 98 42 00 98
+                <br />
+                Email: contact-service-client@greenthumb.com
+              </p>
+            </section>
 
-      <article>
-        <h2>
-          Dashboard <span className="info-icon">ℹ️</span>
-        </h2>
-      </article>
+            <section className="legal-notice-section">
+              <h2 className="legal-notice-subtitle">2. Hosting Provider</h2>
+              <p className="legal-notice-text">Name: OVH</p>
+            </section>
 
-      {/* PlantCards / PlantCarousel Component */}
-      <div className="journal">
-        <div className="plant-carousel">
-          <div className="plant-card">
-            <img src="/plants/aloe.png" alt="Aloe" />
-            <div>Aloe</div>
+            <section className="legal-notice-section">
+              <h2 className="legal-notice-subtitle">
+                3. Intellectual Property
+              </h2>
+              <p className="legal-notice-text">
+                All elements present on the website (texts, images, logos, etc.)
+                are protected by copyright laws. Any reproduction, even partial,
+                is prohibited without prior authorization.
+              </p>
+            </section>
+
+            <section className="legal-notice-section">
+              <h2 className="legal-notice-subtitle">4. Personal Data</h2>
+              <p className="legal-notice-text">
+                In accordance with the General Data Protection Regulation
+                (GDPR), any person has the right to access, rectify, and delete
+                their personal data. To exercise this right:
+                contact-service-client@greenthumb.com.
+                <br />
+                The collected data will never be sold to third parties.
+              </p>
+            </section>
+
+            <section className="legal-notice-section">
+              <h2 className="legal-notice-subtitle">5. Cookies</h2>
+              <p className="legal-notice-text">
+                This website uses cookies (e.g., to measure audience, improve
+                navigation). You can configure their use in your browser
+                settings.
+              </p>
+            </section>
+
+            <section className="legal-notice-section">
+              <h2 className="legal-notice-subtitle">6. Liability</h2>
+              <p className="legal-notice-text">
+                The publisher disclaims all responsibility for the use of the
+                information provided on the website or for any potential damages
+                resulting from such use.
+              </p>
+            </section>
           </div>
-          <div className="plant-card active">
-            <img src="/plants/ficus.png" alt="Ficus" />
-            <div>Ficus</div>
-          </div>
-          <div className="plant-card">
-            <img src="/plants/aloe.png" alt="Aloe" />
-            <div>Aloe</div>
-          </div>
         </div>
       </div>
-
-      <article>
-        <h2>Recommandations</h2>
-      </article>
-
-      {/* Recommandations Component */}
-      <div className="recommended">
-        <div className="recommended-images">
-          <img src="/recommended/1.jpg" alt="Recommandation 1" />
-          <img src="/recommended/2.jpg" alt="Recommandation 2" />
-        </div>
-      </div>
-
-      <article>
-        <h2>About Plants </h2>
-      </article>
-
-      {/* FactBox Component */}
-      <div className="fact-box">
-        The largest individual flower in the world is the rafflesia (Rafflesia
-        arnoldii). It can reach up to 1 meter in diameter and weigh up to 11
-        kilograms.
-      </div>
-
-      {/* Navigation Component */}
-      <nav className="navigation">{/* TODO: Insert Navigation here */}</nav>
-    </div>
+    </>
   );
 }

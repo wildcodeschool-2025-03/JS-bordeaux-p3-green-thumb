@@ -40,7 +40,7 @@ export default function Navbar() {
               className="nav-icon"
             />
             <p className={`nav-text ${isActive ? "active" : ""}`}>
-              Doctor'Plant
+              Doctor Plant
             </p>
           </>
         )}

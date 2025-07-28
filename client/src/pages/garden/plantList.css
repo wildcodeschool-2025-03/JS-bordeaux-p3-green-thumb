@@ -5,6 +5,7 @@
   overflow: auto;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: 10px;
   @media (min-width: 992px) {
     height: 100dvh;
     width: calc(100% - 250px);

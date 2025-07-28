@@ -3,7 +3,7 @@ import TutorialList from "../../components/tutorial/TutorialList";
 import TutorialVideo from "../../components/tutorial/TutorialVideo";
 import type { Tutorials } from "../../types/tutorials/tutorials.ts";
 import "./Tutorial.css";
-import leaf from "../../../public/images/app-icon/leaf.png";
+import leaf from "/images/app-icon/leaf.png";
 import { useFetchWithAuth } from "../../tools/useFetchWithAuth.ts";
 
 export default function Tutorial() {
