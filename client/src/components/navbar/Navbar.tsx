@@ -12,8 +12,10 @@ import tutorialoff from "/images/navbar-icon/tutorialoff.svg";
 import tutorialon from "/images/navbar-icon/tutorialon.svg";
 
 export default function Navbar() {
-  const { id } = useParams();
-  if (!id) return null;
+  const { id, gardenId } = useParams();
+  const activeId = id || gardenId;
+
+  if (!activeId) return null;
   return (
     <nav className="menu-nav">
       <NavLink to={`/garden/${id}`} className="nav-item">

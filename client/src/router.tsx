@@ -45,7 +45,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "garden/:id/plant-list",
+        path: "/garden/:id/plant-list",
         element: (
           <PrivateRouteContext>
             <PlantList />
