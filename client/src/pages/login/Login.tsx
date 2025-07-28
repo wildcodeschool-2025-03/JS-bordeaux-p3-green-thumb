@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEventHandler } from "react";
 import { Link, useNavigate } from "react-router";
 import leaf from "/images/app-icon/leaf.png";
@@ -6,7 +6,6 @@ import eyeOff from "/images/app-icon/password-hide.png";
 import eyeOn from "/images/app-icon/password-view.png";
 import { useUserContext } from "../../context/UserContext";
 import "./Login.css";
-import { useEffect } from "react";
 
 export default function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -95,7 +94,7 @@ export default function Login() {
                     id="password"
                     ref={passwordRef}
                     type={showPassword ? "text" : "password"}
-                    className="login-form-input"
+                    className="login-form-input login-password-input"
                     placeholder=" "
                   />
                   <label htmlFor="password">Password</label>
