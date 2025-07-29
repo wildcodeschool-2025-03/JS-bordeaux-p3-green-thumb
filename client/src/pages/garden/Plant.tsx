@@ -155,7 +155,6 @@ export default function PlantProfile() {
 
           <section className="plant-profile-infos">
             <p>{plant.description}</p>
-
             <article className="icon-card">
               <div className="birthdate-infos">
                 <img
