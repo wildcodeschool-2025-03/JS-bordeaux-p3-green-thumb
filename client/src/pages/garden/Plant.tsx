@@ -27,7 +27,7 @@ export default function PlantProfile() {
   const [editingNickname, setEditingNickname] = useState(false);
   const [nicknameInput, setNicknameInput] = useState("");
   const images =
-    plantId === "5" ? [geraniumone, geraniumtwo, geraniumthree] : [plant?.icon];
+    plantId === "1" ? [geraniumone, geraniumtwo, geraniumthree] : [plant?.icon];
   const [currentImage, setCurrentImage] = useState(0);
 
   const expositionIcons = {

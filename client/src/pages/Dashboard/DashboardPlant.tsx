@@ -1,4 +1,5 @@
 import "./DashboardPlant.css";
+import geraniumone from "/images/user-images/geranium-one.jpg";
 
 type DashboardPlantProps = {
   icon: string;
@@ -13,6 +14,7 @@ function DashboardPlant({
   nickname,
   onClick,
 }: DashboardPlantProps) {
+  const imageSrc = name === "Geranium" ? geraniumone : icon;
   return (
     <button
       className="dashboard-plant-button"
@@ -20,7 +22,7 @@ function DashboardPlant({
       onClick={onClick}
       aria-label={`Water ${nickname || name}`}
     >
-      <img src={icon} alt={name} className="plant-icon" />
+      <img src={imageSrc} alt={name} className="plant-icon" />
       <h3>{nickname || name}</h3>
       <p>💧 Water me</p>
     </button>
