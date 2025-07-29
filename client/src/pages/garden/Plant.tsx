@@ -16,7 +16,7 @@ import south from "/images/app-icon/south.png";
 import toxic from "/images/app-icon/toxic.png";
 import west from "/images/app-icon/west.png";
 import geraniumone from "/images/user-images/geranium-one.jpg";
-import geraniumthree from "/images/user-images/geranium-three.jpeg";
+import geraniumthree from "/images/user-images/geranium-three.jpg";
 import geraniumtwo from "/images/user-images/geranium-two.jpg";
 
 export default function PlantProfile() {
@@ -26,7 +26,8 @@ export default function PlantProfile() {
   const [plant, setPlant] = useState<Plant | null>(null);
   const [editingNickname, setEditingNickname] = useState(false);
   const [nicknameInput, setNicknameInput] = useState("");
-  const images = [geraniumone, geraniumtwo, geraniumthree];
+  const images =
+    plantId === "5" ? [geraniumone, geraniumtwo, geraniumthree] : [plant?.icon];
   const [currentImage, setCurrentImage] = useState(0);
 
   const expositionIcons = {
@@ -124,8 +125,6 @@ export default function PlantProfile() {
         </section>
 
         <section className="plant-profile-card">
-          <h3>Plant Profile</h3>
-          <hr />
           <h2>
             {editingNickname ? (
               <input
@@ -201,15 +200,15 @@ export default function PlantProfile() {
           <hr />
           <div className="info-wrapper">
             <article className="watering-info">
-              <h2>{wateringInstructions(plant.watering)}</h2>
+              <h2>⚠️ {wateringInstructions(plant.watering)}</h2>
             </article>
             <article className="exposition-info">
-              <h2>{plant.tip}</h2>
+              <h2>⚠️ {plant.tip}</h2>
             </article>
             <h3>Usual cause of decay</h3>
 
             <article className="alert-info">
-              <h2> {plant.main_cause_of_decay}</h2>
+              <h2>💀 {plant.main_cause_of_decay}</h2>
             </article>
           </div>
         </section>

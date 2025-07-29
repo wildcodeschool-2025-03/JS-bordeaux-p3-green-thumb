@@ -3,6 +3,7 @@ import { useNavigate } from "react-router";
 import calendar from "/images/app-icon/calendar.svg";
 import harmless from "/images/app-icon/harmless.png";
 import toxic from "/images/app-icon/toxic.png";
+import geraniumone from "/images/user-images/geranium-one.jpg";
 import type { Plant } from "../../../types/garden/plant";
 
 type PlantCardProps = { plant: Plant; gardenId: string };
@@ -23,7 +24,11 @@ export default function PlantCard({ plant, gardenId }: PlantCardProps) {
   return (
     <section className="plant-card" onClick={showProfile} onKeyUp={showProfile}>
       <article className="plant-image-wrapper">
-        <img src={plant.icon} alt={plant.name} className="plant-image" />
+        <img
+          src={plant?.name === "Geranium" ? geraniumone : plant.icon}
+          alt={plant.name}
+          className="plant-image"
+        />
       </article>
 
       <section className="plant-info">
@@ -32,16 +37,24 @@ export default function PlantCard({ plant, gardenId }: PlantCardProps) {
         </article>
 
         <article className="info-line">
-          <img src={calendar} alt="plant-date" className="info-icon" />
+          <img
+            src={calendar}
+            alt="plant-date"
+            className="plantcard-info-icon"
+          />
           <span>{formattedDate}</span>
         </article>
 
         <article className="info-line">
           <div>
             {plant.toxic ? (
-              <img src={toxic} alt="toxic" className="toxic-icon" />
+              <img src={toxic} alt="toxic" className="plantcard-toxic-icon" />
             ) : (
-              <img src={harmless} alt="harmless" className="harmless-icon" />
+              <img
+                src={harmless}
+                alt="harmless"
+                className="plantcard-harmless-icon"
+              />
             )}
           </div>
           <span>{plant.toxic ? "Toxic" : "Harmless"}</span>
