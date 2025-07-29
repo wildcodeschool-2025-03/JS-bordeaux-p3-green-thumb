@@ -68,3 +68,19 @@ export interface PlantIdentificationResponse {
   suggestions: PlantSuggestion[];
   health_assessment?: PlantHealthAssessment;
 }
+
+export type PlantWaterStatus = {
+  icon: string;
+  name: string;
+  nickname: string | null;
+  needs_watering: boolean;
+  plant_garden_id: number;
+};
+
+export type PlantDashboard = {
+  plant_garden_id: number;
+  icon: string;
+  name: string;
+  nickname: string | null;
+  watering: boolean;
+};

@@ -19,3 +19,11 @@ export interface GardenPlant {
   nickname: string;
   born_at: string;
 }
+
+export interface PlantWaterStatus {
+  icon: string;
+  name: string;
+  nickname: string | null;
+  needs_watering: boolean;
+  plant_garden_id: number;
+}
