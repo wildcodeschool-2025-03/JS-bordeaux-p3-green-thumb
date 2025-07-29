@@ -18,11 +18,11 @@ function DashboardPlant({
       className="dashboard-plant-button"
       type="button"
       onClick={onClick}
-      aria-label={`Arroser ${nickname || name}`}
+      aria-label={`Water ${nickname || name}`}
     >
       <img src={icon} alt={name} className="plant-icon" />
       <h3>{nickname || name}</h3>
-      <p>💧 À arroser</p>
+      <p>💧 Water me</p>
     </button>
   );
 }

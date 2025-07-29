@@ -88,6 +88,7 @@ CREATE TABLE plant_garden (
   plant_id INT,
   born_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   nickname VARCHAR(100) NULL,
+  last_watered_at DATE NOT NULL DEFAULT (CURRENT_TIMESTAMP),
   avatar VARCHAR(255) NULL
 );
 

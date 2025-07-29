@@ -20,7 +20,7 @@ export default function Login() {
   useEffect(() => {
     const id = user?.infoUser?.id;
     if (id) {
-      navigate(`/dashboard/${id}`);
+      navigate(`/garden/${id}`);
     }
   }, [user, navigate]);
 
@@ -58,7 +58,7 @@ export default function Login() {
         infoUser: loggedUser,
       });
 
-      navigate(`/dashboard/${id}`);
+      navigate(`/garden/${id}`);
     } catch (err) {
       console.error(err);
       setError("Something went wrong.");

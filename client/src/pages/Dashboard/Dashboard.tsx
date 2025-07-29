@@ -1,15 +1,20 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
+import gardenOn from "../../../public/images/navbar-icon/mygardenon.svg";
+import tutorialOn from "../../../public/images/navbar-icon/tutorialon.svg";
 import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { PlantDashboard } from "../../types/garden/plant";
 import DashboardPlant from "./DashboardPlant";
+
 import "./Dashboard.css";
+import Weather from "../../components/meteo/Weather";
 
 export default function Dashboard() {
   const { id } = useParams();
   const [plantsToWater, setPlantsToWater] = useState<PlantDashboard[]>([]);
   const [loading, setLoading] = useState(true);
   const authFetch = useFetchWithAuth();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPlantsToWater = () => {
@@ -58,23 +63,54 @@ export default function Dashboard() {
   };
 
   if (loading) return <p>Chargement...</p>;
-  if (plantsToWater.length === 0) return <p>Aucune plante à arroser !</p>;
+  if (plantsToWater.length === 0)
+    return (
+      <>
+        <Weather />
+        <div className="intro-greenthumb">
+          <h2 className="empty-todo">No plants to water today</h2>
+          <h3 className="prompt-to-navigate">
+            You can add new plants to your garden or go and check our gardening
+            tutorials
+          </h3>
+          <div className="navigation-icons">
+            <img
+              src={gardenOn}
+              alt="garden navigation link"
+              onClick={() => navigate(`/garden/${id}`)}
+              onKeyDown={() => navigate(`/garden/${id}`)}
+              className="garden-navigation"
+            />
+            <img
+              src={tutorialOn}
+              alt="garden navigation link"
+              onClick={() => navigate(`/tutorial/${id}`)}
+              onKeyDown={() => navigate(`/tutorial/${id}`)}
+              className="garden-navigation"
+            />
+          </div>
+        </div>
+      </>
+    );
 
   return (
-    <section className="desktop-box">
-      <section className="plants-to-water-container">
-        <article>
-          {plantsToWater.map((plant) => (
-            <DashboardPlant
-              key={plant.plant_garden_id}
-              icon={plant.icon}
-              name={plant.name}
-              nickname={plant.nickname}
-              onClick={() => waterPlant(plant.plant_garden_id)}
-            />
-          ))}
-        </article>
+    <>
+      <section className="dashboard-desktop-box">
+        <Weather />
+        <section className="plants-to-water-container">
+          <article className="water-card">
+            {plantsToWater.map((plant) => (
+              <DashboardPlant
+                key={plant.plant_garden_id}
+                icon={plant.icon}
+                name={plant.name}
+                nickname={plant.nickname}
+                onClick={() => waterPlant(plant.plant_garden_id)}
+              />
+            ))}
+          </article>
+        </section>
       </section>
-    </section>
+    </>
   );
 }
