@@ -78,6 +78,12 @@ export default function Navbar() {
           <p className="nav-text">Photofeed</p>
         </>
       </nav>
+      <a
+        href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees"
+        className="RGPD"
+      >
+        Mentions Légales
+      </a>
     </nav>
   );
 }

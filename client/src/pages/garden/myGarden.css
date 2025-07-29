@@ -9,3 +9,30 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+.empty-message {
+  border: 2px dashed var(--active-text-color);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  font-size: 1.2rem;
+  font-family: var(--main-font);
+  color: var(--active-text-color);
+  background-color: rgba(255, 255, 255, 0.05);
+  max-width: 500px;
+  margin: auto;
+  margin-top: 3rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.my-garden {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+}
+
+.page-wrapper {
+  height: 100%;
+}
