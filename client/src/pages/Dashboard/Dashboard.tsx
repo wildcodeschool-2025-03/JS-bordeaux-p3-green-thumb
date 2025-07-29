@@ -98,17 +98,16 @@ export default function Dashboard() {
       <section className="dashboard-desktop-box">
         <Weather />
         <section className="plants-to-water-container">
-          <article className="water-card">
-            {plantsToWater.map((plant) => (
+          {plantsToWater.map((plant) => (
+            <article className="water-card" key={plant.plant_garden_id}>
               <DashboardPlant
-                key={plant.plant_garden_id}
                 icon={plant.icon}
                 name={plant.name}
                 nickname={plant.nickname}
                 onClick={() => waterPlant(plant.plant_garden_id)}
               />
-            ))}
-          </article>
+            </article>
+          ))}
         </section>
       </section>
     </>
