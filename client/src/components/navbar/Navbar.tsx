@@ -54,7 +54,7 @@ export default function Navbar() {
               alt="dashboard icon"
               className="nav-icon"
             />
-            <p className={`nav-text ${isActive ? "active" : ""}`}>Dashboard</p>
+            <p className={`nav-text ${isActive ? "active" : ""}`}>To Do List</p>
           </>
         )}
       </NavLink>

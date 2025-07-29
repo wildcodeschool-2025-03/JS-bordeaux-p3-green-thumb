@@ -11,9 +11,8 @@
 }
 .empty-message {
   border: 2px dashed var(--active-text-color);
-  border-radius: 16px;
+  border-radius: 8px;
   padding: 2rem;
-  text-align: center;
   font-size: 1.2rem;
   font-family: var(--main-font);
   color: var(--active-text-color);
