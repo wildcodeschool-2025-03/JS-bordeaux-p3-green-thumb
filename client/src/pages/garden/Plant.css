@@ -1,7 +1,7 @@
 .plant-profile-wrapper {
   display: flex;
   flex-direction: column;
-  z-index: 1;
+  height: 90dvh;
   @media (min-width: 992px) {
     width: calc(100% - 250px);
     margin-left: 250px;
@@ -15,20 +15,57 @@
 }
 
 .plant-photo-gallery {
-  border: solid 1px #fff;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   border-radius: 8px;
   margin: 0.5em;
-  @media screen and (min-width: 992px) {
+  height: 300px;
+}
+
+.carousel-image {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7);
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 2;
+  padding: 0.2em 0.5em;
+  border-radius: 4px;
+  user-select: none;
+}
+
+.carousel-button.left {
+  left: 10px;
+}
+
+.carousel-button.right {
+  right: 10px;
+}
+
+@media screen and (min-width: 992px) {
+  .plant-photo-gallery {
     width: 100%;
     grid-column: span 2 / span 2;
-    justify-self: center;
   }
 }
 
 .plant-profile-card {
   background-color: var(--app-icon);
   border-radius: 8px;
-
+  min-height: 200px;
   @media screen and (max-width: 992px) {
     margin: 0.5em;
     max-height: 180px;
@@ -58,21 +95,23 @@ hr {
 .plant-profile-infos {
   background-color: var(--main-background);
   width: 90%;
-  max-height: 180px;
+  min-height: 110px;
   border-radius: 8px;
-  margin-bottom: 1em;
-  margin-left: 1em;
+  margin: 1em 0 1em 1em;
 
   @media screen and (min-width: 992px) {
     height: 180px;
     padding-left: 1em;
+    padding-top: 2em;
   }
 }
 
 .plant-profile-infos p {
+  padding-top: 1em;
+  padding-left: 1em;
   @media screen and (min-width: 992px) {
-    margin: 0;
-    padding-top: 1em;
+    padding: 0 1em 0 1em;
+    font-size: 23px;
   }
 }
 
@@ -106,7 +145,6 @@ hr {
     align-items: baseline;
     padding-right: 1em;
     margin-bottom: 1em;
-    padding-top: 3em;
   }
 }
 
@@ -127,12 +165,14 @@ hr {
 
 .icons {
   display: flex;
+  gap: 8px;
   flex-direction: row;
 }
 
 .pen-icon {
   width: 18px;
   padding-left: 0.7em;
+  cursor: pointer;
 }
 
 .info-icon,
@@ -152,8 +192,8 @@ hr {
 .harmless-icon,
 .calendar-icon {
   @media screen and (min-width: 992px) {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 }
 
@@ -161,8 +201,8 @@ hr {
   width: 35px;
   height: 35px;
   @media screen and (min-width: 992px) {
-    width: 53px;
-    height: 53px;
+    width: 42px;
+    height: 42px;
   }
 }
 .plant-profile-reminder {
@@ -171,7 +211,7 @@ hr {
 
   @media screen and (max-width: 992px) {
     margin: 0.5em;
-    max-height: 180px;
+    max-height: 200px;
   }
 }
 
@@ -194,7 +234,6 @@ hr {
 }
 
 .info-wrapper h2 {
-  padding-left: 2em;
   font-size: small;
   @media screen and (min-width: 992px) {
     font-size: large;

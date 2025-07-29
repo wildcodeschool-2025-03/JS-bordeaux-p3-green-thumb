@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Gallery from "../../components/garden/Gallery/Gallery";
+
 import { useFetchWithAuth } from "../../tools/useFetchWithAuth";
 import type { Plant } from "../../types/garden/plant";
 
@@ -15,6 +15,9 @@ import pen from "/images/app-icon/pencil.png";
 import south from "/images/app-icon/south.png";
 import toxic from "/images/app-icon/toxic.png";
 import west from "/images/app-icon/west.png";
+import geraniumone from "/images/user-images/geranium-one.jpg";
+import geraniumthree from "/images/user-images/geranium-three.jpg";
+import geraniumtwo from "/images/user-images/geranium-two.jpg";
 
 export default function PlantProfile() {
   const authFetch = useFetchWithAuth();
@@ -23,6 +26,9 @@ export default function PlantProfile() {
   const [plant, setPlant] = useState<Plant | null>(null);
   const [editingNickname, setEditingNickname] = useState(false);
   const [nicknameInput, setNicknameInput] = useState("");
+  const images =
+    plantId === "5" ? [geraniumone, geraniumtwo, geraniumthree] : [plant?.icon];
+  const [currentImage, setCurrentImage] = useState(0);
 
   const expositionIcons = {
     north: north,
@@ -88,13 +94,37 @@ export default function PlantProfile() {
   return (
     <>
       <div className="plant-profile-wrapper">
-        <section className="plant-photo-gallery ">
-          <Gallery />
+        <section className="plant-photo-gallery">
+          <button
+            type="button"
+            className="carousel-button left"
+            onClick={() =>
+              setCurrentImage((prev) =>
+                prev === 0 ? images.length - 1 : prev - 1,
+              )
+            }
+          >
+            ‹
+          </button>
+          <img
+            src={images[currentImage]}
+            alt={`plant-${currentImage}`}
+            className="carousel-image"
+          />
+          <button
+            type="button"
+            className="carousel-button right"
+            onClick={() =>
+              setCurrentImage((prev) =>
+                prev === images.length - 1 ? 0 : prev + 1,
+              )
+            }
+          >
+            ›
+          </button>
         </section>
 
         <section className="plant-profile-card">
-          <h3>Plant Profile</h3>
-          <hr />
           <h2>
             {editingNickname ? (
               <input
@@ -125,7 +155,6 @@ export default function PlantProfile() {
 
           <section className="plant-profile-infos">
             <p>{plant.description}</p>
-
             <article className="icon-card">
               <div className="birthdate-infos">
                 <img
@@ -170,15 +199,15 @@ export default function PlantProfile() {
           <hr />
           <div className="info-wrapper">
             <article className="watering-info">
-              <h2>{wateringInstructions(plant.watering)}</h2>
+              <h2>⚠️ {wateringInstructions(plant.watering)}</h2>
             </article>
             <article className="exposition-info">
-              <h2>{plant.tip}</h2>
+              <h2>⚠️ {plant.tip}</h2>
             </article>
             <h3>Usual cause of decay</h3>
 
             <article className="alert-info">
-              <h2> {plant.main_cause_of_decay}</h2>
+              <h2>💀 {plant.main_cause_of_decay}</h2>
             </article>
           </div>
         </section>

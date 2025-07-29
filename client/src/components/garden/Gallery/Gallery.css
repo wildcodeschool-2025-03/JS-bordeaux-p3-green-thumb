@@ -1,8 +1,0 @@
-.add-photo-icon {
-  width: 53px;
-  height: 53px;
-  @media screen and (min-width: 992px) {
-    margin-left: 2em;
-    padding-top: 0.3em;
-  }
-}

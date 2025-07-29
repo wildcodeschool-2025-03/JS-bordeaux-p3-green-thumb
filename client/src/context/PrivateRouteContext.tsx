@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { Navigate } from "react-router";
-import leaf from "../assets/images/Logo-green-thumb.png";
+import leaf from "/images/app-icon/leaf.png";
 import { useUserContext } from "./UserContext";
 import "./PrivateRouteContext.css";
 

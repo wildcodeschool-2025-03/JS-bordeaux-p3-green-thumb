@@ -81,8 +81,9 @@ export default function Navbar() {
       <a
         href="https://www.cnil.fr/fr/reglement-europeen-protection-donnees"
         className="RGPD"
+        target="blank"
       >
-        Mentions Légales
+        Mentions Légales & RGPD
       </a>
     </nav>
   );
