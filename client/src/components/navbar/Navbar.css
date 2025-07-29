@@ -1,7 +1,6 @@
 .menu-nav {
   display: flex;
   justify-content: space-around;
-  margin-top: 4em;
   padding-top: 1em;
   position: sticky;
   bottom: 0;
@@ -49,6 +48,16 @@
 .nav-text.active {
   color: var(--active-text-color);
 
+  @media screen and (max-width: 992px) {
+    display: none;
+  }
+}
+
+.RGPD {
+  color: white;
+  text-decoration: none;
+  margin-left: auto;
+  margin-right: auto;
   @media screen and (max-width: 992px) {
     display: none;
   }

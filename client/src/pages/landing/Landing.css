@@ -15,8 +15,6 @@
   margin-right: 10em;
   display: flex;
   max-width: 800px;
-  justify-content: center;
-  align-items: center;
 
   @media screen and (max-width: 992px) {
     display: none;
@@ -24,15 +22,18 @@
 }
 
 .phone-representation {
-  width: 50%;
-  margin: 70px 0;
+  width: 40%;
+  margin: 70px 0px;
   @media screen and (max-width: 992px) {
     display: none;
   }
 }
 
 .banner-title {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   font-size: 30px;
 }
 

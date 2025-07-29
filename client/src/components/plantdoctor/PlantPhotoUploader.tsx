@@ -3,14 +3,16 @@ import "./PlantPhotoUploader.css";
 
 interface Props {
   onSubmit: (file: File) => void;
+  onFileSelect: (file: File) => void;
 }
 
-export default function PlantPhotoUploader({ onSubmit }: Props) {
+export default function PlantPhotoUploader({ onSubmit, onFileSelect }: Props) {
   const [file, setFile] = useState<File | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files?.[0]) {
       setFile(e.target.files[0]);
+      onFileSelect(e.target.files[0]);
     }
   };
 

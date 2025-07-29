@@ -1,7 +1,11 @@
 import "./AddPlantBtn.css";
 import { useNavigate, useParams } from "react-router";
 
-function AddPlantBtn() {
+type Props = {
+  isFloating: boolean;
+};
+
+function AddPlantBtn({ isFloating }: Props) {
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -13,7 +17,7 @@ function AddPlantBtn() {
   return (
     <button
       type="button"
-      className="add-plant-btn"
+      className={`add-plant-btn ${isFloating ? "floating" : "static"}`}
       onClick={navigateToPlantList}
     >
       +
