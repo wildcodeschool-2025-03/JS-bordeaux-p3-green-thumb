@@ -30,12 +30,15 @@ function MyGarden() {
   }, [id, authFetch]);
 
   return (
-    <>
-      <div className="desktop-box">
-        <section className="my-garden">
-          {plants.length === 0 ? (
+    <div className="page-wrapper">
+      <section className="my-garden">
+        {plants.length === 0 ? (
+          <>
             <p className="empty-message">Add your first plant !</p>
-          ) : (
+            <AddPlantBtn isFloating={false} />
+          </>
+        ) : (
+          <>
             <article className="garden-plants">
               {plants.map((plant) => (
                 <PlantCard
@@ -45,11 +48,12 @@ function MyGarden() {
                 />
               ))}
             </article>
-          )}
-        </section>
-        <AddPlantBtn />
-      </div>
-    </>
+            <AddPlantBtn isFloating={true} />
+          </>
+        )}
+      </section>
+    </div>
   );
 }
+
 export default MyGarden;
