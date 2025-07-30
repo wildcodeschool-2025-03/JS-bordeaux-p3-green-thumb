@@ -4,6 +4,8 @@ import calendar from "/images/app-icon/calendar.svg";
 import harmless from "/images/app-icon/harmless.png";
 import toxic from "/images/app-icon/toxic.png";
 import geraniumone from "/images/user-images/geranium-one.jpg";
+import lavenderone from "../../../../public/images/user-images/lavandeone.jpg";
+
 import type { Plant } from "../../../types/garden/plant";
 
 type PlantCardProps = { plant: Plant; gardenId: string };
@@ -15,9 +17,9 @@ export default function PlantCard({ plant, gardenId }: PlantCardProps) {
   };
 
   const [d, m, y] = plant.born_at.split(".");
-  const formattedDate = new Date(+y, +m - 1, +d).toLocaleDateString("en-EN", {
+  const formattedDate = new Date(+y, +m - 1, +d).toLocaleDateString("fr-FR", {
     day: "2-digit",
-    month: "long",
+    month: "2-digit",
     year: "numeric",
   });
 
@@ -25,7 +27,13 @@ export default function PlantCard({ plant, gardenId }: PlantCardProps) {
     <section className="plant-card" onClick={showProfile} onKeyUp={showProfile}>
       <article className="plant-image-wrapper">
         <img
-          src={plant?.name === "Geranium" ? geraniumone : plant.icon}
+          src={
+            plant?.name === "Geranium"
+              ? geraniumone
+              : plant?.name === "Lavender"
+                ? lavenderone
+                : plant.icon
+          }
           alt={plant.name}
           className="plant-image"
         />
