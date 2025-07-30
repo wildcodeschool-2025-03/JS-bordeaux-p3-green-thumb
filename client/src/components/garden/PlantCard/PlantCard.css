@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: space-around;
   background: #262624;
-  padding: 0 1.5rem;
+  padding: 0 0.5rem;
   border-radius: 8px;
 }
 .plant-info span {

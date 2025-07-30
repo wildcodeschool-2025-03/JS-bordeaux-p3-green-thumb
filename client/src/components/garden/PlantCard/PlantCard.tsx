@@ -17,9 +17,9 @@ export default function PlantCard({ plant, gardenId }: PlantCardProps) {
   };
 
   const [d, m, y] = plant.born_at.split(".");
-  const formattedDate = new Date(+y, +m - 1, +d).toLocaleDateString("en-EN", {
+  const formattedDate = new Date(+y, +m - 1, +d).toLocaleDateString("fr-FR", {
     day: "2-digit",
-    month: "long",
+    month: "2-digit",
     year: "numeric",
   });
 

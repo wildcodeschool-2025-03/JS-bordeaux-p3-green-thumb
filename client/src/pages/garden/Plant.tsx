@@ -32,10 +32,14 @@ export default function PlantProfile() {
   const [currentImage, setCurrentImage] = useState(0);
 
   const images =
-    plantId === "1" ? [geraniumone, geraniumtwo, geraniumthree] : [plant?.icon];
+    plantId === "42"
+      ? [geraniumone, geraniumtwo, geraniumthree]
+      : [plant?.icon];
 
   const picture =
-    plantId === "2" ? [lavenderone, lavandertwo, lavanderthree] : [plant?.icon];
+    plant?.name === "Lavender"
+      ? [lavenderone, lavandertwo, lavanderthree]
+      : [plant?.icon];
 
   const galleryImages = plantId === "2" ? picture : images;
 

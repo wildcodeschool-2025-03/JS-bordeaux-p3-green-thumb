@@ -24,7 +24,7 @@ function DashboardPlant({
     >
       <img src={imageSrc} alt={name} className="plant-icon" />
       <h3>{nickname || name}</h3>
-      <p>💧 Water me</p>
+      <p>💧</p>
     </button>
   );
 }
