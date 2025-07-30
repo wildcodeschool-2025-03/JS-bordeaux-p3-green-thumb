@@ -4,6 +4,8 @@ import calendar from "/images/app-icon/calendar.svg";
 import harmless from "/images/app-icon/harmless.png";
 import toxic from "/images/app-icon/toxic.png";
 import geraniumone from "/images/user-images/geranium-one.jpg";
+import lavenderone from "../../../../public/images/user-images/lavandeone.jpg";
+
 import type { Plant } from "../../../types/garden/plant";
 
 type PlantCardProps = { plant: Plant; gardenId: string };
@@ -25,7 +27,13 @@ export default function PlantCard({ plant, gardenId }: PlantCardProps) {
     <section className="plant-card" onClick={showProfile} onKeyUp={showProfile}>
       <article className="plant-image-wrapper">
         <img
-          src={plant?.name === "Geranium" ? geraniumone : plant.icon}
+          src={
+            plant?.name === "Geranium"
+              ? geraniumone
+              : plant?.name === "Lavender"
+                ? lavenderone
+                : plant.icon
+          }
           alt={plant.name}
           className="plant-image"
         />

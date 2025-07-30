@@ -18,6 +18,9 @@ import west from "/images/app-icon/west.png";
 import geraniumone from "/images/user-images/geranium-one.jpg";
 import geraniumthree from "/images/user-images/geranium-three.jpg";
 import geraniumtwo from "/images/user-images/geranium-two.jpg";
+import lavenderone from "../../../public/images/user-images/lavandeone.jpg";
+import lavanderthree from "../../../public/images/user-images/lavandethree.jpg";
+import lavandertwo from "../../../public/images/user-images/lavandetwo.jpg";
 
 export default function PlantProfile() {
   const authFetch = useFetchWithAuth();
@@ -26,9 +29,15 @@ export default function PlantProfile() {
   const [plant, setPlant] = useState<Plant | null>(null);
   const [editingNickname, setEditingNickname] = useState(false);
   const [nicknameInput, setNicknameInput] = useState("");
+  const [currentImage, setCurrentImage] = useState(0);
+
   const images =
     plantId === "1" ? [geraniumone, geraniumtwo, geraniumthree] : [plant?.icon];
-  const [currentImage, setCurrentImage] = useState(0);
+
+  const picture =
+    plantId === "2" ? [lavenderone, lavandertwo, lavanderthree] : [plant?.icon];
+
+  const galleryImages = plantId === "2" ? picture : images;
 
   const expositionIcons = {
     north: north,
@@ -74,6 +83,7 @@ export default function PlantProfile() {
       const updatedPlant = await response.json();
       setPlant(updatedPlant);
     } catch (err) {
+      console.error(err);
     } finally {
       setEditingNickname(false);
     }
@@ -85,9 +95,9 @@ export default function PlantProfile() {
       case 1:
         return `Water ${plantName} once every two weeks`;
       case 2:
-        return `Water ${plantName}  once a week`;
+        return `Water ${plantName} once a week`;
       case 3:
-        return `Water ${plantName}  every two days`;
+        return `Water ${plantName} every two days`;
     }
   };
 
@@ -100,14 +110,14 @@ export default function PlantProfile() {
             className="carousel-button left"
             onClick={() =>
               setCurrentImage((prev) =>
-                prev === 0 ? images.length - 1 : prev - 1,
+                prev === 0 ? galleryImages.length - 1 : prev - 1,
               )
             }
           >
             ‹
           </button>
           <img
-            src={images[currentImage]}
+            src={galleryImages[currentImage]}
             alt={`plant-${currentImage}`}
             className="carousel-image"
           />
@@ -116,7 +126,7 @@ export default function PlantProfile() {
             className="carousel-button right"
             onClick={() =>
               setCurrentImage((prev) =>
-                prev === images.length - 1 ? 0 : prev + 1,
+                prev === galleryImages.length - 1 ? 0 : prev + 1,
               )
             }
           >
@@ -147,7 +157,10 @@ export default function PlantProfile() {
                     setEditingNickname(true);
                     setNicknameInput(plant.nickname || plant.name);
                   }}
-                  onKeyDown={undefined}
+                  onKeyDown={() => {
+                    setEditingNickname(true);
+                    setNicknameInput(plant.nickname || plant.name);
+                  }}
                 />
               </>
             )}
