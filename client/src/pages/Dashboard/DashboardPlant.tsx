@@ -15,16 +15,15 @@ function DashboardPlant({
   onClick,
 }: DashboardPlantProps) {
   const imageSrc = name === "Geranium" ? geraniumone : icon;
+
   return (
-    <button
-      className="dashboard-plant-button"
-      type="button"
-      onClick={onClick}
-      aria-label={`Water ${nickname || name}`}
-    >
+    <button type="button" className="dashboard-plant-button" onClick={onClick}>
       <img src={imageSrc} alt={name} className="plant-icon" />
-      <h3>{nickname || name}</h3>
-      <p>💧 Water me</p>
+
+      <section className="dashboard-plant-infos">
+        <h3>{nickname || name}</h3>
+        <p className="need-water-line">💧</p>
+      </section>
     </button>
   );
 }
