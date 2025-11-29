@@ -22,5 +22,10 @@ router.get("/api/garden/:id", gardenActions.readAllPlants);
 
 import plantGardenAction from "./modules/plantGarden/plantGardenAction";
 router.post("/plant_garden/:gardenId", plantGardenAction.addMany);
+router.get("/plant_garden/:id/watering", plantGardenAction.findPlantsToWater);
+router.patch(
+  "/plant_garden/:plantGardenId/water",
+  plantGardenAction.waterPlant,
+);
 
 export default router;

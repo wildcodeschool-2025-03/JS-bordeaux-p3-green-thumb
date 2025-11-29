@@ -87,8 +87,11 @@ CREATE TABLE plant_garden (
   plant_id INT,
   born_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   nickname VARCHAR(100) NULL,
+  last_watered_at DATE NOT NULL DEFAULT (CURRENT_DATE),
   avatar VARCHAR(255) NULL
 );
+
+
 
 CREATE TABLE tag (
   id INT PRIMARY KEY,

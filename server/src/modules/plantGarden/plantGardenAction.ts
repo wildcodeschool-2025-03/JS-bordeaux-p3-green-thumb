@@ -34,4 +34,29 @@ const addMany: RequestHandler = async (req, res) => {
   }
 };
 
-export default { addMany };
+const findPlantsToWater: RequestHandler = async (req, res) => {
+  const userId = Number(req.params.id);
+  if (Number.isNaN(userId))
+    return res.status(400).json({ error: "Invalid user id" });
+
+  const plants = await plantGardenRepository.findPlantsWaterStatus(userId);
+  res.json(plants);
+};
+
+const waterPlant: RequestHandler = async (req, res) => {
+  const plantGardenId = Number(req.params.plantGardenId);
+
+  if (Number.isNaN(plantGardenId)) {
+    return res.status(400).json({ error: "Invalid plant_garden ID" });
+  }
+
+  try {
+    await plantGardenRepository.updateLastWatered(plantGardenId);
+    res.status(200).json({ success: true });
+  } catch (err) {
+    console.error("Erreur dans le controller waterPlant :", err);
+    res.status(500).json({ error: "Failed to update watering date" });
+  }
+};
+
+export default { addMany, findPlantsToWater, waterPlant };

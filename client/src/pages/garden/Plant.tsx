@@ -18,7 +18,7 @@ import { useFetchWithAuth } from "../../tools/useFetchWithAuth.ts";
 
 export default function PlantProfile() {
   const authFetch = useFetchWithAuth();
-  const { gardenId, plantId } = useParams();
+  const { id, plantId } = useParams();
 
   const [plant, setPlant] = useState<Plant | null>(null);
 
@@ -31,15 +31,17 @@ export default function PlantProfile() {
 
   useEffect(() => {
     authFetch(
-      `${import.meta.env.VITE_API_URL}/api/garden/${gardenId}/plant/${plantId}`,
+      `${import.meta.env.VITE_API_URL}/api/garden/${id}/plant/${plantId}`,
     )
       .then((res) => res.json())
       .then((plant) => setPlant(plant));
-  }, [gardenId, plantId, authFetch]);
+  }, [id, plantId, authFetch]);
 
   if (!plant) {
     return <div>Loading...</div>;
   }
+
+  console.log("Fetching plant profile for:", { id, plantId });
 
   return (
     <>
